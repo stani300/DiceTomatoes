@@ -47,14 +47,19 @@
 	echo "<table>";
 	echo "<tr><th>ID</th><th>FIRST NAME</th><th>LAST NAME</th></tr>";
 
-	while($row = mysqli_fetch_array($query_result, MYSQL_ASSOC)) {
-		echo "<tr><td>";
-		echo $row['ID'];
-		echo "</td><td>";
-		echo $row['FIRSTNAME'];
-		echo "</td><td>";
-		echo $row['LASTNAME'];
-		echo "</td><tr>";
+
+	while($row = $query_result->fetch_array(MYSQLI_ASSOC)){
+		echo "<tr>"
+		echo "	<td>";
+		echo 		$row['ID'];
+		echo "	</td>"
+		echo "	<td>";
+		echo 		$row['FIRSTNAME'];
+		echo "	</td>";
+		echo "	<td>";
+		echo 		$row['LASTNAME'];
+		echo "	</td>";
+		echo "</tr>";
 	}
 	echo "</table>";
 
