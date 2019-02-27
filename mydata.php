@@ -23,7 +23,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "database";
-$database = 'myadata';
+$database = 'mydata';
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
@@ -41,8 +41,8 @@ echo "Connected successfully";
 
 #include('connect -mysql.php');
 
-$query = "SELECT *  FROM mydata";
-$query_result = mysqli_query($dbcon, $query) or die ('error getting');
+$query = "SELECT * FROM mydata";
+$query_result = mysqli_query($conn, $query) or die ('error getting');
 
 echo "<table>";
 echo "<tr><th>ID</th><th>FIRST NAME</th><th>LAST NAME</th></tr>";
@@ -56,7 +56,7 @@ while($row = mysqli_fetch_array($query_result, MYSQL_ASSOC)) {
 	echo $row ['lastname'];
 	echo "</td><tr>";
 }
-echo "<\table>"
+echo "</table>";
 
 
 ?>
