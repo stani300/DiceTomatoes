@@ -49,10 +49,10 @@
 
 
 	while($row = $query_result->fetch_array(MYSQLI_ASSOC)){
-		echo "<tr>"
+		echo "<tr>";
 		echo "	<td>";
 		echo 		$row['ID'];
-		echo "	</td>"
+		echo "	</td>";
 		echo "	<td>";
 		echo 		$row['FIRSTNAME'];
 		echo "	</td>";
