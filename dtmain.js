@@ -85,47 +85,41 @@ function rejectLogin ( errTxt) {
 	$('#LReply').css("color", "red");
 }
 
-function msearch ( mtext ) {
-alert( "search for " + $('#mname').val() );
-jstr = mtext; // needs to be json but for now...
-  function ajaxJCall ( "dt.php", jstr, mlistupdate ) {
+function mmsearch ( ) {
 
+jstr = JSON.stringify( {"action":"search", "target":$('#mname').val()});
+alert ( "sending: " + jstr );
+ajaxJCall ( "dt.php", jstr, mlistupdate );
 }
 
 function mlistupdate ( dat ) {
 
-alert ( "dat is " + dat );
+alert ( "received: " + dat );
+obj = JSON.parse(dat);
+
 tname = "maintable";
 // Find a <table> element with id="myTable":
 
 var table = document.getElementById( tname );
 var len = table.rows.length;
 
-// Create an empty <tr> element and add it to the end of the table
-var row = table.insertRow(1);
+var i;
+for ( i=1; i < obj.length; i++ ) {
 
-// Insert new cells (<td> elements) of the "new" <tr> element:
-var cell1 = row.insertCell(0);
-var cell2 = row.insertCell(1);
-var cell3 = row.insertCell(2);
+  // Create an empty <tr> element and add it to the end of the table
+  var row = table.insertRow(i);
 
-// Add some text to the new cells:
-cell1.innerHTML = "alien";
-cell2.innerHTML = "1989";
-cell3.innerHTML = "9.1";
+  // Insert new cells (<td> elements) of the "new" <tr> element:
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
 
-// Create an empty <tr> element and add it to the end of the table
-var row = table.insertRow(2);
+  // Add some text to the new cells:
+  cell1.innerHTML = obj[i].name;
+  cell2.innerHTML = obj[i].year;
+  cell3.innerHTML = obj[i].rating;
 
-// Insert new cells (<td> elements) of the "new" <tr> element:
-var cell1 = row.insertCell(0);
-var cell2 = row.insertCell(1);
-var cell3 = row.insertCell(2);
-
-// Add some text to the new cells:
-cell1.innerHTML = "Aliens";
-cell2.innerHTML = "1990";
-cell3.innerHTML = "9.5" ;
+}
 
 }
 

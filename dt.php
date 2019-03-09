@@ -4,6 +4,7 @@ $str_json = file_get_contents('php://input');
 $params = json_decode ( $str_json );
 
 $action = $params->{'action'};
+$target = $params->{'target'};
 
 	$servername = "127.0.0.1";
 	$username = "root";
@@ -13,6 +14,7 @@ $action = $params->{'action'};
   $rmsg = "normal";
 
   $sdat[0]->action = $action;
+  $sdat[0]->target = $target;
   $sdat[1]->name = "Alien";
   $sdat[1]->year = "1976";
   $sdat[1]->rating = "8.4";
@@ -25,6 +27,7 @@ $action = $params->{'action'};
   echo $jrtn;
 
   exit;
+
 
 
 
@@ -42,7 +45,7 @@ $action = $params->{'action'};
 	$query = "SELECT * FROM mydata";
 	$query_result = mysqli_query($conn, $query);
 
-$cnt = 0;
+$cnt = 1;
 
 	while($row = $query_result->fetch_array(MYSQLI_ASSOC)){
     $sdat[$cnt]->fname = $row['FIRSTNAME'];
@@ -54,7 +57,7 @@ if ( cnt == 0 ) {
     $sdat[0]->msg = "error";
   }
   else {
-    $sdat[0]->msg = "normal"; 
+    $sdat[0]->msg = "normal";
   };
 
 $jrtn = json_encode($sdat);
