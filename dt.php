@@ -11,8 +11,6 @@ $target = $params->{'target'};
 	$password = "database";
 	$database = 'mydata';
 
-  $rmsg = "normal";
-
   $sdat[0]->action = $action;
   $sdat[0]->target = $target;
   $sdat[1]->name = "Alien";
