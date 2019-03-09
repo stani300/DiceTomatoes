@@ -86,16 +86,52 @@ function rejectLogin ( errTxt) {
 }
 
 function msearch ( mtext ) {
-  // send movie text to search for, command "search"
-  // setup and call api
+alert( "search for " + $('#mname').val() );
+jstr = mtext; // needs to be json but for now...
+  function ajaxJCall ( "dt.php", jstr, mlistupdate ) {
 
-  // for now just call the return function an dupdate the table
-
-  mlistupdate ( "maintable" );
 }
 
-function mlistupdate ( tname ) {
+function mlistupdate ( dat ) {
 
+alert ( "dat is " + dat );
+tname = "maintable";
+// Find a <table> element with id="myTable":
+
+var table = document.getElementById( tname );
+var len = table.rows.length;
+
+// Create an empty <tr> element and add it to the end of the table
+var row = table.insertRow(1);
+
+// Insert new cells (<td> elements) of the "new" <tr> element:
+var cell1 = row.insertCell(0);
+var cell2 = row.insertCell(1);
+var cell3 = row.insertCell(2);
+
+// Add some text to the new cells:
+cell1.innerHTML = "alien";
+cell2.innerHTML = "1989";
+cell3.innerHTML = "9.1";
+
+// Create an empty <tr> element and add it to the end of the table
+var row = table.insertRow(2);
+
+// Insert new cells (<td> elements) of the "new" <tr> element:
+var cell1 = row.insertCell(0);
+var cell2 = row.insertCell(1);
+var cell3 = row.insertCell(2);
+
+// Add some text to the new cells:
+cell1.innerHTML = "Aliens";
+cell2.innerHTML = "1990";
+cell3.innerHTML = "9.5" ;
+
+}
+
+function rmlistupdate ( dat ) {
+
+tname = "maintable";
 // Find a <table> element with id="myTable":
 
 var table = document.getElementById( tname );

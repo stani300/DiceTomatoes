@@ -1,22 +1,4 @@
-<html>
-<head>
-	<title>Display Data into DB</title>
-	<style type="text/css">
-	table {
-		border: 2px solid blue;
-		background-color: #FFc;
-	}
-	th {
-		border-bottom: 5px solid #000;
-	}
 
-	td {
-	   forder-bottom: 2px solid #666;
-	}
-	</style>
-</head>
-<body>
-	<h1>Display Data from DB</h1>
 
 	<?php
 
@@ -40,7 +22,7 @@
 	echo "Connected successfully";
 
 	#include('connect -mysql.php');
- 
+
 	$query = "SELECT * FROM mydata";
 	$query_result = mysqli_query($conn, $query) or die ('error getting');
 
