@@ -1,51 +1,69 @@
 .loginmodal {
-	display: none; /* Hidden by default */
-	position: fixed; /* Stay in place */
-	z-index: 1; /* Sit on top */
-	left: 0;
-	top: 0;
-	width: 100%; /* Full width */
-	height: 100%; /* Full height */
-	overflow: auto; /* Enable scroll if needed */
-	background-color: rgb(0,0,0); /* Fallback color */
-	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-	text-align: center;
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  text-align: center;
 }
 
 /* Modal Content Box xx */
 .modal-content {
-	background-color: #fefefe;
-	margin: 15% auto; /* 15% from the top and centered */
-	padding: 20px;
-	border: 1px solid #888;
-	width: 600px;
-	height: 300px;
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 600px;
+  height: 300px;
 }
 
 .mylabel-box {
-	width: 150px;
-	text-align: left;
-	}
+  width: 150px;
+  text-align: left;
+}
 
-	.myform-control {
-		height:30px;padding:5px 10px;font-size:12px;line-height:1.5;border-radius:3px
-	}
+.myform-control {
+  height: 30px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px
+}
 
-	.mybtn {
-		height:30px;width: 100px; padding:5px 10px;font-size:12px;line-height:1.5;border-radius:3px
-	}
+.mybtn {
+  height: 30px;
+  width: 100px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  border-radius: 3px
+}
 
-	.mybtngrp {
-		margin: auto;
-		width: 200px;
-	}
+.mybtngrp {
+  margin: auto;
+  width: 200px;
+}
 
 .blockHidden {
-	display:none;
+  display: none;
 }
 
 .blockShow {
-	display:block;
+  display: block;
 }
 
 table {
@@ -57,7 +75,9 @@ table {
 th, td {
   text-align: left;
   padding: 8px;
-	  border: 1px solid grey;
+  border: 1px solid grey;
 }
 
-tr:nth-child(even) {background-color: #f2f2f2;}
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

@@ -1,68 +1,68 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Diced Tomatoes</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Diced Tomatoes</title>
 
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2019.1.220/styles/kendo.common.min.css" />
-<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2019.1.220/styles/kendo.blueopal.min.css" />
-<script src="http://kendo.cdn.telerik.com/2019.1.220/js/kendo.all.min.js"></script>
+	<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2019.1.220/styles/kendo.common.min.css" />
+	<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2019.1.220/styles/kendo.blueopal.min.css" />
+	<script src="http://kendo.cdn.telerik.com/2019.1.220/js/kendo.all.min.js"></script>
 
-<link href="dt.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="dtcommon.js"></script>
-<script type="text/javascript" src="dtmain.js"></script>
+	<link href="dt.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="dtcommon.js"></script>
+	<script type="text/javascript" src="dtmain.js"></script>
 
-<script>
+	<script>
+		function startup() {
 
-	function startup () {
+			// get db rev - validate connection
+			jproc("0.0");
+			initChart();
 
-		// get db rev - validate connection
-		jproc ( "0.0" );
-		initChart ();
+		}
 
-	}
-
-	function initChart () {
-		$("#chart").kendoChart({
+		function initChart() {
+			$("#chart").kendoChart({
 				title: {
-						text: "Movie Sales"
+					text: "Movie Sales"
 				},
 				legend: {
-						position: "bottom"
+					position: "bottom"
 				},
 				seriesDefaults: {
-						type: "line"
+					type: "line"
 				},
 				series: [{
-						data: [15.7, 16.7, 20, 23.5, 26.6]
+					data: [15.7, 16.7, 20, 23.5, 26.6]
 				}],
 				valueAxis: {
-						labels: {
-								format: "{0}"
-						}
+					labels: {
+						format: "{0}"
+					}
 				},
 				categoryAxis: {
-						categories: [2014, 2015, 2016, 2017, 2018]
+					categories: [2014, 2015, 2016, 2017, 2018]
 				}
-		});
-	}
+			});
+		}
 
-  function jproc ( rdat ) {
-    document.getElementById("rdat").innerHTML = rdat;
-  }
+		function jproc(rdat) {
+			document.getElementById("rdat").innerHTML = rdat;
+		}
 
-	function changePage ( newpage ) {
-	newnav = "nav" + newpage;
+		function changePage(newpage) {
+			newnav = "nav" + newpage;
 
-			document.getElementById( "navhome" ).classList.remove("active");
-			document.getElementById( "navfind" ).classList.remove("active");
-			document.getElementById( "navanalyze" ).classList.remove("active");
-			document.getElementById( "navrate" ).classList.remove("active");
-			document.getElementById( newnav ).classList.add("active");
+			document.getElementById("navhome").classList.remove("active");
+			document.getElementById("navfind").classList.remove("active");
+			document.getElementById("navanalyze").classList.remove("active");
+			document.getElementById("navrate").classList.remove("active");
+			document.getElementById(newnav).classList.add("active");
 
 			document.getElementById("home").classList.add("blockHidden");
 			document.getElementById("home").classList.remove("blockShow");
@@ -74,273 +74,272 @@
 			document.getElementById("rate").classList.remove("blockShow");
 			document.getElementById(newpage).classList.add("blockShow");
 
-	}
+		}
 
-	window.onload = startup;
-
-</script>
+		window.onload = startup;
+	</script>
 
 </head>
 
 <body>
 
 	<div id="myModal" class="loginmodal">
-	  <div class="modal-content">
+		<div class="modal-content">
 
-	  <div class="LHead">Diced Tomatoes Login</div><br/>
+			<div class="LHead">Diced Tomatoes Login</div><br />
 
-	  <div class="form-group"><label class="mylabel-box">User:</label><input type="text" name="User:" id="user" class="myform-control"/></div>
+			<div class="form-group"><label class="mylabel-box">User:</label><input type="text" name="User:" id="user" class="myform-control" /></div>
 
-	  <div class="form-group"><label class="mylabel-box">Password:</label><input type="password" name="Password:" id="pwd" class="myform-control"/></div>
+			<div class="form-group"><label class="mylabel-box">Password:</label><input type="password" name="Password:" id="pwd" class="myform-control" /></div>
 
-		<div class="mybtngrp">
-			<button id="LEnter" class="btn btn-primary mybtn" onclick="checkLogin()">ENTER</button>
-	    <button id="LCancel" class="btn btn-danger mybtn" onclick="closeLogin()">CANCEL</button>
+			<div class="mybtngrp">
+				<button id="LEnter" class="btn btn-primary mybtn" onclick="checkLogin()">ENTER</button>
+				<button id="LCancel" class="btn btn-danger mybtn" onclick="closeLogin()">CANCEL</button>
+			</div>
+
+			<div class="LLine" id="LReply"> </div>
+
 		</div>
-
-	  <div class="LLine" id="LReply"> </div>
-
-	  </div>
 	</div>
 
 	<div id="mpick" class="loginmodal">
 		<div class="modal-content">
 
-		<div class="LHead">Pick a Movie</div><br/>
+			<div class="LHead">Pick a Movie</div><br />
 
-	<table>
-		<tr>
-			<th>Movie Name</th>
-			<th>yEAR</th>
-		</tr>
-		<tr>
-			<td>	<a onClick="addrating('aliens3')">Aliens3</a></td>
-			<td>198x</td>
-		</tr>
-		<tr>
-			<td>Aliens 4</td>
-			<td>199x</td>
-		</tr>
-	</table>
+			<table>
+				<tr>
+					<th>Movie Name</th>
+					<th>yEAR</th>
+				</tr>
+				<tr>
+					<td> <a onClick="addrating('aliens3')">Aliens3</a></td>
+					<td>198x</td>
+				</tr>
+				<tr>
+					<td>Aliens 4</td>
+					<td>199x</td>
+				</tr>
+			</table>
 
-		<div class="mybtngrp">
-			<button id="mcancel" class="btn btn-danger mybtn" onclick="closempick()">CANCEL</button>
-		</div>
+			<div class="mybtngrp">
+				<button id="mcancel" class="btn btn-danger mybtn" onclick="closempick()">CANCEL</button>
+			</div>
 
-		<div class="LLine" id="LReply"> </div>
+			<div class="LLine" id="LReply"> </div>
 
 		</div>
 	</div>
 
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Diced Tomatoes</a>
+		<a class="navbar-brand" href="#">Diced Tomatoes</a>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
 
-			<li id="navhome" class="nav-item active">
-				<a class="nav-link" onClick="changePage('home')">Home</a>
-			</li>
+				<li id="navhome" class="nav-item active">
+					<a class="nav-link" onClick="changePage('home')">Home</a>
+				</li>
 
-      <li id="navfind" class="nav-item">
-        <a class="nav-link" onClick="changePage('find')">Find</a>
-      </li>
+				<li id="navfind" class="nav-item">
+					<a class="nav-link" onClick="changePage('find')">Find</a>
+				</li>
 
-      <li id="navanalyze" class="nav-item">
-        <a class="nav-link" onClick="changePage('analyze')">Analyze</a>
-      </li>
+				<li id="navanalyze" class="nav-item">
+					<a class="nav-link" onClick="changePage('analyze')">Analyze</a>
+				</li>
 
-      <li id="navrate" class="nav-item">
-        <a id="navrate2" class="nav-link disabled" onClick="changePage('rate')">Rate</a>
-      </li>
+				<li id="navrate" class="nav-item">
+					<a id="navrate2" class="nav-link disabled" onClick="changePage('rate')">Rate</a>
+				</li>
 
-    </ul>
-
-		<ul class="nav navbar-nav navbar-right">
-			<li><a onClick="openLog()" style="cursor:pointer; cursor:hand;"><span id="logtxt">Login</span></a></li>
-		</ul>
-  </div>
-</nav>
-
-
-<p>Database Rev: <span id="rdat"></span>
-
-<div id="home" class="blockShow">
-
-	<div class="container">
-  <div class="row">
-    <div class="col-sm-2">
-			<img src="dt100.png">
-    </div>
-    <div class="col-sm-10">
-			<h2>Find a movie and display it's ratings</h2><br/><br/>
-			<div class="form-group"><label class="mylabel-box"><button onClick="mmsearch()" >Search for:</button></label></label><input type="text" id="mname" class="myform-control"/></div>
-<br/>
-			<table id="maintable">
-  <tr>
-    <th>Movie Name</th>
-		<th>Year</th>
-    <th>Rating</th>
-  </tr>
-</table>
-
-    </div>
-  </div>
-</div>
-
-</div>
-
-<div id="find" class="blockHidden">
-	<div class="container">
-  <div class="row">
-    <div class="col-sm-2">
-			<img src="dt100.png">
-    </div>
-    <div class="col-sm-10">
-			<h2>Find Movie Suggestions</h2>
-			<br/><br/>
-			<p><b>This is the AI feature</b></p>
-<p>enter some parameters</p>
-<p>get some suggestions</p>
-
-<table>
-<tr>
-<th>Movie</th>
-<th>Year</th>
-<th>Rating</th>
-</tr>
-<tr>
-<td>Alien</td>
-<td>1979</td>
-<td>8.5</td>
-</tr>
-<tr>
-<td>Aliens</td>
-<td>1986</td>
-<td>8.4</td>
-</tr>
-</table>
-
-<br/>
-</div>
-</div>
-</div>
-
-
-</div>
-<div id="analyze" class="blockHidden">
-		<div class="container">
-	  <div class="row">
-	    <div class="col-sm-2">
-				<img src="dt100.png">
-	    </div>
-	    <div class="col-sm-10">
-				<h2>Analyze Movie DB Parameters</h2>
-				<br/><br/>
-								<p><b>This is the visualization feature</b></p>
-
-<div id="chart"></div>
-
-</div>
-</div>
-</div>
-
-<div class="container">
-<div class="row">
-	<div class="col-sm-2"></div>
-	<div class="col-sm-5">
-				<br/>
-				<p><b>Filter by:</b></p>
-				<ul>
-				<p>Budget: <select>
-					<option value="any">Any</option>
-					<option value="micro">Micro <$1M </option>
-					<option value="small">Small >$1M, <$100M</option>
-					<option value="large">Large >$100M </option>
-				</select></p>
-
-				<p>Length: <select>
-	  			<option value="any">Any</option>
-		  		<option value="short">Short</option>
-  				<option value="long">Long</option>
-				</select></p>
-				<p>Language: <select>
-					<option value="any">Any</option>
-					<option value="english">English</option>
-					<option value="french">French</option>
-				</select></p>
-				<p>Genre: <select>
-	  			<option value="any">Any</option>
-		  		<option value="horror">Horror</option>
-  				<option value="comedy">Comedy</option>
-				</select></p>
 			</ul>
-<br/>
-			</div>	<div class="col-sm-5">
-				<br/>
-				<p><b>Parameter to chart:</b></p>
 
-				<input type="radio" name="show" value="sales">Sales<br>
-				<input type="radio" name="show" value="budget">Budget <br>
-				<input type="radio" name="show" value="length">Length <br>
-				<input type="radio" name="show" value="rating">Average Rating<br>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a onClick="openLog()" style="cursor:pointer; cursor:hand;"><span id="logtxt">Login</span></a></li>
+			</ul>
+		</div>
+	</nav>
 
 
-	<br/>
-	</div>
-	</div>
-	</div>
-</div>
+	<p>Database Rev: <span id="rdat"></span>
 
-<div id="rate" class="blockHidden">
+		<div id="home" class="blockShow">
+
 			<div class="container">
-		  <div class="row">
-		    <div class="col-sm-2">
-					<img src="dt100.png">
-		    </div>
-		    <div class="col-sm-10">
-<h2>Rate A Movie</h2>
-<br/><br/>
-<p><b>This is the basic CRUD operations page</b></p>
-<p>Create - add new rating</p>
-<p>Read - show this table of existing ratings for the user</p>
-<p>Update - change a rating</p>
-<p>Delete - delete a rating</p>
-<br/>
-<b>Add a new rating</b>
-	  <div class="form-group"><label class="mylabel-box"><button onClick="openmpick()" >Search for:</button></label><input type="text" id="mptext" class="myform-control"/></div>
-<br/><br/>
+				<div class="row">
+					<div class="col-sm-2">
+						<img src="dt100.png">
+					</div>
+					<div class="col-sm-10">
+						<h2>Find a movie and display it's ratings</h2><br /><br />
+						<div class="form-group"><label class="mylabel-box"><button onClick="mmsearch()">Search for:</button></label></label><input type="text" id="mname" class="myform-control" /></div>
+						<br />
+						<table id="maintable">
+							<tr>
+								<th>Movie Name</th>
+								<th>Year</th>
+								<th>Rating</th>
+							</tr>
+						</table>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div id="find" class="blockHidden">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<img src="dt100.png">
+					</div>
+					<div class="col-sm-10">
+						<h2>Find Movie Suggestions</h2>
+						<br /><br />
+						<p><b>This is the AI feature</b></p>
+						<p>enter some parameters</p>
+						<p>get some suggestions</p>
+
+						<table>
+							<tr>
+								<th>Movie</th>
+								<th>Year</th>
+								<th>Rating</th>
+							</tr>
+							<tr>
+								<td>Alien</td>
+								<td>1979</td>
+								<td>8.5</td>
+							</tr>
+							<tr>
+								<td>Aliens</td>
+								<td>1986</td>
+								<td>8.4</td>
+							</tr>
+						</table>
+
+						<br />
+					</div>
+				</div>
+			</div>
 
 
-<p><b>Your existing ratings:</b></p>
+		</div>
+		<div id="analyze" class="blockHidden">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<img src="dt100.png">
+					</div>
+					<div class="col-sm-10">
+						<h2>Analyze Movie DB Parameters</h2>
+						<br /><br />
+						<p><b>This is the visualization feature</b></p>
 
-<table id="existing">
-<tr>
-<th>Movie</th>
-<th>Year</th>
-<th>Rating</th>
-<th>Action</th>
-</tr>
-<tr>
-<td>Alien</td>
-<td>1979</td>
-<td><input type='text' value='8'></input></td>
-<td><button>update</button> <button>delete</button></td>
-</tr>
-<tr>
-<td>Aliens</td>
-<td>1986</td>
-<td><input type='text' value='7'></input></td>
-<td><button>update</button> <button>delete</button></td>
-</tr>
-</table>
+						<div id="chart"></div>
 
-</div>
-</div>
-</div>
+					</div>
+				</div>
+			</div>
 
-</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2"></div>
+					<div class="col-sm-5">
+						<br />
+						<p><b>Filter by:</b></p>
+						<ul>
+							<p>Budget: <select>
+									<option value="any">Any</option>
+									<option value="micro">Micro <$1M </option> <option value="small">Small >$1M, <$100M</option> <option value="large">Large >$100M </option>
+								</select></p>
+
+							<p>Length: <select>
+									<option value="any">Any</option>
+									<option value="short">Short</option>
+									<option value="long">Long</option>
+								</select></p>
+							<p>Language: <select>
+									<option value="any">Any</option>
+									<option value="english">English</option>
+									<option value="french">French</option>
+								</select></p>
+							<p>Genre: <select>
+									<option value="any">Any</option>
+									<option value="horror">Horror</option>
+									<option value="comedy">Comedy</option>
+								</select></p>
+						</ul>
+						<br />
+					</div>
+					<div class="col-sm-5">
+						<br />
+						<p><b>Parameter to chart:</b></p>
+
+						<input type="radio" name="show" value="sales">Sales<br>
+						<input type="radio" name="show" value="budget">Budget <br>
+						<input type="radio" name="show" value="length">Length <br>
+						<input type="radio" name="show" value="rating">Average Rating<br>
+
+
+						<br />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="rate" class="blockHidden">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<img src="dt100.png">
+					</div>
+					<div class="col-sm-10">
+						<h2>Rate A Movie</h2>
+						<br /><br />
+						<p><b>This is the basic CRUD operations page</b></p>
+						<p>Create - add new rating</p>
+						<p>Read - show this table of existing ratings for the user</p>
+						<p>Update - change a rating</p>
+						<p>Delete - delete a rating</p>
+						<br />
+						<b>Add a new rating</b>
+						<div class="form-group"><label class="mylabel-box"><button onClick="openmpick()">Search for:</button></label><input type="text" id="mptext" class="myform-control" /></div>
+						<br /><br />
+
+
+						<p><b>Your existing ratings:</b></p>
+
+						<table id="existing">
+							<tr>
+								<th>Movie</th>
+								<th>Year</th>
+								<th>Rating</th>
+								<th>Action</th>
+							</tr>
+							<tr>
+								<td>Alien</td>
+								<td>1979</td>
+								<td><input type='text' value='8'></input></td>
+								<td><button>update</button> <button>delete</button></td>
+							</tr>
+							<tr>
+								<td>Aliens</td>
+								<td>1986</td>
+								<td><input type='text' value='7'></input></td>
+								<td><button>update</button> <button>delete</button></td>
+							</tr>
+						</table>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
 
 </body>
+
 </html>
