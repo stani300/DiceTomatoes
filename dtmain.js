@@ -1,5 +1,10 @@
 // JavaScript Document
 
+// any startup stuff
+  $(document).ready(function () {
+    initChart();
+  })
+
 function changePage(newpage) {
   newnav = "nav" + newpage;
 
