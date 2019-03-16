@@ -1,6 +1,6 @@
 // JavaScript Document
 
-function startup() {
+function startupstuff() {
 
   initChart();
 
@@ -17,7 +17,7 @@ function changePage(newpage) {
   document.getElementById("navrate").classList.remove("active");
   document.getElementById(newnav).classList.add("active");
 
-  // and then hide all screens and then unhide the new screen b 
+  // and then hide all screens and then unhide the new screen b
   document.getElementById("splash").classList.add("blockHidden");
   document.getElementById("splash").classList.remove("blockShow");
   document.getElementById("browse").classList.add("blockHidden");
