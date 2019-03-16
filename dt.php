@@ -9,7 +9,7 @@ $target = $params->{'target'};
 	$servername = "127.0.0.1";
 	$username = "root";
 	$password = "database";
-	$database = 'mydata';
+	$database = 'diced_tomatoes';
 
   $sdat[0]->action = $action;
   $sdat[0]->target = $target;
@@ -40,7 +40,7 @@ $target = $params->{'target'};
 	  exit;
 	};
 
-	$query = "SELECT * FROM mydata";
+	$query = "SELECT * FROM movies";
 	$query_result = mysqli_query($conn, $query);
 
 $cnt = 1;
