@@ -1,12 +1,79 @@
 // JavaScript Document
 
+function startup() {
+
+  initChart();
+
+}
+
+function changePage(newpage) {
+  newnav = "nav" + newpage;
+
+  // I could go find the current page, but this is simpler
+  // just remove active from everything then put it back on the new screen
+  document.getElementById("navbrowse").classList.remove("active");
+  document.getElementById("navrecommendations").classList.remove("active");
+  document.getElementById("navanalytics").classList.remove("active");
+  document.getElementById("navrate").classList.remove("active");
+  document.getElementById(newnav).classList.add("active");
+
+  // and then hide all screens and then unhide the new screen
+  document.getElementById("splash").classList.add("blockHidden");
+  document.getElementById("splash").classList.remove("blockShow");
+  document.getElementById("browse").classList.add("blockHidden");
+  document.getElementById("browse").classList.remove("blockShow");
+  document.getElementById("recommendations").classList.add("blockHidden");
+  document.getElementById("recommendations").classList.remove("blockShow");
+  document.getElementById("analytics").classList.add("blockHidden");
+  document.getElementById("analytics").classList.remove("blockShow");
+  document.getElementById("rate").classList.add("blockHidden");
+  document.getElementById("rate").classList.remove("blockShow");
+  document.getElementById(newpage).classList.add("blockShow");
+  document.getElementById(newpage).classList.remove("blockHidden");
+
+}
+
+function initChart() {
+  $("#chart").kendoChart({
+    title: {
+      text: "Movie Sales"
+    },
+    legend: {
+      position: "bottom"
+    },
+    seriesDefaults: {
+      type: "line"
+    },
+    series: [{
+      data: [15.7, 16.7, 20, 23.5, 26.6]
+    }],
+    valueAxis: {
+      labels: {
+        format: "{0}"
+      }
+    },
+    categoryAxis: {
+      categories: [2014, 2015, 2016, 2017, 2018]
+    }
+  });
+}
+
+function checkRate ( ) {
+  // are we logged in?
+  logt = document.getElementById("logtxt").innerHTML;
+  if (logt == "Login") {
+alert ( "You must be logged in to rate a movie" );
+  } else
+    changePage ("rate");
+}
+
 // When the user clicks on the button, open the modal
 function openLog() {
   logt = document.getElementById("logtxt").innerHTML;
   if (logt == "logout") {
     document.getElementById("logtxt").innerHTML = "login";
     document.getElementById("navrate2").classList.add("disabled");
-    changePage("home");
+    changePage("splash");
   } else
     $('#myModal').fadeIn(500);
 }

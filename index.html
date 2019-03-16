@@ -18,64 +18,6 @@
 	<script type="text/javascript" src="dtmain.js"></script>
 
 	<script>
-		function startup() {
-
-			// get db rev - validate connection
-			jproc("0.0");
-			initChart();
-
-		}
-
-		function initChart() {
-			$("#chart").kendoChart({
-				title: {
-					text: "Movie Sales"
-				},
-				legend: {
-					position: "bottom"
-				},
-				seriesDefaults: {
-					type: "line"
-				},
-				series: [{
-					data: [15.7, 16.7, 20, 23.5, 26.6]
-				}],
-				valueAxis: {
-					labels: {
-						format: "{0}"
-					}
-				},
-				categoryAxis: {
-					categories: [2014, 2015, 2016, 2017, 2018]
-				}
-			});
-		}
-
-		function jproc(rdat) {
-			document.getElementById("rdat").innerHTML = rdat;
-		}
-
-		function changePage(newpage) {
-			newnav = "nav" + newpage;
-
-			document.getElementById("navhome").classList.remove("active");
-			document.getElementById("navfind").classList.remove("active");
-			document.getElementById("navanalyze").classList.remove("active");
-			document.getElementById("navrate").classList.remove("active");
-			document.getElementById(newnav).classList.add("active");
-
-			document.getElementById("home").classList.add("blockHidden");
-			document.getElementById("home").classList.remove("blockShow");
-			document.getElementById("find").classList.add("blockHidden");
-			document.getElementById("find").classList.remove("blockShow");
-			document.getElementById("analyze").classList.add("blockHidden");
-			document.getElementById("analyze").classList.remove("blockShow");
-			document.getElementById("rate").classList.add("blockHidden");
-			document.getElementById("rate").classList.remove("blockShow");
-			document.getElementById(newpage).classList.add("blockShow");
-
-		}
-
 		window.onload = startup;
 	</script>
 
@@ -133,25 +75,25 @@
 
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<a class="navbar-brand" href="#">Diced Tomatoes</a>
+		<a class="navbar-brand" id="navsplash" onClick="changePage('splash')">Diced Tomatoes</a>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 
-				<li id="navhome" class="nav-item active">
-					<a class="nav-link" onClick="changePage('home')">Home</a>
+				<li id="navbrowse" class="nav-item">
+					<a class="nav-link" onClick="changePage('browse')">Browse</a>
 				</li>
 
-				<li id="navfind" class="nav-item">
-					<a class="nav-link" onClick="changePage('find')">Find</a>
+				<li id="navrecommendations" class="nav-item">
+					<a class="nav-link" onClick="changePage('recommendations')">Recommendations</a>
 				</li>
 
-				<li id="navanalyze" class="nav-item">
-					<a class="nav-link" onClick="changePage('analyze')">Analyze</a>
+				<li id="navanalytics" class="nav-item">
+					<a class="nav-link" onClick="changePage('analytics')">Analytics</a>
 				</li>
 
 				<li id="navrate" class="nav-item">
-					<a id="navrate2" class="nav-link disabled" onClick="changePage('rate')">Rate</a>
+					<a id="navrate2" class="nav-link" onClick="checkRate()">Rate</a>
 				</li>
 
 			</ul>
@@ -161,11 +103,8 @@
 			</ul>
 		</div>
 	</nav>
-
-
-	<p>Database Rev: <span id="rdat"></span>
-
-		<div id="home" class="blockShow">
+<br/><br/>
+		<div id="splash" class="blockShow">
 
 			<div class="container">
 				<div class="row">
@@ -173,7 +112,25 @@
 						<img src="dt100.png">
 					</div>
 					<div class="col-sm-10">
-						<h2>Find a movie and display it's ratings here</h2><br /><br />
+						<h2>Splash</h2><br /><br />
+						splash screen
+						<br />
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div id="browse" class="blockHidden">
+
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-2">
+						<img src="dt100.png">
+					</div>
+					<div class="col-sm-10">
+						<h2>Find a movie and display its ratings here</h2><br /><br />
 						<div class="form-group"><label class="mylabel-box"><button onClick="mmsearch()">Search for:</button></label></label><input type="text" id="mname" class="myform-control" /></div>
 						<br />
 						<table id="maintable">
@@ -190,7 +147,7 @@
 
 		</div>
 
-		<div id="find" class="blockHidden">
+		<div id="recommendations" class="blockHidden">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2">
@@ -228,7 +185,7 @@
 
 
 		</div>
-		<div id="analyze" class="blockHidden">
+		<div id="analytics" class="blockHidden">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-2">
