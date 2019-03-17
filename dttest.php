@@ -14,14 +14,18 @@ $database = 'diced_tomatoes';
 	};
 
 	$query = "SELECT * FROM movies";
-	$query_result = mysqli_query($conn, $query) or die ('query error';
+	$query_result = mysqli_query($conn, $query) or die ('query error');
+
+	echo ( "query complete:  " );
+
+	$cnt = 0;
 
 	if ( $query_result == FALSE ) echo ( " result is false");
 
-// burn the first row with is titles
+	// burn the first row - titles
 	$row = $query_result->fetch_array(MYSQLI_ASSOC);
 
-$count = 0;
+	$count = 0;
 
 	while ( ( $row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $count++ < 10 ) ) {
 			printf ( "name: %s\n ", $row['title'] );
