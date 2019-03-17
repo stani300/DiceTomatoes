@@ -10,25 +10,25 @@ function changeScreen (newpage) {
 
   // I could go find the current page, but this is simpler
   // just remove active from everything then put it back on the new screen
-  document.getElementById("navbrowse").classList.remove("active");
-  document.getElementById("navrecommendations").classList.remove("active");
-  document.getElementById("navanalytics").classList.remove("active");
-  document.getElementById("navrate").classList.remove("active");
-  document.getElementById(newnav).classList.add("active");
+  $('#navbrowse')[0].classList.remove("active");
+  $('#navrecommendations')[0].classList.remove("active");
+  $('#navanalytics')[0].classList.remove("active");
+  $('#navrate')[0].classList.remove("active");
+  $('#'+newnav)[0].classList.add("active");
 
   // and then hide all screens and then unhide the new screen b
-  document.getElementById("splash").classList.add("blockHidden");
-  document.getElementById("splash").classList.remove("blockShow");
-  document.getElementById("browse").classList.add("blockHidden");
-  document.getElementById("browse").classList.remove("blockShow");
-  document.getElementById("recommendations").classList.add("blockHidden");
-  document.getElementById("recommendations").classList.remove("blockShow");
-  document.getElementById("analytics").classList.add("blockHidden");
-  document.getElementById("analytics").classList.remove("blockShow");
-  document.getElementById("rate").classList.add("blockHidden");
-  document.getElementById("rate").classList.remove("blockShow");
-  document.getElementById(newpage).classList.add("blockShow");
-  document.getElementById(newpage).classList.remove("blockHidden");
+  $('#splash')[0].classList.add("blockHidden");
+  $('#splash')[0].classList.remove("blockShow");
+  $('#browse')[0].classList.add("blockHidden");
+  $('#browse')[0].classList.remove("blockShow");
+  $('#recommendations')[0].classList.add("blockHidden");
+  $('#recommendations')[0].classList.remove("blockShow");
+  $('#analytics')[0].classList.add("blockHidden");
+  $('#analytics')[0].classList.remove("blockShow");
+  $('#rate')[0].classList.add("blockHidden");
+  $('#rate')[0].classList.remove("blockShow");
+  $('#'+newpage)[0].classList.add("blockShow");
+  $('#'+newpage)[0].classList.remove("blockHidden");
 
 }
 
@@ -59,20 +59,20 @@ function initChart() {
 
 function checkRate ( ) {
   // are we logged in?
-  logt = document.getElementById("logtxt").innerHTML;
+  logt = $('#logtxt')[0].innerHTML;
   if (logt == "Login") {
 alert ( "You must be logged in to rate a movie" );
   } else
-    changePage ("rate");
+    changeScreen ("rate");
 }
 
 function openLog() {
   // When the user clicks on the button, open the modal
-  logt = document.getElementById("logtxt").innerHTML;
+  logt = $('#logtxt')[0].innerHTML;
   if (logt == "logout") {
-    document.getElementById("logtxt").innerHTML = "login";
-    document.getElementById("navrate2").classList.add("disabled");
-    changePage("splash");
+    $('#logtxt')[0].innerHTML = "login";
+    $('#navrate2')[0].classList.add("disabled");
+    changeScreen("splash");
   } else
     $('#myModal').fadeIn(500);
 }
@@ -92,7 +92,7 @@ function openmpick() {
 function addrating(moviename) {
 
   // Find a <table> element with id="myTable":
-  var table = document.getElementById("existing");
+  var table = $('#existing')[0];
   var len = table.rows.length;
 
   // Create an empty <tr> element and add it to the end of the table
@@ -127,8 +127,8 @@ function checkLogin() {
   //		if ( user && ( user.length > 0 ) && pwd && ( pwd.length > 0 ) )	{
 
   //			if ( ( user == "demo" ) && ( pwd == "demo" ) ) {
-  document.getElementById("logtxt").innerHTML = "logout";
-  document.getElementById("navrate2").classList.remove("disabled");
+  $('#logtxt')[0].innerHTML = "logout";
+  $('#navrate2')[0].classList.remove("disabled");
   closeLogin();
   //			}
   //			else
@@ -150,17 +150,17 @@ function rejectLogin(errTxt) {
   $('#LReply').css("color", "red");
 }
 
-function mmsearch() {
+function bSearch() {
 // this is the function where we take a string from the browse screen and look for matching movies
   jstr = JSON.stringify({
     "action": "browse",
     "target": $('#mname').val()
   });
-
-  ajaxJCall("dt.php", jstr, mlistupdate);
+  // all packed up, let's go find it
+  ajaxJCall("dt.php", jstr, bListUpdate);
 }
 
-function mlistupdate(dat) {
+function bListUpdate(dat) {
 // and this is when we return a list of movies, if any, that match the search stringify
 // first let's show the returned string for debug
   if ( globalDebug ) alert("received: " + dat);
@@ -170,11 +170,19 @@ function mlistupdate(dat) {
   tname = "maintable";
   // Find a <table> element with id="myTable":
 
-  var table = document.getElementById(tname);
+  var table = $('#'+tname);
   var len = table.rows.length;
 
+  // if there is stuff in the table, empty it first
+
+  if ( len > 1 ) {
+    // do stuff to empty the table
+  }
+
+  // now display any new results
+
   var i;
-  for (i = 1; i < obj.length; i++) {
+  for (i = 1; ( i < obj.length ) && ( i <  10 ); i++) {
 
     // Create an empty <tr> element and add it to the end of the table
     var row = table.insertRow(i);
@@ -190,41 +198,5 @@ function mlistupdate(dat) {
     cell3.innerHTML = obj[i].rating;
 
   }
-
-}
-
-function rmlistupdate(dat) {
-
-  tname = "maintable";
-  // Find a <table> element with id="myTable":
-
-  var table = document.getElementById(tname);
-  var len = table.rows.length;
-
-  // Create an empty <tr> element and add it to the end of the table
-  var row = table.insertRow(1);
-
-  // Insert new cells (<td> elements) of the "new" <tr> element:
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  var cell3 = row.insertCell(2);
-
-  // Add some text to the new cells:
-  cell1.innerHTML = "alien";
-  cell2.innerHTML = "1989";
-  cell3.innerHTML = "9.1";
-
-  // Create an empty <tr> element and add it to the end of the table
-  var row = table.insertRow(2);
-
-  // Insert new cells (<td> elements) of the "new" <tr> element:
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  var cell3 = row.insertCell(2);
-
-  // Add some text to the new cells:
-  cell1.innerHTML = "Aliens";
-  cell2.innerHTML = "1990";
-  cell3.innerHTML = "9.5";
 
 }
