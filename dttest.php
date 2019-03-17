@@ -22,7 +22,10 @@ $database = 'diced_tomatoes';
 
 	echo ( "query made" );
 
-//	$cnt = 0;
+	$cnt = 0;
+
+	if ( $query_result == FALSE ) echo ( " result is false");
+
 //	while( ( $row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( cnt++ < 25 ) ){
 //		echo ( "name " . $row['title'] . "\n " );
 //	}

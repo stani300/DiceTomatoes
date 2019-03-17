@@ -30,8 +30,8 @@
 		case "browse":
 
 			// find movies that match the search string in target
-//			$query = "SELECT * FROM movies";
-//			$query_result = mysqli_query($conn, $query);
+			$query = "SELECT * FROM movies";
+			$query_result = mysqli_query($conn, $query);
 
 			$sdat[1]->name = "Alien";
 			$sdat[1]->year = "1976";
@@ -53,6 +53,8 @@
 			$sdat[0]->err = 1;
 			break;
 	}
+
+mysqli_close($conn);
 
 $sdat[0]->err=0;
 $jrtn = json_encode($sdat);
