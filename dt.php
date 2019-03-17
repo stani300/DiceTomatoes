@@ -12,6 +12,9 @@ $target = $params->{'target'};
 	$password = "database";
 	$database = 'diced_tomatoes';
 
+	echo "hello";
+	exit;
+
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, $database);
 
