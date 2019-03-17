@@ -29,7 +29,7 @@ $database = 'diced_tomatoes';
 
 $count = 0;
 
-	while ( $row = $query_result->fetch_array(MYSQLI_ASSOC) ) {
+	while ( ( $row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $count < 10 ) ) {
 			printf ( "name: %s\n ", $row['title'] );
 			++$count;
 			if ( $count > 25 ) exit ();
