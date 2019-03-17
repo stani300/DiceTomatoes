@@ -41,9 +41,9 @@
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
 			   $sdat[$cnt]->name = $row['title'];
 			   // $sdat[$cnt]->year = $row['year'];
-//				 $sdat[$cnt]->year = 1999 ;
+				 $sdat[$cnt]->year = 1999 ;
 				 // $sdat[$cnt++]->rating = $row['rating'];
-//			   $sdat[$cnt]->rating = 9;
+			   $sdat[$cnt]->rating = 9;
 			}
 
 			break;

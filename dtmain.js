@@ -179,7 +179,7 @@ function browseListUpdate(dat) {
   // now display any new results
 
   var i;
-  for (i = 1; ( i < obj.length ) && ( i <  10 ); i++) {
+  for (i = 1; ( i < obj.length ) && ( i <  11 ); i++) {
 
     // Create an empty <tr> element and add it to the end of the table
     var row = table.insertRow(i);
@@ -194,6 +194,10 @@ function browseListUpdate(dat) {
     cell2.innerHTML = obj[i].year;
     cell3.innerHTML = obj[i].rating;
 
+  }
+
+  if ( obj.length > 10 ) {
+    $('#browseMsg').text("There are more than 10 results, these are the first 10");
   }
 
 }
