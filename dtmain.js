@@ -150,27 +150,24 @@ function rejectLogin(errTxt) {
   $('#LReply').css("color", "red");
 }
 
-function bSearch() {
+function browseSearch() {
 // this is the function where we take a string from the browse screen and look for matching movies
   jstr = JSON.stringify({
     "action": "browse",
     "target": $('#mname').val()
   });
   // all packed up, let's go find it
-  ajaxJCall("dt.php", jstr, bListUpdate);
+  ajaxJCall("dt.php", jstr, browseListUpdate);
 }
 
-function bListUpdate(dat) {
+function browseListUpdate(dat) {
 // and this is when we return a list of movies, if any, that match the search stringify
 // first let's show the returned string for debug
   if ( globalDebug ) alert("received: " + dat);
 
   obj = JSON.parse(dat);
 
-  tname = "maintable";
-  // Find a <table> element with id="myTable":
-
-  var table = $('#'+tname)[0];
+  var table = $('#browseTable')[0];
   var len = table.rows.length;
 
   // if there is stuff in the table, empty it first
