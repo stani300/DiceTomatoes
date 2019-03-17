@@ -14,9 +14,7 @@ $database = 'diced_tomatoes';
 	};
 
 	$query = "SELECT * FROM movies";
-	$query_result = mysqli_query($conn, $query) or die ('query error');
-
-	$cnt = 0;
+	$query_result = mysqli_query($conn, $query) or die ('query error';
 
 	if ( $query_result == FALSE ) echo ( " result is false");
 
