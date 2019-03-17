@@ -29,9 +29,10 @@
 	switch ( $action ) {
 		case "browse":
 
+// replace a star at the froint or back with a percent pcntl_signa
+
 			// find movies that match the search string in target
-$query = "SELECT * FROM movies WHERE title LIKE '%".$target."%'";
-//$query = "SELECT * FROM movies";
+$query = "SELECT * FROM movies WHERE title LIKE '".$target."'";
 			$query_result = mysqli_query($conn, $query);
 
 			$cnt = 0;
