@@ -22,17 +22,13 @@ $database = 'diced_tomatoes';
 
 	if ( $query_result == FALSE ) echo ( " result is false");
 
+// burn the first row with is titles
 	$row = $query_result->fetch_array(MYSQLI_ASSOC);
-	echo ( "name " . $row['title'] . "\n " );
-	$row = $query_result->fetch_array(MYSQLI_ASSOC);
-	echo ( "name " . $row['title'] . "\n " );
 
 $count = 0;
 
-	while ( ( $row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $count < 10 ) ) {
+	while ( ( $row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $count++ < 10 ) ) {
 			printf ( "name: %s\n ", $row['title'] );
-			++$count;
-			if ( $count > 25 ) exit ();
 	}
 
 
