@@ -31,9 +31,9 @@ $database = 'diced_tomatoes';
 //	while( ( $row ) )
 
 		echo ( "name " . $row['title'] . "\n " );
-		$row = $query_result->fetch_array(MYSQLI_ASSOC) );
+//		$row = $query_result->fetch_array(MYSQLI_ASSOC) );
 //	}
 
-		echo ( "name " . $row['title'] . "\n " );
+//		echo ( "name " . $row['title'] . "\n " );
 
 ?>
