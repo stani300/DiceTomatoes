@@ -17,11 +17,11 @@ $database = 'diced_tomatoes';
 	  exit;
 	};
 
-	$query = "SELECT * FROM movies";
-	$query_result = mysqli_query($conn, $query);
+//	$query = "SELECT * FROM movies";
+//	$query_result = mysqli_query($conn, $query);
 
-	while($row = $query_result->fetch_array(MYSQLI_ASSOC) {
-		echo ( "name " . $row['title']);
-	}
+//	while($row = $query_result->fetch_array(MYSQLI_ASSOC) {
+//		echo ( "name " . $row['title']);
+//	}
 
 ?>
