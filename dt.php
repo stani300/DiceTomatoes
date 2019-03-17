@@ -33,7 +33,7 @@
 			$query = "SELECT * FROM movies";
 			$query_result = mysqli_query($conn, $query);
 
-			$cnt = 1;
+			$cnt = 0;
 
 			// burn first row because it's titles
 			$row = $query_result->fetch_array(MYSQLI_ASSOC);
