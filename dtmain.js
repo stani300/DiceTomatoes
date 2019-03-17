@@ -170,7 +170,7 @@ function bListUpdate(dat) {
   tname = "maintable";
   // Find a <table> element with id="myTable":
 
-  var table = $('#'+tname);
+  var table = $('#'+tname)[0];
   var len = table.rows.length;
 
   // if there is stuff in the table, empty it first
