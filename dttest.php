@@ -28,25 +28,10 @@ $database = 'diced_tomatoes';
 
 	$row = $query_result->fetch_array(MYSQLI_ASSOC);
 
-	echo ( "query result - " );
+	while( ( $row ) && ( cnt++ < 27 ) )
 
-	echo ( $row['title'] );
-
-	$row = $query_result->fetch_array(MYSQLI_ASSOC);
-
-	echo ( "query result - " );
-
-	echo ( $row['title'] );
-
-	$row = $query_result->fetch_array(MYSQLI_ASSOC);
-
-	echo ( "query result - " );
-
-	echo ( $row['title'] );
-
-//	while( ( $row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( cnt++ < 25 ) ){
-	while( $row = $query_result->fetch_array(MYSQLI_ASSOC) ){
 		echo ( "name " . $row['title'] . "\n " );
+		$row = $query_result->fetch_array(MYSQLI_ASSOC) );
 	}
 
 ?>
