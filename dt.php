@@ -33,21 +33,25 @@
 			$query = "SELECT * FROM movies";
 			$query_result = mysqli_query($conn, $query);
 
-			$sdat[1]->name = "Alien";
-			$sdat[1]->year = "1976";
-			$sdat[1]->rating = "8.4";
-			$sdat[2]->name = "Aliens";
-			$sdat[2]->year = "1986";
-			$sdat[2]->rating = "8.2";
+//			$sdat[1]->name = "Alien";
+	//		$sdat[1]->year = "1976";
+		//	$sdat[1]->rating = "8.4";
+			//$sdat[2]->name = "Aliens";
+			//$sdat[2]->year = "1986";
+			//$sdat[2]->rating = "8.2";
 
 			$cnt = 1;
 
+			// burn first row because it's titles
 			$row = $query_result->fetch_array(MYSQLI_ASSOC);
-			//	while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) && (cnt < 27)  ) {
-			//    $sdat[$cnt]->name = $row['title'];
-			//    $sdat[$cnt]->year = $row['year'];
-			//    $sdat[$cnt++]->rating = $row['rating'];
-			//	}
+
+			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) && ( $cnt++ < 27)  ) {
+			   $sdat[$cnt]->name = $row['title'];
+			   // $sdat[$cnt]->year = $row['year'];
+				 $sdat[$cnt]->year = 1999 ;
+				 // $sdat[$cnt++]->rating = $row['rating'];
+			   $sdat[$cnt]->rating = 9;
+			}
 
 			break;
 		default:

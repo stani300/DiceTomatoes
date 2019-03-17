@@ -16,8 +16,6 @@ $database = 'diced_tomatoes';
 	$query = "SELECT * FROM movies";
 	$query_result = mysqli_query($conn, $query) or die ('query error');
 
-	echo ( "query complete:  " );
-
 	$cnt = 0;
 
 	if ( $query_result == FALSE ) echo ( " result is false");
