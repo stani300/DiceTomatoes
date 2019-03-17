@@ -44,8 +44,8 @@ $database = 'diced_tomatoes';
 
 	echo ( $row['title'] );
 
-//	while( ( $row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( cnt++ < 25 ) ){
-//		echo ( "name " . $row['title'] . "\n " );
-//	}
+	while( ( $row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( cnt++ < 25 ) ){
+		echo ( "name " . $row['title'] . "\n " );
+	}
 
 ?>
