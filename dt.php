@@ -11,25 +11,6 @@ $target = $params->{'target'};
 	$password = "database";
 	$database = 'diced_tomatoes';
 
-  $sdat[0]->action = $action;
-  $sdat[0]->target = $target;
-  $sdat[1]->name = "Alien";
-  $sdat[1]->year = "1976";
-  $sdat[1]->rating = "8.4";
-  $sdat[2]->name = "Aliens";
-  $sdat[2]->year = "1986";
-  $sdat[2]->rating = "8.2";
-
-  $jrtn = json_encode($sdat);
-
-  echo $jrtn;
-
-  exit;
-
-
-
-
-
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, $database);
 
@@ -40,23 +21,34 @@ $target = $params->{'target'};
 	  exit;
 	};
 
-	$query = "SELECT * FROM movies";
-	$query_result = mysqli_query($conn, $query);
+	$sdat[0]->action = $action;
+	$sdat[0]->target = $target;
 
-$cnt = 1;
+	switch ( $action ) {
+		case "browse":
 
-	while($row = $query_result->fetch_array(MYSQLI_ASSOC)){
-    $sdat[$cnt]->fname = $row['FIRSTNAME'];
-    $sdat[$cnt]->id = $row['ID'];
-    $sdat[$cnt++]->lname = $row['LASTNAME'];
+			// find movies that match the search string in target
+			$query = "SELECT * FROM movies";
+			$query_result = mysqli_query($conn, $query);
+
+			$sdat[1]->name = "Alien";
+			$sdat[1]->year = "1976";
+			$sdat[1]->rating = "8.4";
+			$sdat[2]->name = "Aliens";
+			$sdat[2]->year = "1986";
+			$sdat[2]->rating = "8.2";
+
+			$cnt = 1;
+			//	while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) && (cnt < 27)  ) {
+			//    $sdat[$cnt]->name = $row['title'];
+			//    $sdat[$cnt]->year = $row['year'];
+			//    $sdat[$cnt++]->rating = $row['rating'];
+			//	}
+
+			break;
+		default:
+			break;
 	}
-
-if ( cnt == 0 ) {
-    $sdat[0]->msg = "error";
-  }
-  else {
-    $sdat[0]->msg = "normal";
-  };
 
 $jrtn = json_encode($sdat);
 

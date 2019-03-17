@@ -23,6 +23,8 @@ function ajaxJCall ( func, jstr, cback ) {
 		}
 	}
 
+	if ( globalDebug ) alert ( "sending string: " + jstr );
+
 	request.send( jstr );
 }
 

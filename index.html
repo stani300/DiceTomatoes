@@ -18,6 +18,10 @@
 	<script type="text/javascript" src="dtcommon.js"></script>
 	<script type="text/javascript" src="dtmain.js"></script>
 
+	<script>
+	globalDebug = 1;
+	</script>
+
 </head>
 
 <body>
@@ -40,6 +44,7 @@
 
 		</div>
 	</div>
+
 
 	<div id="mpick" class="loginmodal">
 		<div class="modal-content">
@@ -72,21 +77,21 @@
 
 
 	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-		<a class="navbar-brand" id="navsplash" onClick="changePage('splash')">Diced Tomatoes</a>
+		<a class="navbar-brand" id="navsplash" onClick="changeScreen('splash')">Diced Tomatoes</a>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
 
 				<li id="navbrowse" class="nav-item">
-					<a class="nav-link" onClick="changePage('browse')">Browse</a>
+					<a class="nav-link" onClick="changeScreen('browse')">Browse</a>
 				</li>
 
 				<li id="navrecommendations" class="nav-item">
-					<a class="nav-link" onClick="changePage('recommendations')">Recommendations</a>
+					<a class="nav-link" onClick="changeScreen('recommendations')">Recommendations</a>
 				</li>
 
 				<li id="navanalytics" class="nav-item">
-					<a class="nav-link" onClick="changePage('analytics')">Analytics</a>
+					<a class="nav-link" onClick="changeScreen('analytics')">Analytics</a>
 				</li>
 
 				<li id="navrate" class="nav-item">
@@ -100,199 +105,218 @@
 			</ul>
 		</div>
 	</nav>
-<br/><br/>
-		<div id="splash" class="blockShow">
+	<br /><br />
 
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-2">
-						<img src="dt100.png">
-					</div>
-					<div class="col-sm-10">
-						<h2>Splash</h2><br /><br />
-						splash screen
-						<br />
 
-					</div>
+	<!-- splashscreen div -->
+	<div id="splash" class="blockShow">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-2">
+					<img src="dt100.png">
 				</div>
-			</div>
+				<div class="col-sm-10">
+					<h2>Splash</h2><br /><br />
+					splash screen
+					<br />
 
-		</div>
-
-		<div id="browse" class="blockHidden">
-
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-2">
-						<img src="dt100.png">
-					</div>
-					<div class="col-sm-10">
-						<h2>Find a movie and display its ratings here</h2><br /><br />
-						<div class="form-group"><label class="mylabel-box"><button onClick="mmsearch()">Search for:</button></label></label><input type="text" id="mname" class="myform-control" /></div>
-						<br />
-						<table id="maintable">
-							<tr>
-								<th>Movie Name</th>
-								<th>Year</th>
-								<th>Rating</th>
-							</tr>
-						</table>
-
-					</div>
-				</div>
-			</div>
-
-		</div>
-
-		<div id="recommendations" class="blockHidden">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-2">
-						<img src="dt100.png">
-					</div>
-					<div class="col-sm-10">
-						<h2>Find Movie Suggestions</h2>
-						<br /><br />
-						<p><b>This is the AI feature</b></p>
-						<p>enter some parameters</p>
-						<p>get some suggestions</p>
-
-						<table>
-							<tr>
-								<th>Movie</th>
-								<th>Year</th>
-								<th>Rating</th>
-							</tr>
-							<tr>
-								<td>Alien</td>
-								<td>1979</td>
-								<td>8.5</td>
-							</tr>
-							<tr>
-								<td>Aliens</td>
-								<td>1986</td>
-								<td>8.4</td>
-							</tr>
-						</table>
-
-						<br />
-					</div>
-				</div>
-			</div>
-
-
-		</div>
-		<div id="analytics" class="blockHidden">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-2">
-						<img src="dt100.png">
-					</div>
-					<div class="col-sm-10">
-						<h2>Analyze Movie DB Parameters</h2>
-						<br /><br />
-						<p><b>This is the visualization feature</b></p>
-
-						<div id="chart"></div>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-2"></div>
-					<div class="col-sm-5">
-						<br />
-						<p><b>Filter by:</b></p>
-						<ul>
-							<p>Budget: <select>
-									<option value="any">Any</option>
-									<option value="micro">Micro <$1M </option> <option value="small">Small >$1M, <$100M</option> <option value="large">Large >$100M </option>
-								</select></p>
-
-							<p>Length: <select>
-									<option value="any">Any</option>
-									<option value="short">Short</option>
-									<option value="long">Long</option>
-								</select></p>
-							<p>Language: <select>
-									<option value="any">Any</option>
-									<option value="english">English</option>
-									<option value="french">French</option>
-								</select></p>
-							<p>Genre: <select>
-									<option value="any">Any</option>
-									<option value="horror">Horror</option>
-									<option value="comedy">Comedy</option>
-								</select></p>
-						</ul>
-						<br />
-					</div>
-					<div class="col-sm-5">
-						<br />
-						<p><b>Parameter to chart:</b></p>
-
-						<input type="radio" name="show" value="sales">Sales<br>
-						<input type="radio" name="show" value="budget">Budget <br>
-						<input type="radio" name="show" value="length">Length <br>
-						<input type="radio" name="show" value="rating">Average Rating<br>
-
-
-						<br />
-					</div>
 				</div>
 			</div>
 		</div>
 
-		<div id="rate" class="blockHidden">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-2">
-						<img src="dt100.png">
-					</div>
-					<div class="col-sm-10">
-						<h2>Rate A Movie</h2>
-						<br /><br />
-						<p><b>This is the basic CRUD operations page</b></p>
-						<p>Create - add new rating</p>
-						<p>Read - show this table of existing ratings for the user</p>
-						<p>Update - change a rating</p>
-						<p>Delete - delete a rating</p>
-						<br />
-						<b>Add a new rating</b>
-						<div class="form-group"><label class="mylabel-box"><button onClick="openmpick()">Search for:</button></label><input type="text" id="mptext" class="myform-control" /></div>
-						<br /><br />
+	</div>
+	<!-- end of splashscreen div -->
 
 
-						<p><b>Your existing ratings:</b></p>
+	<!-- browse div -->
+	<div id="browse" class="blockHidden">
 
-						<table id="existing">
-							<tr>
-								<th>Movie</th>
-								<th>Year</th>
-								<th>Rating</th>
-								<th>Action</th>
-							</tr>
-							<tr>
-								<td>Alien</td>
-								<td>1979</td>
-								<td><input type='text' value='8'></input></td>
-								<td><button>update</button> <button>delete</button></td>
-							</tr>
-							<tr>
-								<td>Aliens</td>
-								<td>1986</td>
-								<td><input type='text' value='7'></input></td>
-								<td><button>update</button> <button>delete</button></td>
-							</tr>
-						</table>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-2">
+					<img src="dt100.png">
+				</div>
+				<div class="col-sm-10">
+					<h2>Find a movie and display its ratings here</h2><br /><br />
 
-					</div>
+					<div class="form-group"><label class="mylabel-box"><button onClick="mmsearch()">Search for:</button></label></label><input type="text" id="mname" class="myform-control" /></div>
+					<br />
+
+					<table id="maintable">
+						<tr>
+							<th>Movie Name</th>
+							<th>Year</th>
+							<th>Rating</th>
+						</tr>
+					</table>
+
+					<!-- this is where we show any messages - like more than 25 results found -->
+					<div id="browseMsg"></div>
+
 				</div>
 			</div>
-
 		</div>
+
+	</div>
+	<!-- end of browse div -->
+
+
+	<!-- recommentations div -->
+	<div id="recommendations" class="blockHidden">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-2">
+					<img src="dt100.png">
+				</div>
+				<div class="col-sm-10">
+					<h2>Find Movie Suggestions</h2>
+					<br /><br />
+					<p><b>This is the AI feature</b></p>
+					<p>enter some parameters</p>
+					<p>get some suggestions</p>
+
+					<table>
+						<tr>
+							<th>Movie</th>
+							<th>Year</th>
+							<th>Rating</th>
+						</tr>
+						<tr>
+							<td>Alien</td>
+							<td>1979</td>
+							<td>8.5</td>
+						</tr>
+						<tr>
+							<td>Aliens</td>
+							<td>1986</td>
+							<td>8.4</td>
+						</tr>
+					</table>
+
+					<br />
+				</div>
+			</div>
+		</div>
+		<!-- end of recommendations div -->
+
+		<!-- analytics div -->
+	</div>
+	<div id="analytics" class="blockHidden">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-2">
+					<img src="dt100.png">
+				</div>
+				<div class="col-sm-10">
+					<h2>Analyze Movie DB Parameters</h2>
+					<br /><br />
+					<p><b>This is the visualization feature</b></p>
+
+					<div id="chart"></div>
+
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-2"></div>
+				<div class="col-sm-5">
+					<br />
+					<p><b>Filter by:</b></p>
+					<ul>
+						<p>Budget: <select>
+								<option value="any">Any</option>
+								<option value="micro">Micro <$1M </option> <option value="small">Small >$1M, <$100M</option> <option value="large">Large >$100M </option>
+							</select></p>
+
+						<p>Length: <select>
+								<option value="any">Any</option>
+								<option value="short">Short</option>
+								<option value="long">Long</option>
+							</select></p>
+						<p>Language: <select>
+								<option value="any">Any</option>
+								<option value="english">English</option>
+								<option value="french">French</option>
+							</select></p>
+						<p>Genre: <select>
+								<option value="any">Any</option>
+								<option value="horror">Horror</option>
+								<option value="comedy">Comedy</option>
+							</select></p>
+					</ul>
+					<br />
+				</div>
+				<div class="col-sm-5">
+					<br />
+					<p><b>Parameter to chart:</b></p>
+
+					<input type="radio" name="show" value="sales">Sales<br>
+					<input type="radio" name="show" value="budget">Budget <br>
+					<input type="radio" name="show" value="length">Length <br>
+					<input type="radio" name="show" value="rating">Average Rating<br>
+
+
+					<br />
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end of analytics div -->
+
+
+	<!-- rating div -->
+	<div id="rate" class="blockHidden">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-2">
+					<img src="dt100.png">
+				</div>
+				<div class="col-sm-10">
+					<h2>Rate A Movie</h2>
+					<br /><br />
+					<p><b>This is the basic CRUD operations page</b></p>
+					<p>Create - add new rating</p>
+					<p>Read - show this table of existing ratings for the user</p>
+					<p>Update - change a rating</p>
+					<p>Delete - delete a rating</p>
+					<br />
+					<b>Add a new rating</b>
+					<div class="form-group"><label class="mylabel-box"><button onClick="openmpick()">Search for:</button></label><input type="text" id="mptext" class="myform-control" /></div>
+					<br /><br />
+
+
+					<p><b>Your existing ratings:</b></p>
+
+					<table id="existing">
+						<tr>
+							<th>Movie</th>
+							<th>Year</th>
+							<th>Rating</th>
+							<th>Action</th>
+						</tr>
+						<tr>
+							<td>Alien</td>
+							<td>1979</td>
+							<td><input type='text' value='8'></input></td>
+							<td><button>update</button> <button>delete</button></td>
+						</tr>
+						<tr>
+							<td>Aliens</td>
+							<td>1986</td>
+							<td><input type='text' value='7'></input></td>
+							<td><button>update</button> <button>delete</button></td>
+						</tr>
+					</table>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<!-- end of rating div -->
 
 </body>
 

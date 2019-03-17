@@ -5,7 +5,7 @@
     initChart();
   })
 
-function changePage(newpage) {
+function changeScreen (newpage) {
   newnav = "nav" + newpage;
 
   // I could go find the current page, but this is simpler
@@ -66,8 +66,8 @@ alert ( "You must be logged in to rate a movie" );
     changePage ("rate");
 }
 
-// When the user clicks on the button, open the modal
 function openLog() {
+  // When the user clicks on the button, open the modal
   logt = document.getElementById("logtxt").innerHTML;
   if (logt == "logout") {
     document.getElementById("logtxt").innerHTML = "login";
@@ -151,18 +151,20 @@ function rejectLogin(errTxt) {
 }
 
 function mmsearch() {
-
+// this is the function where we take a string from the browse screen and look for matching movies
   jstr = JSON.stringify({
-    "action": "search",
+    "action": "browse",
     "target": $('#mname').val()
   });
-  alert("sending: " + jstr);
+
   ajaxJCall("dt.php", jstr, mlistupdate);
 }
 
 function mlistupdate(dat) {
+// and this is when we return a list of movies, if any, that match the search stringify
+// first let's show the returned string for debug
+  if ( globalDebug ) alert("received: " + dat);
 
-  alert("received: " + dat);
   obj = JSON.parse(dat);
 
   tname = "maintable";
