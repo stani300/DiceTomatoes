@@ -27,10 +27,12 @@ $database = 'diced_tomatoes';
 	if ( $query_result == FALSE ) echo ( " result is false");
 
 	$row = $query_result->fetch_array(MYSQLI_ASSOC);
+	echo ( "name " . $row['title'] . "\n " );
+	$row = $query_result->fetch_array(MYSQLI_ASSOC);
+	echo ( "name " . $row['title'] . "\n " );
 
 //	while( ( $row ) )
-
-		echo ( "name " . $row['title'] . "\n " );
+//		echo ( "name " . $row['title'] . "\n " );
 //		$row = $query_result->fetch_array(MYSQLI_ASSOC) );
 //	}
 
