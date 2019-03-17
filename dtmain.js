@@ -165,6 +165,9 @@ function browseListUpdate(dat) {
 // first let's show the returned string for debug
   if ( globalDebug ) alert("received: " + dat);
 
+  // clear out any old messages
+  $('#browseMsg').text("");
+
   obj = JSON.parse(dat);
 
   var table = $('#browseTable')[0];
@@ -172,10 +175,9 @@ function browseListUpdate(dat) {
 
   // if there is stuff in the table, empty it first
 
-  if ( len > 1 ) {
-    // do stuff to empty the table
+  while ( len > 1 ) {
+    table.deleteRow(len--);
   }
-
   // now display any new results
 
   var i;
