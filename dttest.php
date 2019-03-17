@@ -1,6 +1,12 @@
 <?php
 
 echo ( "start" );
+
+$servername = "127.0.0.1";
+$username = "root";
+$password = "database";
+$database = 'diced_tomatoes';
+
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, $database);
 
