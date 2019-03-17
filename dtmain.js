@@ -176,7 +176,7 @@ function browseListUpdate(dat) {
   // if there is stuff in the table, empty it first
 
   while ( len > 1 ) {
-    table.deleteRow(len--);
+    table.deleteRow(--len);
   }
   // now display any new results
 
