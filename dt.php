@@ -30,7 +30,7 @@
 		case "browse":
 
 			// find movies that match the search string in target
-			$query = "SELECT * FROM movies";
+			$query = "SELECT * FROM movies WHERE title CONTAINS '".$target."'";
 			$query_result = mysqli_query($conn, $query);
 
 			$cnt = 0;
