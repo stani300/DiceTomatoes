@@ -1,7 +1,5 @@
 <?php
 
-echo ( "start - " );
-
 $servername = "127.0.0.1";
 $username = "root";
 $password = "database";
@@ -9,8 +7,6 @@ $database = 'diced_tomatoes';
 
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, $database);
-
-	echo ( "connection made - " );
 
 	if (!$conn) {
     echo ( "Error: Unable to connect to MySQL: errno = " . mysqli_connect_errno() . ", error text = " .  mysqli_connect_error() );
@@ -20,7 +16,7 @@ $database = 'diced_tomatoes';
 	$query = "SELECT * FROM movies";
 	$query_result = mysqli_query($conn, $query) or die ('query error');
 
-	echo ( "query made - " );
+	echo ( "query complete:  " );
 
 	$cnt = 0;
 
@@ -31,11 +27,6 @@ $database = 'diced_tomatoes';
 	$row = $query_result->fetch_array(MYSQLI_ASSOC);
 	echo ( "name " . $row['title'] . "\n " );
 
-//	while( ( $row ) )
-//		echo ( "name " . $row['title'] . "\n " );
-//		$row = $query_result->fetch_array(MYSQLI_ASSOC) );
-//	}
 
-//		echo ( "name " . $row['title'] . "\n " );
 
 ?>
