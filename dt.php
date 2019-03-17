@@ -13,7 +13,7 @@
 
 	$sdat[0]->action = $action;
 	$sdat[0]->target = $target;
-	$sdat[0]->err=0; // default - no error
+	$sdat[0]->err=1; // default - error
 
 	// Create connection
 //	$conn = mysqli_connect($servername, $username, $password, $database);
@@ -54,6 +54,7 @@
 			break;
 	}
 
+$sdat[0]->err=0;
 $jrtn = json_encode($sdat);
 
 echo $jrtn;
