@@ -20,13 +20,15 @@ $database = 'diced_tomatoes';
 	$query = "SELECT * FROM movies";
 	$query_result = mysqli_query($conn, $query) or die ('query error');
 
-	echo ( "query made" );
+	echo ( "query made - " );
 
 	$cnt = 0;
 
 	if ( $query_result == FALSE ) echo ( " result is false");
 
 	$row = $query_result->fetch_array(MYSQLI_ASSOC);
+
+	echo ( "query result" );
 
 //	while( ( $row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( cnt++ < 25 ) ){
 //		echo ( "name " . $row['title'] . "\n " );
