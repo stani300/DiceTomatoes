@@ -16,15 +16,15 @@
 	$sdat[0]->err=1; // default - error
 
 	// Create connection
-//	$conn = mysqli_connect($servername, $username, $password, $database);
+	$conn = mysqli_connect($servername, $username, $password, $database);
 
-//	if (!$conn) {
-//    $sdat[0]->msg = "Error: Unable to connect to MySQL: errno = " . mysqli_connect_errno() . ", error text = " .  mysqli_connect_error();
-//		$sdat[0]->err = 1;
-//    $jrtn = json_encode($sdat);
-//    echo $jrtn;
-//	  exit;
-//	};
+	if (!$conn) {
+    $sdat[0]->msg = "Error: Unable to connect to MySQL: errno = " . mysqli_connect_errno() . ", error text = " .  mysqli_connect_error();
+		$sdat[0]->err = 1;
+    $jrtn = json_encode($sdat);
+    echo $jrtn;
+	  exit;
+	};
 
 	switch ( $action ) {
 		case "browse":
