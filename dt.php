@@ -15,6 +15,9 @@ $target = $params->{'target'};
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, $database);
 
+	echo "hello";
+	exit;
+	
 	if (!$conn) {
     $sdat[0]->msg = "Error: Unable to connect to MySQL: errno = " . mysqli_connect_errno() . ", error text = " .  mysqli_connect_error();
     $jrtn = json_encode($sdat);
@@ -22,11 +25,9 @@ $target = $params->{'target'};
 	  exit;
 	};
 
+
 	$sdat[0]->action = $action;
 	$sdat[0]->target = $target;
-
-	echo "hello";
-	exit;
 
 	switch ( $action ) {
 		case "browse":
