@@ -26,6 +26,8 @@ $database = 'diced_tomatoes';
 
 	if ( $query_result == FALSE ) echo ( " result is false");
 
+	$row = $query_result->fetch_array(MYSQLI_ASSOC);
+
 //	while( ( $row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( cnt++ < 25 ) ){
 //		echo ( "name " . $row['title'] . "\n " );
 //	}

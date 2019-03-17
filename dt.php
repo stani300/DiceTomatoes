@@ -41,6 +41,8 @@
 			$sdat[2]->rating = "8.2";
 
 			$cnt = 1;
+
+			$row = $query_result->fetch_array(MYSQLI_ASSOC);
 			//	while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) && (cnt < 27)  ) {
 			//    $sdat[$cnt]->name = $row['title'];
 			//    $sdat[$cnt]->year = $row['year'];
