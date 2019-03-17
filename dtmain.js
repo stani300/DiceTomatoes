@@ -163,7 +163,6 @@ function browseSearch() {
 function browseListUpdate(dat) {
 // and this is when we return a list of movies, if any, that match the search stringify
 // first let's show the returned string for debug
-  if ( globalDebug ) alert("received: " + dat);
 
   // clear out any old messages
   $('#browseMsg').text("");
