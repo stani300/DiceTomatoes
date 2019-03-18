@@ -219,27 +219,28 @@ function analyticsSearch () {
     "language": language,
     "genre": genre
   });
-alert ( "sending string: " + jstr );
+
   // all packed up, let's go find it
   ajaxJCall("dt.php", jstr, analyticsUpdate);
 
 }
 
 function analyticsUpdate ( dat ) {
-  alert ( "return: " + dat );
 
     obj = JSON.parse(dat);
     var cdat = [];
+    var ccat = [];
 
     var i;
     // remember obj[0] is the return meta stuff, the data array starts at obj[1]
     for (i = 1; i < obj.length; i++) {
       cdat.push(obj[i].val);
+      ccat.push(obj[i].name);
     }
     // update kendoChart
       $("#chart").kendoChart({
         title: {
-          text: "Movie Sales"
+          text: obj[0].radio
         },
         legend: {
           position: "bottom"
@@ -256,7 +257,7 @@ function analyticsUpdate ( dat ) {
           }
         },
         categoryAxis: {
-          categories: [2014, 2015, 2016, 2017, 2018]
+          categories: ccat
         }
       });
 

@@ -44,9 +44,9 @@
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
 			   $sdat[$cnt]->name = $row['title'];
 			   // $sdat[$cnt]->year = $row['year'];
-				 $sdat[$cnt]->year = 1999 ;
+				 $sdat[$cnt]->year = 1950+rand(0,69) ;
 				 // $sdat[$cnt++]->rating = $row['rating'];
-			   $sdat[$cnt]->rating = 9;
+			   $sdat[$cnt]->rating = rand(1,10);
 			}
 			break;
 		case "analytics":
@@ -68,11 +68,10 @@
 			// now go to the db and find the data
 
 			// or fake it for now with random values
-			$sdat[1]->val = 10;
-			$sdat[2]->val = 12;
-			$sdat[3]->val = 20;
-			$sdat[4]->val = 15;
-			$sdat[5]->val = 18;
+			for ( i=1; i<6; i++ ) {
+				$sdat[i]->val = rand(5,20);
+				$sdat[i]->name = 2000 + i;
+			}
 
 			break;
 		default:
