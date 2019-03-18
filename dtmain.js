@@ -234,7 +234,7 @@ function analyticsUpdate ( dat ) {
     var i;
     // remember obj[0] is the return meta stuff, the data array starts at obj[1]
     for (i = 1; i < obj.length; i++) {
-      cdat[i-1] = obj[i].val;
+      cdat.push(obj[i].val);
     }
     // update kendoChart
       $("#chart").kendoChart({
