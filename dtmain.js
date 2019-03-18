@@ -203,7 +203,7 @@ function browseListUpdate(dat) {
 
 }
 
-function updateAnalytics () {
+function analyticsSearch () {
 
   var radioValue = $("input[name='show']:checked").val();
 
@@ -221,6 +221,10 @@ function updateAnalytics () {
   });
 alert ( "sending string: " + jstr );
   // all packed up, let's go find it
-//  ajaxJCall("dt.php", jstr, analyticsUpdate);
+  ajaxJCall("dt.php", jstr, analyticsUpdate);
 
+}
+
+function analyticsUpdate ( dat ) {
+  alert ( "return: " + dat );
 }
