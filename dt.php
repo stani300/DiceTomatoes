@@ -11,8 +11,6 @@
 	$password = "database";
 	$database = 'diced_tomatoes';
 
-	$sdat[0]->action = $action;
-	$sdat[0]->target = $target;
 	$sdat[0]->err=1; // default - error
 
 	// Create connection
@@ -28,11 +26,13 @@
 
 	switch ( $action ) {
 		case "browse":
+			$sdat[0]->action = "browse";
+			$target = $params->{'target'};
 
-// replace a star at the froint or back with a percent pcntl_signa
+			// replace a star at the froint or back with a percent pcnt_sign
 
 			// find movies that match the search string in target
-$query = "SELECT * FROM movies WHERE title LIKE '".$target."'";
+			$query = "SELECT * FROM movies WHERE title LIKE '".$target."'";
 			$query_result = mysqli_query($conn, $query);
 
 			$cnt = 0;
@@ -48,6 +48,30 @@ $query = "SELECT * FROM movies WHERE title LIKE '".$target."'";
 			   $sdat[$cnt]->rating = 9;
 			}
 
+
+			break;
+		case "analytics":
+			$sdat[0]->action = "analytics";
+			$radio = $params->{'radio'};
+			$budget = $params->{'budget'};
+			$length = $params->{'length'};
+			$language = $params->{'language'};
+			$genre = $params->{'genre'};
+
+			$sdat[0]->radio = $radio;
+			$sdat[0]->budget = $budget;
+			$sdat[0]->length = $length;
+			$sdat[0]->language = $language;
+			$sdat[0]->genre = $genre;
+
+			// now go to the db and find this stuff
+
+			// or fake it for now
+			$sdat[1]->val = 10;
+			$sdat[2]->val = 12;
+			$sdat[3]->val = 20;
+			$sdat[4]->val = 15;
+			
 			break;
 		default:
 			$sdat[0]->msg = "unknown action";

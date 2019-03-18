@@ -215,6 +215,7 @@
 					<br /><br />
 					<p><b>This is the visualization feature</b></p>
 
+					// placeholder for the chart to be created
 					<div id="chart"></div>
 
 				</div>
@@ -228,22 +229,22 @@
 					<br />
 					<p><b>Filter by:</b></p>
 					<ul>
-						<p>Budget: <select>
+						<p>Budget: <select id="selBudget">
 								<option value="any">Any</option>
 								<option value="micro">Micro <$1M </option> <option value="small">Small >$1M, <$100M</option> <option value="large">Large >$100M </option>
 							</select></p>
 
-						<p>Length: <select>
+						<p>Length: <select id="selLength">
 								<option value="any">Any</option>
 								<option value="short">Short</option>
 								<option value="long">Long</option>
 							</select></p>
-						<p>Language: <select>
+						<p>Language: <select id="selLanguage">
 								<option value="any">Any</option>
 								<option value="english">English</option>
 								<option value="french">French</option>
 							</select></p>
-						<p>Genre: <select>
+						<p>Genre: <select id="selGenre">
 								<option value="any">Any</option>
 								<option value="horror">Horror</option>
 								<option value="comedy">Comedy</option>
@@ -254,15 +255,14 @@
 				<div class="col-sm-5">
 					<br />
 					<p><b>Parameter to chart:</b></p>
-
-					<input type="radio" name="show" value="sales">Sales<br>
+					<input type="radio" name="show" value="sales" checked="checked">Sales<br>
 					<input type="radio" name="show" value="budget">Budget <br>
 					<input type="radio" name="show" value="length">Length <br>
 					<input type="radio" name="show" value="rating">Average Rating<br>
-
-
 					<br />
+					<button type="button" class="btn btn-primary" onClick="updateAnalytics()">Update</button>
 				</div>
+
 			</div>
 		</div>
 	</div>

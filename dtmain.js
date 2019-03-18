@@ -202,3 +202,25 @@ function browseListUpdate(dat) {
   }
 
 }
+
+function updateAnalytics () {
+
+  var radioValue = $("input[name='show']:checked").val();
+
+  budget =  $("#selBudget option:selected").text();
+  length =  $("#selLength option:selected").text();
+  language =  $("#selLanguage option:selected").text();
+  genre =  $("#selGenre option:selected").text();
+  jstr = JSON.stringify({
+    "action": "analytics",
+    "radio": radioValue,
+    "budget": budget,
+    "length": length,
+    "language": language,
+    "genre": genre
+  });
+alert ( "sending string: " + jstr );
+  // all packed up, let's go find it
+//  ajaxJCall("dt.php", jstr, analyticsUpdate);
+
+}
