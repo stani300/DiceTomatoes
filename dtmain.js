@@ -229,7 +229,7 @@ function analyticsUpdate ( dat ) {
   alert ( "return: " + dat );
 
     obj = JSON.parse(dat);
-    var cdat;
+    var cdat = [];
 
     var i;
     // remember obj[0] is the return meta stuff, the data array starts at obj[1]
