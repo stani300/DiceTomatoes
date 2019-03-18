@@ -68,9 +68,9 @@
 			// now go to the db and find the data
 
 			// or fake it for now with random values
-			for ( i=1; i<6; i++ ) {
-//				$sdat[i]->val = rand(5,20);
-//				$sdat[i]->name = 2000 + i;
+			for ( $i=1; $i<6; $i++ ) {
+				$sdat[$i]->val = rand(5,20);
+				$sdat[$i]->name = 2000 + $i;
 			}
 
 			break;
