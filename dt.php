@@ -40,6 +40,7 @@
 			// burn first row because it's titles
 			$row = $query_result->fetch_array(MYSQLI_ASSOC);
 
+			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
 			   $sdat[$cnt]->name = $row['title'];
 			   // $sdat[$cnt]->year = $row['year'];
@@ -47,31 +48,32 @@
 				 // $sdat[$cnt++]->rating = $row['rating'];
 			   $sdat[$cnt]->rating = 9;
 			}
-
-
 			break;
 		case "analytics":
 			$sdat[0]->action = "analytics";
-			$radio = $params->{'radio'};
+			$radio = $params->{'radio'}; // what data are we charting?
+			// the rest of these are individual constraints on the search
 			$budget = $params->{'budget'};
 			$length = $params->{'length'};
 			$language = $params->{'language'};
 			$genre = $params->{'genre'};
 
+			// pass back the search parameters just for testing
 			$sdat[0]->radio = $radio;
 			$sdat[0]->budget = $budget;
 			$sdat[0]->length = $length;
 			$sdat[0]->language = $language;
 			$sdat[0]->genre = $genre;
 
-			// now go to the db and find this stuff
+			// now go to the db and find the data
 
-			// or fake it for now
+			// or fake it for now with random values
 			$sdat[1]->val = 10;
 			$sdat[2]->val = 12;
 			$sdat[3]->val = 20;
 			$sdat[4]->val = 15;
-			
+			$sdat[5]->val = 18;
+
 			break;
 		default:
 			$sdat[0]->msg = "unknown action";

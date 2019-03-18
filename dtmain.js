@@ -207,11 +207,11 @@ function analyticsSearch () {
 
   var radioValue = $("input[name='show']:checked").val();
 
-  budget =  $("#selBudget option:selected").text();
-  length =  $("#selLength option:selected").text();
-  language =  $("#selLanguage option:selected").text();
-  genre =  $("#selGenre option:selected").text();
-  jstr = JSON.stringify({
+  var budget =  $("#selBudget option:selected").text();
+  var length =  $("#selLength option:selected").text();
+  var language =  $("#selLanguage option:selected").text();
+  var genre =  $("#selGenre option:selected").text();
+  var jstr = JSON.stringify({
     "action": "analytics",
     "radio": radioValue,
     "budget": budget,
@@ -227,4 +227,37 @@ alert ( "sending string: " + jstr );
 
 function analyticsUpdate ( dat ) {
   alert ( "return: " + dat );
+
+    obj = JSON.parse(dat);
+    var cdat;
+
+    var i;
+    // remember obj[0] is the return meta stuff, the data array starts at obj[1]
+    for (i = 1; i < obj.length; i++) {
+      cdat[i-1] = obj[i].val;
+    }
+    // update kendoChart
+      $("#chart").kendoChart({
+        title: {
+          text: "Movie Sales"
+        },
+        legend: {
+          position: "bottom"
+        },
+        seriesDefaults: {
+          type: "line"
+        },
+        series: [{
+          data: cdat
+        }],
+        valueAxis: {
+          labels: {
+            format: "{0}"
+          }
+        },
+        categoryAxis: {
+          categories: [2014, 2015, 2016, 2017, 2018]
+        }
+      });
+
 }
