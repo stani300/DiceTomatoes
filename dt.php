@@ -67,10 +67,12 @@
 
 			// now go to the db and find the data
 
+			$startyear = rand(1970,2000);
+			$dcnt = rand(5,10);
 			// or fake it for now with random values
-			for ( $i=1; $i<6; $i++ ) {
+			for ( $i=1; $i<$dcnt; $i++ ) {
 				$sdat[$i]->val = rand(5,20);
-				$sdat[$i]->name = 2000 + $i;
+				$sdat[$i]->name = $startyear + $i;
 			}
 
 			break;
