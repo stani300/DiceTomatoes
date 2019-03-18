@@ -42,11 +42,11 @@
 
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
-			   $sdat[$cnt]->name = $row['title'];
+				$sdat[$cnt]->name = $row['title'];
 			   // $sdat[$cnt]->year = $row['year'];
-	//			 $sdat[$cnt]->year = 1950+rand(0,69) ;
+			 	$sdat[$cnt]->year = 1950+rand(0,69) ;
 				 // $sdat[$cnt++]->rating = $row['rating'];
-	//		   $sdat[$cnt]->rating = rand(1,10);
+		   	$sdat[$cnt]->rating = rand(1,10);
 			}
 			break;
 		case "analytics":
