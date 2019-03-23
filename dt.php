@@ -32,8 +32,10 @@
 			// replace a star at the froint or back with a percent pcnt_sign
 
 			// find movies that match the search string in target
-			$query = "SELECT m.*, AVG(r.rating) FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '".$target."' GROUP BY r.movie_id";
-			echo $query;
+			//$query = "SELECT m.*, AVG(r.rating) FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '".$target."' GROUP BY r.movie_id";
+
+			$query = "SELECT * FROM movies";
+
 			$query_result = mysqli_query($conn, $query);
 
 			$cnt = 0;
