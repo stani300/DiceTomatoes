@@ -1,28 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Diced Tomatoes</title>
-
-	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
-	<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2019.1.220/styles/kendo.common.min.css" />
-	<link rel="stylesheet" href="http://kendo.cdn.telerik.com/2019.1.220/styles/kendo.blueopal.min.css" />
-	<script type="text/javascript" src="http://kendo.cdn.telerik.com/2019.1.220/js/kendo.all.min.js"></script>
-
-	<link href="dt.css" rel="stylesheet" type="text/css">
-
-	<script type="text/javascript" src="dtcommon.js"></script>
-	<script type="text/javascript" src="dtmain.js"></script>
-
-	<script>
-	globalDebug = 0;
-	</script>
-
-</head>
+<?php include 'templates/header.php';?>
 
 <body>
 
@@ -114,7 +90,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-2">
-					<img src="dt100.png">
+					<img src="images/dt100.png">
 				</div>
 				<div class="col-sm-10">
 					<h2>Splash</h2><br /><br />
@@ -135,7 +111,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-2">
-					<img src="dt100.png">
+					<img src="images/dt100.png">
 				</div>
 				<div class="col-sm-10">
 					<h2>Find a movie and display its ratings</h2><br /><br />
@@ -169,7 +145,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-2">
-					<img src="dt100.png">
+					<img src="images/dt100.png">
 				</div>
 				<div class="col-sm-10">
 					<h2>Find Movie Suggestions</h2>
@@ -208,7 +184,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-2">
-					<img src="dt100.png">
+					<img src="images/dt100.png">
 				</div>
 				<div class="col-sm-10">
 					<h2>Analyze Movie DB Parameters</h2>
@@ -275,7 +251,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-2">
-					<img src="dt100.png">
+					<img src="images/dt100.png">
 				</div>
 				<div class="col-sm-10">
 					<h2>Rate A Movie</h2>
@@ -314,4 +290,4 @@
 
 </body>
 
-</html>
+<?php include 'templates/footer.php';?>
