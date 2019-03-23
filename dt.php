@@ -49,7 +49,7 @@
 			 	//$sdat[$cnt]->year = 1950+rand(0,69) ;
 				
 				// this will need to be average of ratings from ratings				
-				$sdat[$cnt++]->rating = $row['avg'];
+				//$sdat[$cnt++]->rating = $row['avg'];
 		   	//$sdat[$cnt]->rating = rand(1,10);
 			}
 			break;
