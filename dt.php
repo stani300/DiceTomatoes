@@ -76,6 +76,30 @@
 			}
 
 			break;
+		case "getRatings":
+				$sdat[0]->action = "getRatings";
+				$user = $params->{'user'};
+
+				// replace a star at the froint or back with a percent pcnt_sign
+
+				// find movies that match the search string in target
+				$query = "SELECT * FROM movies WHERE title LIKE 'aliens'";
+				$query_result = mysqli_query($conn, $query);
+
+				$cnt = 0;
+
+				// burn first row because it's titles
+				$row = $query_result->fetch_array(MYSQLI_ASSOC);
+
+				// then for each row of data, extract the title and any other info we need
+				while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
+					$sdat[$cnt]->name = $row['title'];
+					 // $sdat[$cnt]->year = $row['year'];
+					$sdat[$cnt]->year = 1950+rand(0,69) ;
+					 // $sdat[$cnt++]->rating = $row['rating'];
+					$sdat[$cnt]->rating = rand(1,10);
+				}
+				break;
 		default:
 			$sdat[0]->msg = "unknown action";
 			$sdat[0]->err = 1;
