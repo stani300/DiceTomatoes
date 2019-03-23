@@ -21,14 +21,10 @@
 					<br /><br />
 					<p>You are logged in as user: <b>Test</b></p>
 					<br />
-//					<b>Add a new rating</b>
-//					<div class="form-group"><label class="mylabel-box"><button onClick="openmpick()">Search for:</button></label><input type="text" id="mptext" class="myform-control" /></div>
-//					<br /><br />
-
 
 					<p><b>Your existing ratings:</b></p>
 
-					<table id="myRatingsTable">
+					<table class="table table-striped table-hover" id="myRatingsTable">
 						<tr>
 							<th>Movie</th>
 							<th>Year</th>
@@ -37,8 +33,22 @@
 						</tr>
 					</table>
 
-					<!-- this is where we show any messages - like more than 25 results found -->
-					<div id="browseMsg"></div>
+					<div id="rateMsg"></div>
+
+					<b>Add a new rating</b>
+						<div class="form-group"><label class="mylabel-box"><button onClick="findMTR()">Search for a movie to rate:</button></label><input type="text" id="mtrtext" class="myform-control" /></div>
+						<br /><br />
+
+						<table class="table table-striped table-hover" id="MTRTable">
+							<tr>
+								<th>Movie</th>
+								<th>Year</th>
+								<th>Rating</th>
+								<th>Action</th>
+							</tr>
+						</table>
+
+						<div id="MTRMsg"></div>
 
 				</div>
 			</div>

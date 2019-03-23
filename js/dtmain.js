@@ -196,3 +196,56 @@ alert ( "my ratings returns: " + dat );
    }
 
  }
+
+ function findMTR() {
+ // this is the function where we take a string from the browse screen and look for matching movies
+   jstr = JSON.stringify({
+     "action": "browse",
+     "target": $('mtrtext').val()
+   });
+   // all packed up, let's go find it
+   ajaxJCall("dt.php", jstr, updateMTR);
+ }
+
+ function updateMTR (dat) {
+ // and this is when we return a list of movies, if any, that match the search stringify
+ // first let's show the returned string for debug
+
+   // clear out any old messages
+   $('#MTRMsg').text("");
+
+   obj = JSON.parse(dat);
+
+   var table = $('MTRTable')[0];
+   var len = table.rows.length;
+
+   // if there is stuff in the table, empty it first
+
+   while ( len > 1 ) {
+     table.deleteRow(--len);
+   }
+   // now display any new results
+
+   var i;
+   for (i = 1; ( i < obj.length ) && ( i <  11 ); i++) {
+
+     // Create an empty <tr> element and add it to the end of the table
+     var row = table.insertRow(i);
+
+     // Insert new cells (<td> elements) of the "new" <tr> element:
+     var cell1 = row.insertCell(0);
+     var cell2 = row.insertCell(1);
+     var cell3 = row.insertCell(2);
+
+     // Add some text to the new cells:
+     cell1.innerHTML = obj[i].name;
+     cell2.innerHTML = obj[i].year;
+     cell3.innerHTML = obj[i].rating;
+
+   }
+
+   if ( obj.length > 10 ) {
+     $('MTRMsg').text("There are more than 10 results, these are the first 10");
+   }
+
+ }
