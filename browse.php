@@ -15,7 +15,12 @@
 					<p>To use wildcards - add a percent sign at the beginning or end or your search term to include any text</p>
 					<p>For example: &quot;%alien&quot; will give you any movie that ends in &quot;alien&quot;. &quot;alien%&quot; will give you any movie that starts with &quot;alien&quot;.</p><br/>
 
-					<div class="form-group"><label class="mylabel-box"><button onClick="browseSearch()">Search for:</button></label></label><input type="text" id="mname" class="myform-control" /></div>
+					<div class="form-group">
+						<label class="mylabel-box">
+							<button onClick="browseSearch()">Search for:</button>
+						</label>
+						<input type="text" id="mname" class="myform-control" />
+					</div>
 					<br />
 
 					<table id="browseTable">
