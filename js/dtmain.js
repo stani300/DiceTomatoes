@@ -241,7 +241,8 @@ alert ( "my ratings returns: " + dat );
      // Add some text to the new cells:
      cell1.innerHTML = obj[i].name;
      cell2.innerHTML = obj[i].year;
-     cell3.innerHTML = obj[i].rating;
+     cell3.innerHTML = '<div class="form-group"><label class="mylabel-box"><button onClick="addRating('
+      obj, i + ')">Add</button></label><input type="text" id="NR' + i + '" class="myform-control" /></div>';'
 
    }
 
@@ -250,3 +251,7 @@ alert ( "my ratings returns: " + dat );
    }
 
  }
+
+function addRating ( obj, i ) {
+  alert ( "add rating " + $('#NR' + i) + " for " + obj[i].name);
+}
