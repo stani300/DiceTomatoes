@@ -23,7 +23,7 @@
 					</div>
 					<br />
 
-					<table class="table table-striped" id="browseTable">
+					<table class="table table-striped table-hover" id="browseTable">
 						<tbody>
 							<tr>
 								<th>Movie Name</th>
