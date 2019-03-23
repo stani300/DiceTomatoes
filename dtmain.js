@@ -67,6 +67,15 @@ alert ( "You must be logged in to rate a movie" );
     changeScreen ("rate");
 }
 
+function checkRecommendations ( ) {
+  // are we logged in?
+  logt = $('#logtxt')[0].innerHTML;
+  if (logt == "Login") {
+alert ( "You must be logged in to get movie recommendations" );
+  } else
+    changeScreen ("recommendations");
+}
+
 function openLog() {
   // When the user clicks on the button, open the modal
   logt = $('#logtxt')[0].innerHTML;
