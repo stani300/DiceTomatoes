@@ -46,8 +46,7 @@
 
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
-				//$sdat[$cnt]->name = $row['title'];
-				$sdat[$cnt]->name = $query;
+				$sdat[$cnt]->name = $row['title'];
 
 				//$sdat[$cnt]->year = substr($row['release_date'], 0, 4);
 			 	$sdat[$cnt]->year = 1950+rand(0,69) ;
