@@ -243,9 +243,7 @@ function showMyRatings ( dat )
      cell1.innerHTML = obj[i].name;
      cell2.innerHTML = obj[i].year;
      cell3.innerHTML = '<input type="text" id="NR' + i + '" />';
-
-<!--     cell4.innerHTML = '<button onClick="addRating("' + obj[i].name + '",' + i + ')">Add</button>'; -->
-    cell4.innerHTML = '<button onClick="addRating(#NR1,1)">Add</button>';
+     cell4.innerHTML = '<button onClick="addRating(1)">Add</button>';
 
    }
 
@@ -255,6 +253,6 @@ function showMyRatings ( dat )
 
  }
 
-function addRating ( name, i ) {
-  alert ( "add rating at " + name + " for " + i );
+function addRating ( i ) {
+  alert ( "add rating " + $('#NR1').val() + " for " + i );
 }
