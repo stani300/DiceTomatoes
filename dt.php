@@ -32,7 +32,7 @@
 			// replace a star at the froint or back with a percent pcnt_sign
 
 			// find movies that match the search string in target
-			$query = "SELECT m.*, AVG(r.rating) AS avg_score  FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '".$target."' GROUP BY r.movie_id";
+			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '".$target."' GROUP BY r.movie_id";
 			$query_result = mysqli_query($conn, $query);
 
 			$cnt = 0;
@@ -81,7 +81,7 @@
 
 			break;
 		case "getRatings":
-				$sdat[0]->action = "getRatings";
+				/*$sdat[0]->action = "getRatings";
 				$user = $params->{'user'};
 
 				// replace a star at the froint or back with a percent pcnt_sign
@@ -102,7 +102,7 @@
 					$sdat[$cnt]->year = 1950+rand(0,69) ;
 					 // $sdat[$cnt++]->rating = $row['rating'];
 					$sdat[$cnt]->rating = rand(1,10);
-				}
+				}*/
 				break;
 		default:
 			$sdat[0]->msg = "unknown action";
