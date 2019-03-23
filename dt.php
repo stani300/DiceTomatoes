@@ -42,14 +42,15 @@
 			$cnt = 0;
 
 			// burn first row because it's titles
-			$row = $query_result->fetch_array(MYSQLI_ASSOC);
+			// no, it's not
+			//$row = $query_result->fetch_array(MYSQLI_ASSOC);
 
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
 				$sdat[$cnt]->name = $row['title'];
 
-				//$sdat[$cnt]->year = substr($row['release_date'], 0, 4);
-			 	$sdat[$cnt]->year = 1950+rand(0,69) ;
+				$sdat[$cnt]->year = substr($row['release_date'], 0, 4);
+			 	//$sdat[$cnt]->year = 1950+rand(0,69) ;
 				
 				// this will need to be average of ratings from ratings				
 				//$sdat[$cnt++]->rating = $row['avg_score'];
