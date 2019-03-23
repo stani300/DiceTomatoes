@@ -32,7 +32,7 @@
 			// replace a star at the froint or back with a percent pcnt_sign
 
 			// find movies that match the search string in target
-			$query = "SELECT * FROM movies as m WHERE title LIKE '".$target."'";
+			$query = "SELECT * FROM movies as m, ratings as r WHERE title LIKE '".$target."'";
 			$query_result = mysqli_query($conn, $query);
 
 			$cnt = 0;
