@@ -9,11 +9,6 @@ function closeLogin() {
   $('#myModal').fadeOut(500);
 }
 
-// When the user clicks on the button, open the modal
-function openmpick() {
-  $('#mpick').fadeIn(500);
-}
-
 function addrating(moviename) {
 
   // Find a <table> element with id="myTable":
@@ -36,10 +31,6 @@ function addrating(moviename) {
   cell4.innerHTML = "<button>update</button> <button>delete<//button>";
 
   closempick();
-}
-
-function closempick() {
-  $('#mpick').fadeOut(500);
 }
 
 function browseSearch() {
@@ -155,24 +146,24 @@ function analyticsUpdate ( dat ) {
 
 }
 
-function getRatings ( user ) {
+function getMyRatings ( user ) {
 
   var jstr = JSON.stringify({
     "action": "getRatings",
-    "user": uname
+    "user": user
   });
 
   // all packed up, let's go find it
-  ajaxJCall("dt.php", jstr, analyticsUpdate);
+  ajaxJCall("dt.php", jstr, showMyRatings);
 
 }
 
-function updateRatings ( dat )
+function showMyRatings ( dat )
  {
-
+alert ( "my ratings returns: " + dat );
    obj = JSON.parse(dat);
 
-   var table = $('#rateTable')[0];
+   var table = $('#myRatingsTable')[0];
    var len = table.rows.length;
 
    // if there is stuff in the table, empty it first

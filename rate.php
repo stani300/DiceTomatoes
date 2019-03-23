@@ -1,5 +1,11 @@
 <?php include 'templates/header.php';?>
 
+<script>
+// any startup stuff
+  $(document).ready(function () {
+    getMyRatings( "alien%" );
+  })
+
 <body>
 	<?php include 'templates/navbar.php';?>
 
@@ -12,20 +18,16 @@
 				<div class="col-sm-10">
 					<h2>Rate A Movie</h2>
 					<br /><br />
-					<p><b>This is the basic CRUD operations page</b></p>
-					<p>Create - add new rating</p>
-					<p>Read - show this table of existing ratings for the user</p>
-					<p>Update - change a rating</p>
-					<p>Delete - delete a rating</p>
+					<p>You are logged in as user: <b>Test</b></p>
 					<br />
-					<b>Add a new rating</b>
-					<div class="form-group"><label class="mylabel-box"><button onClick="openmpick()">Search for:</button></label><input type="text" id="mptext" class="myform-control" /></div>
-					<br /><br />
+//					<b>Add a new rating</b>
+//					<div class="form-group"><label class="mylabel-box"><button onClick="openmpick()">Search for:</button></label><input type="text" id="mptext" class="myform-control" /></div>
+//					<br /><br />
 
 
 					<p><b>Your existing ratings:</b></p>
 
-					<table id="rateTable">
+					<table id="myRatingsTable">
 						<tr>
 							<th>Movie</th>
 							<th>Year</th>

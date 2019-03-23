@@ -29,8 +29,6 @@
 			$sdat[0]->action = "browse";
 			$target = $params->{'target'};
 
-			// replace a star at the front or back with a percent pcnt_sign
-
 			// find movies that match the search string in target
 			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '" . $target . "' GROUP BY r.movie_id";
 			//$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id GROUP BY r.movie_id";
@@ -41,20 +39,12 @@
 
 			$cnt = 0;
 
-			// burn first row because it's titles
-			// NO, IT'S NOT
-			//$row = $query_result->fetch_array(MYSQLI_ASSOC);
-
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
 				$sdat[$cnt]->name = $row['title'];
-
 				$sdat[$cnt]->year = substr($row['release_date'], 0, 4);
-			 	//$sdat[$cnt]->year = 1950+rand(0,69) ;
-				
-				// this will need to be average of ratings from ratings				
+				// this will need to be average of ratings from ratings
 				$sdat[$cnt]->rating = $row['avg_score'];
-		   	//$sdat[$cnt]->rating = rand(1,10);
 			}
 			break;
 		case "analytics":
@@ -85,29 +75,30 @@
 
 			break;
 		case "getRatings":
-				/*$sdat[0]->action = "getRatings";
-				$user = $params->{'user'};
+			$sdat[0]->action = "getRatings";
+			$target = $params->{'user'};
 
-				// replace a star at the front or back with a percent pcnt_sign
 
-				// find movies that match the search string in target
-				$query = "SELECT * FROM movies WHERE title LIKE 'aliens'";
-				$query_result = mysqli_query($conn, $query);
 
-				$cnt = 0;
+// ****** this is a stub for now - we want to return all the movies and their rating that have been rated by the user
+			// find movies that match the search string in target
+			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '" . $target . "' GROUP BY r.movie_id";
+			//$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id GROUP BY r.movie_id";
 
-				// burn first row because it's titles
-				$row = $query_result->fetch_array(MYSQLI_ASSOC);
+			//$query = "SELECT * FROM movies WHERE title LIKE '".$target."' ";
 
-				// then for each row of data, extract the title and any other info we need
-				while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
-					$sdat[$cnt]->name = $row['title'];
-					 // $sdat[$cnt]->year = $row['year'];
-					$sdat[$cnt]->year = 1950+rand(0,69) ;
-					 // $sdat[$cnt++]->rating = $row['rating'];
-					$sdat[$cnt]->rating = rand(1,10);
-				}*/
-				break;
+			$query_result = mysqli_query($conn, $query);
+
+			$cnt = 0;
+
+			// then for each row of data, extract the title and any other info we need
+			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
+				$sdat[$cnt]->name = $row['title'];
+				$sdat[$cnt]->year = substr($row['release_date'], 0, 4);
+				// this will need to be average of ratings from ratings
+				$sdat[$cnt]->rating = $row['avg_score'];
+			}
+			break;
 		default:
 			$sdat[0]->msg = "unknown action";
 			$sdat[0]->err = 1;
