@@ -1,9 +1,35 @@
 <?php include 'templates/header.php';?>
 
 <script>
-$(document).ready(function () {
-	initChart();
-})
+// any startup stuff
+  $(document).ready(function () {
+    initChart();
+  })
+
+function initChart() {
+  $("#chart").kendoChart({
+    title: {
+      text: "Movie Sales"
+    },
+    legend: {
+      position: "bottom"
+    },
+    seriesDefaults: {
+      type: "line"
+    },
+    series: [{
+      data: [15.7, 16.7, 20, 23.5, 26.6]
+    }],
+    valueAxis: {
+      labels: {
+        format: "{0}"
+      }
+    },
+    categoryAxis: {
+      categories: [2014, 2015, 2016, 2017, 2018]
+    }
+  });
+}
 </script>
 
 <body>
