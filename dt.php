@@ -43,7 +43,7 @@
 			
 			// burn first row because it's titles
 			// NO, IT'S NOT
-			//$row = $query_result->fetch_array(MYSQLI_ASSOC);
+			$row = $query_result->fetch_array(MYSQLI_ASSOC);
 
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
