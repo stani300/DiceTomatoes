@@ -256,5 +256,5 @@ function showMyRatings ( dat )
  }
 
 function addRating ( name, i ) {
-  alert ( "add rating " + $(name).text() + " for " + name);
+  alert ( "add rating " + $(name).val() + " for " + i );
 }
