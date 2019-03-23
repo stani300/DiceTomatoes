@@ -23,12 +23,14 @@
 					</div>
 					<br />
 
-					<table id="browseTable">
-						<tr>
-							<th>Movie Name</th>
-							<th>Year</th>
-							<th>Rating</th>
-						</tr>
+					<table class="table table-striped">
+						<thead class="thead-dark">
+							<tr>
+								<th>Movie Name</th>
+								<th>Year</th>
+								<th>Rating</th>
+							</tr>
+						</thead>
 					</table>
 
 					<!-- this is where we show any messages - like more than 25 results found -->

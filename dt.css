@@ -66,7 +66,7 @@
   display: block;
 }
 
-table {
+/*table {
   border-collapse: collapse;
   width: 100%;
   border: 3px solid black;
@@ -80,4 +80,4 @@ th, td {
 
 tr:nth-child(even) {
   background-color: #f2f2f2;
-}
+}*/
