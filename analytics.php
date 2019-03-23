@@ -1,5 +1,11 @@
 <?php include 'templates/header.php';?>
 
+<script>
+$(document).ready(function () {
+	initChart();
+})
+</script>
+
 <body>
 	<?php include 'templates/navbar.php';?>
 
