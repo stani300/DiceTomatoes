@@ -33,6 +33,7 @@
 
 			// find movies that match the search string in target
 			$query = "SELECT m.*, AVG(r.rating) FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '".$target."' GROUP BY r.movie_id";
+			echo $query;
 			$query_result = mysqli_query($conn, $query);
 
 			$cnt = 0;
@@ -42,8 +43,7 @@
 
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
-				//$sdat[$cnt]->name = $row['title'];
-				$sdat[$cnt]->name = $query;
+				$sdat[$cnt]->name = $row['title'];
 
 				$sdat[$cnt]->year = substr($row['release_date'], 0, 4);
 			 	//$sdat[$cnt]->year = 1950+rand(0,69) ;
