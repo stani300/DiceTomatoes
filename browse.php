@@ -24,14 +24,12 @@
 					<br />
 
 					<table class="table table-striped" id="browseTable">
-						<thead class="thead-dark">
+						<tbody>
 							<tr>
 								<th>Movie Name</th>
 								<th>Year</th>
 								<th>Rating</th>
 							</tr>
-						</thead>
-						<tbody>
 						</tbody>
 					</table>
 
