@@ -32,7 +32,8 @@
 			// replace a star at the front or back with a percent pcnt_sign
 
 			// find movies that match the search string in target
-			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '".$target."' GROUP BY r.movie_id";
+			//$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '" . $target . "' GROUP BY r.movie_id";
+			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id GROUP BY r.movie_id";
 
 			//$query = "SELECT * FROM movies WHERE title LIKE '".$target."' ";
 
