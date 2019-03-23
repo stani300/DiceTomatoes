@@ -201,16 +201,17 @@ alert ( "my ratings returns: " + dat );
  // this is the function where we take a string from the browse screen and look for matching movies
    jstr = JSON.stringify({
      "action": "browse",
-     "target": $('mtrtext').val()
+     "target": $('#mtrtext').val()
    });
    // all packed up, let's go find it
+   alert ( "calling for movies")
    ajaxJCall("dt.php", jstr, updateMTR);
  }
 
  function updateMTR (dat) {
  // and this is when we return a list of movies, if any, that match the search stringify
  // first let's show the returned string for debug
-
+alert ( "my ratings returns: " + dat );
    // clear out any old messages
    $('#MTRMsg').text("");
 
