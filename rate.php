@@ -5,6 +5,7 @@
   $(document).ready(function () {
     getMyRatings( "alien%" );
   })
+</script>
 
 <body>
 	<?php include 'templates/navbar.php';?>
