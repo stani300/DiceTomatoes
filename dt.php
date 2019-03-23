@@ -35,6 +35,8 @@
 			//$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '" . $target . "' GROUP BY r.movie_id";
 			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id GROUP BY r.movie_id";
 
+			echo $query;
+
 			//$query = "SELECT * FROM movies WHERE title LIKE '".$target."' ";
 
 			$query_result = mysqli_query($conn, $query);
