@@ -32,7 +32,7 @@
 			// replace a star at the froint or back with a percent pcnt_sign
 
 			// find movies that match the search string in target
-			$query = "SELECT m.* FROM movies as m, ratings as r WHERE m.title LIKE '".$target."'";
+			$query = "SELECT * FROM movies as m WHERE title LIKE '".$target."'";
 			$query_result = mysqli_query($conn, $query);
 
 			$cnt = 0;
@@ -44,10 +44,10 @@
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
 				$sdat[$cnt]->name = $row['title'];
 
-				$sdat[$cnt]->year = substr($row['release_date'], 4);
-			 	//$sdat[$cnt]->year = 1950+rand(0,69) ;
+				//$sdat[$cnt]->year = substr($row['release_date'], 4);
+			 	$sdat[$cnt]->year = 1950+rand(0,69) ;
 				
-				// this will need to be average of ratings from ratings table				
+				// this will need to be average of ratings from ratings				
 				// $sdat[$cnt++]->rating = $row['rating'];
 		   	$sdat[$cnt]->rating = rand(1,10);
 			}
