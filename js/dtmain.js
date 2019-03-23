@@ -160,7 +160,7 @@ function getMyRatings ( user ) {
 
 function showMyRatings ( dat )
  {
-alert ( "my ratings returns: " + dat );
+
    obj = JSON.parse(dat);
 
    var table = $('#myRatingsTable')[0];
@@ -204,7 +204,7 @@ alert ( "my ratings returns: " + dat );
      "target": $('#mtrtext').val()
    });
    // all packed up, let's go find it
-   alert ( "calling for movies")
+
    ajaxJCall("dt.php", jstr, updateMTR);
  }
 
@@ -243,7 +243,7 @@ alert ( "my ratings returns: " + dat );
      cell1.innerHTML = obj[i].name;
      cell2.innerHTML = obj[i].year;
      cell3.innerHTML = '<input type="text" id="NR' + i + '" />';
-      cell4.innerHTML = '<button onClick="addRating(' + obj[i].name + ',' + i + ')">Add</button>';
+     cell4.innerHTML = '<button onClick="addRating("' + obj[i].name + '",' + i + ')">Add</button>';
 
    }
 
