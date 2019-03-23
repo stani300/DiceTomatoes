@@ -254,5 +254,5 @@ function showMyRatings ( dat )
  }
 
 function addRating ( i ) {
-  alert ( "add rating " + $('#NR1').val() + " for " + i );
+  alert ( "add rating " + $('#NR1').val() + " for movie on line " + i );
 }
