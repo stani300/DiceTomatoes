@@ -211,7 +211,7 @@ alert ( "my ratings returns: " + dat );
  function updateMTR (dat) {
  // and this is when we return a list of movies, if any, that match the search stringify
  // first let's show the returned string for debug
-alert ( "my ratings returns: " + dat );
+
    // clear out any old messages
    $('#MTRMsg').text("");
 
@@ -237,12 +237,13 @@ alert ( "my ratings returns: " + dat );
      var cell1 = row.insertCell(0);
      var cell2 = row.insertCell(1);
      var cell3 = row.insertCell(2);
+     var cell4 = row.insertCell(3);
 
      // Add some text to the new cells:
      cell1.innerHTML = obj[i].name;
      cell2.innerHTML = obj[i].year;
-     cell3.innerHTML = '<div class="form-group"><label class="mylabel-box"><button onClick="addRating('
-      + obj + ',' + i + ')">Add</button></label><input type="text" id="NR' + i + '" class="myform-control" /></div>';
+     cell3.innerHTML = '<input type="text" id="NR' + i + '" />';
+      cell4.innerHTML = '<button onClick="addRating(' + obj[i].name + ',' + i + ')">Add</button>';
 
    }
 
@@ -252,6 +253,6 @@ alert ( "my ratings returns: " + dat );
 
  }
 
-function addRating ( obj, i ) {
-  alert ( "add rating " + $('#NR' + i) + " for " + obj[i].name);
+function addRating ( name, i ) {
+  alert ( "add rating " + $('#NR' + i) + " for " + name);
 }
