@@ -216,7 +216,7 @@ alert ( "my ratings returns: " + dat );
 
    obj = JSON.parse(dat);
 
-   var table = $('MTRTable')[0];
+   var table = $('#MTRTable')[0];
    var len = table.rows.length;
 
    // if there is stuff in the table, empty it first
