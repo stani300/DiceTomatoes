@@ -31,6 +31,8 @@
 								<th>Rating</th>
 							</tr>
 						</thead>
+						<tbody>
+						</tbody>
 					</table>
 
 					<!-- this is where we show any messages - like more than 25 results found -->
