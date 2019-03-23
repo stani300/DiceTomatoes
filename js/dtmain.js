@@ -242,7 +242,7 @@ alert ( "my ratings returns: " + dat );
      cell1.innerHTML = obj[i].name;
      cell2.innerHTML = obj[i].year;
      cell3.innerHTML = '<div class="form-group"><label class="mylabel-box"><button onClick="addRating('
-      obj + "," + i + ')">Add</button></label><input type="text" id="NR' + i + '" class="myform-control" /></div>';'
+      + obj + "," + i + ')">Add</button></label><input type="text" id="NR' + i + '" class="myform-control" /></div>';'
 
    }
 
