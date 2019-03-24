@@ -25,7 +25,7 @@ user = "BETTY WHITE";
 				<div class="col-sm-10">
 					<h2>Rate A Movie</h2>
 					<br /><br />
-					<p>You are logged in as user: <b><div id="currUser"></div></b></p>
+					<p>You are logged in as user: <b><span id="currUser"></span></b></p>
 					<br />
 
 					<p><b>Your existing ratings:</b></p>

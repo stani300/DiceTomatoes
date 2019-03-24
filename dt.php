@@ -85,7 +85,8 @@
 			// find the movie names from the movies table
 
 // ****** this is a stub for now - we want to return all the movies and their rating that have been rated by the user
-			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '" . "alien" . "' GROUP BY r.movie_id";
+//			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '" . "alien" . "' GROUP BY r.movie_id";
+						$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE critic_id LIKE '" . "15" . "' GROUP BY r.movie_id";
 
 			//$query = "SELECT * FROM movies WHERE title LIKE '".$target."' ";
 
