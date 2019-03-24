@@ -122,7 +122,7 @@ function analyticsUpdate ( dat ) {
 
 }
 
-function getMyRatings ( user ) {
+function getMyRatings ( ) {
 
   var jstr = JSON.stringify({
     "action": "getRatings",
@@ -266,6 +266,7 @@ function showMyRatings ( dat )
 
 function addRating ( i, id ) {
   newr = $('#NR'+i).val();
+  alert ( "adding rating " + newr + " for movie " + id + " for user " + uid );
   var jstr = JSON.stringify({
     "action": "addRating",
     "uid": uid,
@@ -278,6 +279,18 @@ function addRating ( i, id ) {
 }
 
 function ratingAdded () {
+alert ( "rating added"); 
   // clean up rating myTable
+
+  var table = $('#MTRTable')[0];
+  var len = table.rows.length;
+
+  // empty the table of movies to rate
+
+  while ( len > 1 ) {
+    table.deleteRow(--len);
+  }
+
   // display new ratings myTable
+  getMyRatings ();
 }
