@@ -11,17 +11,15 @@
 	$password = "database";
 	$database = 'diced_tomatoes';
 
-	$sdat[0]->err=1; // default - error
+	$sdat[0]->err=0;
 
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, $database);
 
 	if (!$conn) {
-    $sdat[0]->msg = "Error: Unable to connect to MySQL: errno = " . mysqli_connect_errno() . ", error text = " .  mysqli_connect_error();
+    $sdat[0]->errmsg = "Error: Unable to connect to MySQL: errno = " . mysqli_connect_errno() . ", error text = " .  mysqli_connect_error();
 		$sdat[0]->err = 1;
-    $jrtn = json_encode($sdat);
-    echo $jrtn;
-	  exit;
+		$action = "fail";
 	};
 
 	switch ( $action ) {
@@ -109,6 +107,9 @@
 				$query = 'INSERT INTO ratings VALUES ( NULL, ' . $rating . ', ' . $movie . ', ' . $uid . ' )';
 				$query_result = mysqli_query($conn, $query);
 
+				// and we should check the results
+				// TODO
+
 				break;
 		case "updateRating":
 			$sdat[0]->action = "getRatings";
@@ -125,6 +126,15 @@
 			// we should check to see it if did it...
 			// TODO
 
+			$sdat[0]->query = $query;
+
+			if ($conn->query($sql) === TRUE) {
+    		// New record created successfully
+			} else {
+    		$sdat[0]->errmsg = $conn->error;
+			}
+
+
 			break;
 		case "deleteRating":
 			$sdat[0]->action = "getRatings";
@@ -140,17 +150,17 @@
 
 			// and also to check the response
 			// TODO
-			
+
+			break;
+		case "fail";
 			break;
 		default:
-			$sdat[0]->msg = "unknown action";
-			$sdat[0]->err = 1;
+			$sdat[0]->errmsg = "unknown action";
 			break;
 	}
 
 mysqli_close($conn);
 
-$sdat[0]->err=0;
 $jrtn = json_encode($sdat);
 
 echo $jrtn;

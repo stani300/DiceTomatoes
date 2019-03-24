@@ -278,8 +278,8 @@ function addRating ( i, id ) {
   ajaxJCall("dt.php", jstr, ratingAdded);
 }
 
-function ratingAdded () {
-alert ( "rating added"); 
+function ratingAdded ( dat ) {
+alert ( "rating added: " + dat ); 
   // clean up rating myTable
 
   var table = $('#MTRTable')[0];
