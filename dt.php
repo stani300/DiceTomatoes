@@ -96,7 +96,7 @@
 			break;
 		case "addRating":
 				$sdat[0]->action = "addRating";
-				$uid = $params->{'user'}; // critic id
+				$uid = $params->{'uid'}; // critic id
 				$movie = $params->{'movie'}; // movie id
 				$rating = $params->{'rating'}; // rating to add
 
@@ -104,7 +104,7 @@
 				// TODO
 
 				// update the rating value for the rating rid
-				$query = 'INSERT INTO ratings VALUES ( NULL, ' . $rating . ', ' . $movie . ', ' . $uid . ' )';
+				$query = 'INSERT INTO ratings VALUES ( NULL, ' . $rating . ', ' . $movie . ', ' . $uid . ')';
 				$query_result = mysqli_query($conn, $query);
 
 				// and we should check the results
