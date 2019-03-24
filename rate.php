@@ -2,8 +2,13 @@
 
 <script>
 // any startup stuff
+
+// this is a placeholder - fill in with the actual user later
+user = "Test";
+
+// find the movies that have been rated by this user and display them
   $(document).ready(function () {
-    getMyRatings( "alien%" );
+    getMyRatings( user );
   })
 </script>
 

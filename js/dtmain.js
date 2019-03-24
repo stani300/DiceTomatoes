@@ -187,7 +187,8 @@ function showMyRatings ( dat )
      // Add some text to the new cells:
      cell1.innerHTML = obj[i].name;
      cell2.innerHTML = obj[i].year;
-     cell3.innerHTML = obj[i].rating;
+     cell3.innerHTML = '<input type="text" id="ER' + i + '" value="' + obj[i].rating + '" "/>';
+     cell4.innerHTML = '<button onClick="deleteRating(' + i + ')">Delete</button><button onClick="updateRating(' + i + ')">Update</button>'
 
    }
 
@@ -197,7 +198,18 @@ function showMyRatings ( dat )
 
  }
 
+ function updateRating ( x ) {
+   alert ( "Update rating " + x );
+   getMyRatings (user );
+ }
+
+ function deleteRating ( x ) {
+   alert ( "delete rating " + x );
+   getMyRatings ( user );
+ }
+
  function findMTR() {
+   // findMTR = find Movies to Rate - find the movies that match the search string
  // this is the function where we take a string from the browse screen and look for matching movies
    jstr = JSON.stringify({
      "action": "browse",
@@ -209,8 +221,8 @@ function showMyRatings ( dat )
  }
 
  function updateMTR (dat) {
- // and this is when we return a list of movies, if any, that match the search stringify
- // first let's show the returned string for debug
+   // update MTR = update Movies to Rate
+ // and this is when we return a list of movies, if any, that match the search string
 
    // clear out any old messages
    $('#MTRMsg').text("");
@@ -242,8 +254,9 @@ function showMyRatings ( dat )
      // Add some text to the new cells:
      cell1.innerHTML = obj[i].name;
      cell2.innerHTML = obj[i].year;
+     // right not this is foirced to just the first entry
      cell3.innerHTML = '<input type="text" id="NR' + i + '" />';
-     cell4.innerHTML = '<button onClick="addRating(1)">Add</button>';
+     cell4.innerHTML = '<button onClick="addRating(' + i + ')">Add</button>';
 
    }
 
@@ -254,5 +267,5 @@ function showMyRatings ( dat )
  }
 
 function addRating ( i ) {
-  alert ( "add rating " + $('#NR1').val() + " for movie on line " + i );
+  alert ( "add rating " + $('#NR'+i ).val() + " for movie on line " + i );
 }
