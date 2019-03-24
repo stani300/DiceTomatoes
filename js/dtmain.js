@@ -191,7 +191,7 @@ function showMyRatings ( dat )
  }
 
  function deleteRating ( x ) {
-   alert ( "delete rating " + x + " for user " + user );
+
    var jstr = JSON.stringify({
      "action": "deleteRating",
      "rid": x,
@@ -266,7 +266,7 @@ function showMyRatings ( dat )
 
 function addRating ( i, id ) {
   newr = $('#NR'+i).val();
-  alert ( "adding rating " + newr + " for movie " + id + " for user " + uid );
+
   var jstr = JSON.stringify({
     "action": "addRating",
     "uid": uid,
@@ -279,7 +279,7 @@ function addRating ( i, id ) {
 }
 
 function ratingAdded ( dat ) {
-alert ( "rating added: " + dat ); 
+
   // clean up rating myTable
 
   var table = $('#MTRTable')[0];
