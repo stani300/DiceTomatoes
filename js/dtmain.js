@@ -136,7 +136,6 @@ function getMyRatings ( user ) {
 
 function showMyRatings ( dat )
  {
-alert ( "show ratings data: " + dat );
    obj = JSON.parse(dat);
 
    var table = $('#myRatingsTable')[0];
@@ -177,7 +176,6 @@ alert ( "show ratings data: " + dat );
 
  function updateRating ( i, id ) {
    newr = $('#ER'+i).val();
-   alert ( "Update rating " + i + "-" + newr + " for rating id " + id  );
    var jstr = JSON.stringify({
      "action": "updateRating",
      "rid": id,
@@ -189,7 +187,6 @@ alert ( "show ratings data: " + dat );
  }
 
  function ratingUpdated ( ) {
-   alert ( "rating updated (but not really)" );
    getMyRatings (user );
  }
 
@@ -270,10 +267,10 @@ alert ( "show ratings data: " + dat );
 
 function addRating ( i, id ) {
   newr = $('#NR'+i).val();
-  alert ( "add rating " + $('#NR'+i ).val() + " for movie " + id + " for user " + user );
+  alert ( "add rating " + newr + " for movie " + id + " for user " + uid );
   var jstr = JSON.stringify({
     "action": "addRating",
-    "user": user,
+    "uid": uid,
     "movie": id,
     "rating": newr
   });

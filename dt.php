@@ -98,12 +98,17 @@
 			break;
 		case "addRating":
 				$sdat[0]->action = "getRatings";
-				$target = $params->{'user'}; // critic name, not id
+				$uid = $params->{'user'}; // critic id
 				$movie = $params->{'movie'}; // movie id
 				$rating = $params->{'rating'}; // rating to add
 
-				// add the new rating for that critic for that movie
 				// note we should really check to make sure that critica doesn't alreayd have a rating for that movie, not just add it o the rating table blindly
+				// TODO
+
+				// update the rating value for the rating rid
+				$query = 'INSERT INTO ratings VALUES ( NULL, ' . $rating . ', ' . $movie . ', ' . $uid . ' )';
+				$query_result = mysqli_query($conn, $query);
+
 				break;
 		case "updateRating":
 			$sdat[0]->action = "getRatings";
