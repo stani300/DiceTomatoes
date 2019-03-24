@@ -177,12 +177,40 @@ function showMyRatings ( dat )
 
  function updateRating ( x ) {
    alert ( "Update rating " + x );
+   alert ( "add rating " + $('#AR'+i ).val() + " for movie on line " + i );
+   var jstr = JSON.stringify({
+     "action": "updateRating",
+     "user": user,
+     "movie": "alien",
+     "rating": "5"
+   });
+
+   // all packed up, let's go find it
+   ajaxJCall("dt.php", jstr, ratingUpdated );
+ }
+
+ function ratingUpdated ( ) {
+   alert ( "rating updated" );
    getMyRatings (user );
  }
 
  function deleteRating ( x ) {
-   alert ( "delete rating " + x );
+   alert ( "delete rating " + $('#AR'+i ).val() + " for movie on line " + i );
+   var jstr = JSON.stringify({
+     "action": "deleteRating",
+     "user": user,
+     "movie": "alien",
+   });
+
+   // all packed up, let's go find it
+   ajaxJCall("dt.php", jstr, ratingDeleted );
+
    getMyRatings ( user );
+ }
+
+ function ratingDeleted () {
+   alert ( "rating deleted" );
+   getMyRatings(user);
  }
 
  function findMTR() {
