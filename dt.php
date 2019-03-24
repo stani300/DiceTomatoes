@@ -95,7 +95,7 @@
 			}
 			break;
 		case "addRating":
-				$sdat[0]->action = "getRatings";
+				$sdat[0]->action = "addRating";
 				$uid = $params->{'user'}; // critic id
 				$movie = $params->{'movie'}; // movie id
 				$rating = $params->{'rating'}; // rating to add
@@ -110,9 +110,17 @@
 				// and we should check the results
 				// TODO
 
+				$sdat[0]->query = $query;
+
+				if ($conn->query($sql) === TRUE) {
+					// New record created successfully
+				} else {
+					$sdat[0]->errmsg = $conn->error;
+				}
+
 				break;
 		case "updateRating":
-			$sdat[0]->action = "getRatings";
+			$sdat[0]->action = "updateRatings";
 			$rid = $params->{'rid'}; // movie id
 			$rating = $params->{'rating'}; // new rating value for that rating
 
@@ -137,7 +145,7 @@
 
 			break;
 		case "deleteRating":
-			$sdat[0]->action = "getRatings";
+			$sdat[0]->action = "deleteRatings";
 			$target = $params->{'user'}; // critic name, not id
 			$rid = $params->{'rid'}; // movie id
 
@@ -150,6 +158,14 @@
 
 			// and also to check the response
 			// TODO
+
+			$sdat[0]->query = $query;
+
+			if ($conn->query($sql) === TRUE) {
+				// New record created successfully
+			} else {
+				$sdat[0]->errmsg = $conn->error;
+			}
 
 			break;
 		case "fail";
