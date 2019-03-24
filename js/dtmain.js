@@ -165,7 +165,7 @@ function showMyRatings ( dat )
      cell1.innerHTML = obj[i].name;
      cell2.innerHTML = obj[i].year;
      cell3.innerHTML = '<input type="text" id="ER' + i + '" value="' + obj[i].rating + '" "/>';
-     cell4.innerHTML = '<button onClick="deleteRating(' + obj[i].id + ')">Delete</button><button onClick="updateRating(' + i + ',' + obj[i] + ')">Update</button>'
+     cell4.innerHTML = '<button onClick="deleteRating(' + obj[i].id + ')">Delete</button><button onClick="updateRating(' + i + ',' + obj[i].id + ')">Update</button>'
 
    }
 
