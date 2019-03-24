@@ -136,7 +136,7 @@ function getMyRatings ( user ) {
 
 function showMyRatings ( dat )
  {
-
+alert ( "show ratings data: " + dat );
    obj = JSON.parse(dat);
 
    var table = $('#myRatingsTable')[0];
@@ -177,7 +177,7 @@ function showMyRatings ( dat )
 
  function updateRating ( i, id ) {
    newr = $('#ER'+i).val();
-   alert ( "Update rating " + newr + " for rating id " + id  );
+   alert ( "Update rating " + i + "-" + newr + " for rating id " + id  );
    var jstr = JSON.stringify({
      "action": "updateRating",
      "rid": id,
