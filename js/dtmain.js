@@ -190,7 +190,7 @@ function showMyRatings ( dat )
  }
 
  function ratingUpdated ( ) {
-   alert ( "rating updated" );
+   alert ( "rating updated (but not really)" );
    getMyRatings (user );
  }
 
@@ -208,7 +208,7 @@ function showMyRatings ( dat )
  }
 
  function ratingDeleted () {
-   alert ( "rating deleted" );
+   alert ( "rating deleted (but nto really)" );
    getMyRatings(user);
  }
 
@@ -287,5 +287,5 @@ function addRating ( i, id ) {
 function ratingAdded () {
   // clean up rating myTable
   // display new ratings myTable
-  alert ( "rating added" );
+  alert ( "rating added (but not really)" );
 }
