@@ -165,7 +165,7 @@ function showMyRatings ( dat )
      cell1.innerHTML = obj[i].name;
      cell2.innerHTML = obj[i].year;
      cell3.innerHTML = '<input type="text" id="ER' + i + '" value="' + obj[i].rating + '" "/>';
-     cell4.innerHTML = '<button onClick="deleteRating(' + i + ')">Delete</button><button onClick="updateRating(' + i + ')">Update</button>'
+     cell4.innerHTML = '<button onClick="deleteRating(' + obj[i].id + ')">Delete</button><button onClick="updateRating(' + i + ',' + obj[i] + ')">Update</button>'
 
    }
 
@@ -175,14 +175,14 @@ function showMyRatings ( dat )
 
  }
 
- function updateRating ( x ) {
-   alert ( "Update rating " + x );
-   alert ( "add rating " + $('#ER'+x ).val() + " for movie on line " + x );
+ function updateRating ( i, id ) {
+   newr = $('#ER'+i);
+   alert ( "Update rating " + newr + " for movie" + id + "for user " + user );
    var jstr = JSON.stringify({
      "action": "updateRating",
      "user": user,
-     "movie": "alien",
-     "rating": "5"
+     "movie": id,
+     "rating": newr
    });
 
    // all packed up, let's go find it
@@ -195,17 +195,16 @@ function showMyRatings ( dat )
  }
 
  function deleteRating ( x ) {
-   alert ( "delete rating " + $('#ER'+x ).val() + " for movie on line " + x );
+   alert ( "delete rating for movie " + x + " for user " + user );
    var jstr = JSON.stringify({
      "action": "deleteRating",
      "user": user,
-     "movie": "alien",
+     "movie": x
    });
 
    // all packed up, let's go find it
    ajaxJCall("dt.php", jstr, ratingDeleted );
 
-   getMyRatings ( user );
  }
 
  function ratingDeleted () {
