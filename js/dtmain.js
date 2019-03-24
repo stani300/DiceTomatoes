@@ -177,7 +177,7 @@ function showMyRatings ( dat )
 
  function updateRating ( x ) {
    alert ( "Update rating " + x );
-   alert ( "add rating " + $('#AR'+i ).val() + " for movie on line " + i );
+   alert ( "add rating " + $('#ER'+x ).val() + " for movie on line " + x );
    var jstr = JSON.stringify({
      "action": "updateRating",
      "user": user,
@@ -195,7 +195,7 @@ function showMyRatings ( dat )
  }
 
  function deleteRating ( x ) {
-   alert ( "delete rating " + $('#AR'+i ).val() + " for movie on line " + i );
+   alert ( "delete rating " + $('#ER'+x ).val() + " for movie on line " + x );
    var jstr = JSON.stringify({
      "action": "deleteRating",
      "user": user,
