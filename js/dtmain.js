@@ -176,8 +176,8 @@ function showMyRatings ( dat )
  }
 
  function updateRating ( i, id ) {
-   newr = $('#ER'+i);
-   alert ( "Update rating " + newr + " for movie" + id + "for user " + user );
+   newr = $('#ER'+i).val();
+   alert ( "Update rating " + newr + " for movie " + id + " for user " + user );
    var jstr = JSON.stringify({
      "action": "updateRating",
      "user": user,
