@@ -41,6 +41,7 @@
 
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
+				$sdat[$cnt]->id = $row['id'];
 				$sdat[$cnt]->name = $row['title'];
 				$sdat[$cnt]->year = substr($row['release_date'], 0, 4);
 				// this will need to be average of ratings from ratings
@@ -79,11 +80,12 @@
 			$target = $params->{'user'};
 
 
+			// find the critic id from the name - critics mysql_list_tables
+			// find the movies with ratings from the ratings mysql_list_tables
+			// find the movie names from the movies table
 
 // ****** this is a stub for now - we want to return all the movies and their rating that have been rated by the user
-			// find movies that match the search string in target
-			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '" . $target . "' GROUP BY r.movie_id";
-			//$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id GROUP BY r.movie_id";
+			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '" . "alien" . "' GROUP BY r.movie_id";
 
 			//$query = "SELECT * FROM movies WHERE title LIKE '".$target."' ";
 
@@ -93,6 +95,7 @@
 
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
+				$sdat[$cnt]->id = $row['id'];
 				$sdat[$cnt]->name = $row['title'];
 				$sdat[$cnt]->year = substr($row['release_date'], 0, 4);
 				// this will need to be average of ratings from ratings

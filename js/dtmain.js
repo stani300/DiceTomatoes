@@ -152,7 +152,7 @@ function getMyRatings ( user ) {
     "action": "getRatings",
     "user": user
   });
-
+alert ( "looking for ratings for user " + user );
   // all packed up, let's go find it
   ajaxJCall("dt.php", jstr, showMyRatings);
 
@@ -193,7 +193,7 @@ function showMyRatings ( dat )
    }
 
    if ( obj.length > 10 ) {
-     $('rateMsg').text("There are more than 10 results, these are the first 10");
+     $('#rateMsg').text("There are more than 10 results, these are the first 10");
    }
 
  }
