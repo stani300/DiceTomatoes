@@ -84,8 +84,9 @@
 			// this is a stub for now - just set critic id to 15 (BETTY WHITE)
 			$criticID = "15";
 
+			// this is not at all the right query - just a placeholder for now
 			// now find all the movies and ratings that have that critic id
-			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE critic_id = '" . $criticID . "' GROUP BY r.movie_id";
+			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies WHERE critic_id = '" . $criticID . "' AS m JOIN ratings AS r ON r.movie_id=m.id GROUP BY r.movie_id";
 
 			$query_result = mysqli_query($conn, $query);
 
