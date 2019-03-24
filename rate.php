@@ -4,7 +4,7 @@
 // any startup stuff
 
 // this is a placeholder - fill in with the actual user later
-user = "BETTY WHITE";
+user = "MARY SMITH";
 
 // find the movies that have been rated by this user and display them
   $(document).ready(function () {

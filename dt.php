@@ -94,7 +94,8 @@
 
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
-				$sdat[$cnt]->id = $row['id'];
+				$sdat[$cnt]->id = $row['id']; // movie id
+				$sdat[$cnt]->rid = $row['rating_id']; // rating id
 				$sdat[$cnt]->name = $row['title'];
 				$sdat[$cnt]->year = substr($row['release_date'], 0, 4);
 				// this will need to be average of ratings from ratings
@@ -113,17 +114,17 @@
 		case "updateRating":
 			$sdat[0]->action = "getRatings";
 			$target = $params->{'user'}; // critic name, not id
-			$movie = $params->{'movie'}; // movie id
-			$rating = $params->{'rating'}; // new rating for that movie
+			$rid = $params->{'rid'}; // movie id
+			$rating = $params->{'rating'}; // new rating value for that rating
 
-			// update the rating for that critic for that movie
+			// update the rating value for the rating rid
 			break;
 		case "deleteRating":
 			$sdat[0]->action = "getRatings";
 			$target = $params->{'user'}; // critic name, not id
-			$movie = $params->{'movie'}; // movie id
+			$rid = $params->{'rid'}; // movie id
 
-			// delete the rating for that critic for that movie
+			// delete the rating with id rid
 			break;
 		default:
 			$sdat[0]->msg = "unknown action";

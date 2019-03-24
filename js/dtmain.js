@@ -165,7 +165,7 @@ function showMyRatings ( dat )
      cell1.innerHTML = obj[i].name;
      cell2.innerHTML = obj[i].year;
      cell3.innerHTML = '<input type="text" id="ER' + i + '" value="' + obj[i].rating + '" "/>';
-     cell4.innerHTML = '<button onClick="deleteRating(' + obj[i].id + ')">Delete</button><button onClick="updateRating(' + i + ',' + obj[i].id + ')">Update</button>'
+     cell4.innerHTML = '<button onClick="deleteRating(' + obj[i].rid + ')">Delete</button><button onClick="updateRating(' + i + ',' + obj[i].rid + ')">Update</button>'
 
    }
 
@@ -177,11 +177,10 @@ function showMyRatings ( dat )
 
  function updateRating ( i, id ) {
    newr = $('#ER'+i).val();
-   alert ( "Update rating " + newr + " for movie " + id + " for user " + user );
+   alert ( "Update rating " + newr + " for rating id " + id  );
    var jstr = JSON.stringify({
      "action": "updateRating",
-     "user": user,
-     "movie": id,
+     "rid": id,
      "rating": newr
    });
 
@@ -195,11 +194,10 @@ function showMyRatings ( dat )
  }
 
  function deleteRating ( x ) {
-   alert ( "delete rating for movie " + x + " for user " + user );
+   alert ( "delete rating " + x + " for user " + user );
    var jstr = JSON.stringify({
      "action": "deleteRating",
-     "user": user,
-     "movie": x
+     "rid": x,
    });
 
    // all packed up, let's go find it
@@ -208,7 +206,7 @@ function showMyRatings ( dat )
  }
 
  function ratingDeleted () {
-   alert ( "rating deleted (but nto really)" );
+   alert ( "rating deleted (but not really)" );
    getMyRatings(user);
  }
 
