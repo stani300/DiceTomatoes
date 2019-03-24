@@ -77,16 +77,10 @@
 			break;
 		case "getRatings":
 			$sdat[0]->action = "getRatings";
-			$target = $params->{'user'};
-
-			// first find the critic id from the critic name
-
-			// this is a stub for now - just set critic id to 15 (MARY WHITE)
-			$criticID = "2";
-
+			$uid = $params->{'uid'};
 
 			// now find all the movies and ratings that have that critic id
-			$query = 'SELECT m.*, r.* FROM movies AS m JOIN ratings AS r WHERE critic_id=' . $criticID . ' AND r.movie_id=m.id';
+			$query = 'SELECT m.*, r.* FROM movies AS m JOIN ratings AS r WHERE critic_id=' . $uid . ' AND r.movie_id=m.id';
 
 			$query_result = mysqli_query($conn, $query);
 
@@ -113,11 +107,19 @@
 				break;
 		case "updateRating":
 			$sdat[0]->action = "getRatings";
-			$target = $params->{'user'}; // critic name, not id
 			$rid = $params->{'rid'}; // movie id
 			$rating = $params->{'rating'}; // new rating value for that rating
 
+			// might not be bad to do some sanity checking on the data first
+			// TODO
+
 			// update the rating value for the rating rid
+			$query = 'UPDATE ratings SET rating = ' . $rating . ' WHERE rating_id = ' . $rid;
+			$query_result = mysqli_query($conn, $query);
+
+			// we should check to see it if did it...
+			// TODO
+
 			break;
 		case "deleteRating":
 			$sdat[0]->action = "getRatings";

@@ -3,12 +3,13 @@
 <script>
 // any startup stuff
 
-// this is a placeholder - fill in with the actual user later
+// this is a placeholder - fill in with the actual user name and id later
 user = "MARY SMITH";
+uid = 2;
 
 // find the movies that have been rated by this user and display them
   $(document).ready(function () {
-    $('#currUser').text(user);
+    $('#currUser').text(user+":"+uid);
     getMyRatings( user );
   })
 </script>

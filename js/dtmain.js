@@ -126,7 +126,7 @@ function getMyRatings ( user ) {
 
   var jstr = JSON.stringify({
     "action": "getRatings",
-    "user": user
+    "uid": uid
   });
 
   // all packed up, let's go find it
