@@ -260,7 +260,7 @@ function showMyRatings ( dat )
      cell2.innerHTML = obj[i].year;
      // right not this is foirced to just the first entry
      cell3.innerHTML = '<input type="text" id="NR' + i + '" />';
-     cell4.innerHTML = '<button onClick="addRating(' + i + ')">Add</button>';
+     cell4.innerHTML = '<button onClick="addRating(' + i + ',' +  obj[i].id + ')">Add</button>';
 
    }
 
@@ -270,13 +270,14 @@ function showMyRatings ( dat )
 
  }
 
-function addRating ( i ) {
-  alert ( "add rating " + $('#NR'+i ).val() + " for movie on line " + i );
+function addRating ( i, id ) {
+  newr = $('#NR'+i).val();
+  alert ( "add rating " + $('#NR'+i ).val() + " for movie " + id + " for user " + user );
   var jstr = JSON.stringify({
     "action": "addRating",
     "user": user,
-    "movie": "alien",
-    "rating": "5"
+    "movie": id,
+    "rating": newr
   });
 
   // all packed up, let's go find it
