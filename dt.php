@@ -79,16 +79,13 @@
 			$sdat[0]->action = "getRatings";
 			$target = $params->{'user'};
 
+			// first find the critic id from the critic name
 
-			// find the critic id from the name - critics mysql_list_tables
-			// find the movies with ratings from the ratings mysql_list_tables
-			// find the movie names from the movies table
+			// this is a stub for now - just set critic id to 15 (BETTY WHITE)
+			$criticID = 15;
 
-// ****** this is a stub for now - we want to return all the movies and their rating that have been rated by the user
-//			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '" . "alien" . "' GROUP BY r.movie_id";
-						$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE critic_id LIKE '" . "15" . "' GROUP BY r.movie_id";
-
-			//$query = "SELECT * FROM movies WHERE title LIKE '".$target."' ";
+			// now find all the movies and ratings that have that critic id
+			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE critic_id LIKE '" . $criticID . "' GROUP BY r.movie_id";
 
 			$query_result = mysqli_query($conn, $query);
 
@@ -102,6 +99,30 @@
 				// this will need to be average of ratings from ratings
 				$sdat[$cnt]->rating = $row['avg_score'];
 			}
+			break;
+		case "addRating":
+				$sdat[0]->action = "getRatings";
+				$target = $params->{'user'}; // critic name, not id
+				$movie = $params->{'movie'}; // movie id
+				$rating = $params->{'rating'}; // rating to add
+
+				// add the new rating for that critic for that movie
+				// note we should really check to make sure that critica doesn't alreayd have a rating for that movie, not just add it o the rating table blindly
+				break;
+		case "updateRating":
+			$sdat[0]->action = "getRatings";
+			$target = $params->{'user'}; // critic name, not id
+			$movie = $params->{'movie'}; // movie id
+			$rating = $params->{'rating'}; // new rating for that movie
+
+			// update the rating for that critic for that movie
+			break;
+		case "deleteRating":
+			$sdat[0]->action = "getRatings";
+			$target = $params->{'user'}; // critic name, not id
+			$movie = $params->{'movie'}; // movie id
+
+			// delete the rating for that critic for that movie
 			break;
 		default:
 			$sdat[0]->msg = "unknown action";

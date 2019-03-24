@@ -9,30 +9,6 @@ function closeLogin() {
   $('#myModal').fadeOut(500);
 }
 
-function addrating(moviename) {
-
-  // Find a <table> element with id="myTable":
-  var table = $('#existing')[0];
-  var len = table.rows.length;
-
-  // Create an empty <tr> element and add it to the end of the table
-  var row = table.insertRow(len);
-
-  // Insert new cells (<td> elements) of the "new" <tr> element:
-  var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  var cell3 = row.insertCell(2);
-  var cell4 = row.insertCell(3);
-
-  // Add some text to the new cells:
-  cell1.innerHTML = moviename;
-  cell2.innerHTML = "1990";
-  cell3.innerHTML = "<input type='text' value='-'><//input>";
-  cell4.innerHTML = "<button>update</button> <button>delete<//button>";
-
-  closempick();
-}
-
 function browseSearch() {
 // this is the function where we take a string from the browse screen and look for matching movies
   jstr = JSON.stringify({
@@ -152,7 +128,7 @@ function getMyRatings ( user ) {
     "action": "getRatings",
     "user": user
   });
-alert ( "looking for ratings for user " + user );
+
   // all packed up, let's go find it
   ajaxJCall("dt.php", jstr, showMyRatings);
 
@@ -183,6 +159,7 @@ function showMyRatings ( dat )
      var cell1 = row.insertCell(0);
      var cell2 = row.insertCell(1);
      var cell3 = row.insertCell(2);
+     var cell4 = row.insertCell(3);
 
      // Add some text to the new cells:
      cell1.innerHTML = obj[i].name;
@@ -268,4 +245,19 @@ function showMyRatings ( dat )
 
 function addRating ( i ) {
   alert ( "add rating " + $('#NR'+i ).val() + " for movie on line " + i );
+  var jstr = JSON.stringify({
+    "action": "addRating",
+    "user": user,
+    "movie": "alien",
+    "rating": "5"
+  });
+
+  // all packed up, let's go find it
+  ajaxJCall("dt.php", jstr, ratingAdded);
+}
+
+function ratingAdded () {
+  // clean up rating myTable
+  // display new ratings myTable
+  alert ( "rating added" );
 }
