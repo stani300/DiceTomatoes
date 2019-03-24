@@ -4,8 +4,8 @@
 // any startup stuff
 
 // this is a placeholder - fill in with the actual user name and id later
-user = "MARY SMITH";
-uid = 2;
+user = "JOHN SMITH";
+uid = 1;
 
 // find the movies that have been rated by this user and display them
   $(document).ready(function () {

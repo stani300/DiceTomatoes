@@ -131,7 +131,16 @@
 			$target = $params->{'user'}; // critic name, not id
 			$rid = $params->{'rid'}; // movie id
 
+			// not a bad idea to sanity check the $rid
+			// TODO:
+
 			// delete the rating with id rid
+			$query = 'DELETE FROM ratings WHERE rating_id = ' . $rid ;
+			$query_result = mysqli_query($conn, $query);
+
+			// and also to check the response
+			// TODO
+			
 			break;
 		default:
 			$sdat[0]->msg = "unknown action";

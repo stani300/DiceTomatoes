@@ -203,7 +203,6 @@ function showMyRatings ( dat )
  }
 
  function ratingDeleted () {
-   alert ( "rating deleted (but not really)" );
    getMyRatings(user);
  }
 
@@ -267,7 +266,6 @@ function showMyRatings ( dat )
 
 function addRating ( i, id ) {
   newr = $('#NR'+i).val();
-  alert ( "add rating " + newr + " for movie " + id + " for user " + uid );
   var jstr = JSON.stringify({
     "action": "addRating",
     "uid": uid,
@@ -282,5 +280,4 @@ function addRating ( i, id ) {
 function ratingAdded () {
   // clean up rating myTable
   // display new ratings myTable
-  alert ( "rating added (but not really)" );
 }
