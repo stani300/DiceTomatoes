@@ -22,7 +22,7 @@ function recSearch( uid ) {
 function recListUpdate(dat) {
 // and this is when we return a list of movies, if any, that match the search stringify
 // first let's show the returned string for debug
-alert ( "rec return " + dat );
+
   // clear out any old messages
   $('#recMsg').text("");
 

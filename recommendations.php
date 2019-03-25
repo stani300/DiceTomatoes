@@ -29,7 +29,6 @@ uid = 1;
 					<br /><br />
 					<p>You are logged in as user: <b><span id="currUser2"></span></b></p>
 					<br />
-					<p><b>This is the AI feature</b></p>
 					<p>Based on your previous movie reviews, these are some movies that might appeal to you:</p>
 
 					<table class="table table-striped table-hover" id="recTable">
