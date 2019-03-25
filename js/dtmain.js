@@ -1,5 +1,19 @@
 // JavaScript Document
 
+function setNavigation() {
+  var path = window.location.pathname;
+  // get the last part of the URL
+  path = path.substr(path.lastIndexOf('/')+1);
+  console.log(path);
+
+  $(".navbar-nav.mr-auto a").each(function () {
+      var href = $(this).attr('href');
+      console.log(href);
+      if (path.substring(0, href.length) === href) {
+          $(this).closest('li').addClass('active');
+      }
+  });
+}
 
 function openLogin() {
     $('#myModal').fadeIn(500);

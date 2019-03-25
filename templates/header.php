@@ -19,7 +19,7 @@
 	<script type="text/javascript" src="js/dtmain.js"></script>
 
 	<script>
-	globalDebug = 0;
+		globalDebug = 0;
 	</script>
 
 </head>
