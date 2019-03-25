@@ -10,7 +10,7 @@ uid = 1;
 // find the movies that have been rated by this user and display them
   $(document).ready(function () {
     $('#currUser2').text(user+" : "+uid);
-    getMyRatings( user );
+    recSearch ( uid );
   })
 </script>
 

@@ -9,7 +9,7 @@ function closeLogin() {
   $('#myModal').fadeOut(500);
 }
 
-function recSearch() {
+function recSearch( uid ) {
 // this is the function where we take a string from the browse screen and look for matching movies
   jstr = JSON.stringify({
     "action": "recommendation",
