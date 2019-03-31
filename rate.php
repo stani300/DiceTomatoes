@@ -20,42 +20,43 @@ uid = 1;
 	<div id="rate">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-2">
-					<img src="images/dt100.png">
-				</div>
-				<div class="col-sm-10">
-					<h2>Rate A Movie</h2>
-					<br /><br />
-					<p>You are logged in as user: <b><span id="currUser"></span></b></p>
-					<br />
+			<div class="col-sm-12">
+				<h1>Rate</h1>
 
-					<p><b>Your existing ratings:</b></p>
 
-					<table class="table table-striped table-hover" id="myRatingsTable">
-						<tr>
-							<th>Movie</th>
-							<th>Year</th>
-							<th>Rating</th>
-							<th>Action</th>
-						</tr>
-					</table>
+				<p>You are logged in as user: <strong><span id="currUser"></span></strong></p>
+				<br />
 
-					<div id="rateMsg"></div>
+				<p><strong>Your existing ratings:</strong></p>
 
-					<b>Add a new rating</b>
-						<div class="form-group"><label class="mylabel-box"><button onClick="findMTR()">Search for a movie to rate:</button></label><input type="text" id="mtrtext" class="myform-control" /></div>
-						<br /><br />
+				<table class="table table-striped table-hover" id="myRatingsTable">
+					<tr>
+						<th>Movie</th>
+						<th>Year</th>
+						<th>Rating</th>
+						<th>Action</th>
+					</tr>
+				</table>
 
-						<table class="table table-striped table-hover" id="MTRTable">
-							<tr>
-								<th>Movie</th>
-								<th>Year</th>
-								<th>Rating</th>
-								<th>Action</th>
-							</tr>
-						</table>
+				<div id="rateMsg"></div>
 
-						<div id="MTRMsg"></div>
+				<br><br>
+				<p><strong>Add a new rating</strong><br>
+				First, search for the movie you wish to rate:</p>
+
+				<div class="form-group"><input type="text" id="mtrtext" class="myform-control" /> <label class="mylabel-box"><button type="button" class="btn btn-primary" onClick="findMTR()">Search</button></label></div>
+				<br /><br />
+
+				<table class="table table-striped table-hover" id="MTRTable">
+					<tr>
+						<th>Movie</th>
+						<th>Year</th>
+						<th>Rating</th>
+						<th>Action</th>
+					</tr>
+				</table>
+
+				<div id="MTRMsg"></div>
 
 				</div>
 			</div>

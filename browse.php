@@ -7,34 +7,33 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-2">
-					<img src="images/dt100.png">
+			<div class="col-sm-12">
+				<h1>Browse</h1>
+
+				<h2>Find a movie and display its ratings</h2>
+				<p>To use wildcards - add a percent sign at the beginning or end or your search term to include any text</p>
+				<p>For example: &quot;%alien&quot; will give you any movie that ends in &quot;alien&quot;. &quot;alien%&quot; will give you any movie that starts with &quot;alien&quot;.</p><br/>
+
+				<div class="form-group">
+					<label class="mylabel-box">
+						<button onClick="browseSearch()">Search for:</button>
+					</label>
+					<input type="text" id="mname" class="myform-control" />
 				</div>
-				<div class="col-sm-10">
-					<h2>Find a movie and display its ratings</h2><br /><br />
-					<p>To use wildcards - add a percent sign at the beginning or end or your search term to include any text</p>
-					<p>For example: &quot;%alien&quot; will give you any movie that ends in &quot;alien&quot;. &quot;alien%&quot; will give you any movie that starts with &quot;alien&quot;.</p><br/>
+				<br />
 
-					<div class="form-group">
-						<label class="mylabel-box">
-							<button onClick="browseSearch()">Search for:</button>
-						</label>
-						<input type="text" id="mname" class="myform-control" />
-					</div>
-					<br />
+				<table class="table table-striped table-hover" id="browseTable">
+					<tbody>
+						<tr>
+							<th>Movie Name</th>
+							<th>Year</th>
+							<th>Rating</th>
+						</tr>
+					</tbody>
+				</table>
 
-					<table class="table table-striped table-hover" id="browseTable">
-						<tbody>
-							<tr>
-								<th>Movie Name</th>
-								<th>Year</th>
-								<th>Rating</th>
-							</tr>
-						</tbody>
-					</table>
-
-					<!-- this is where we show any messages - like more than 25 results found -->
-					<div id="browseMsg"></div>
+				<!-- this is where we show any messages - like more than 25 results found -->
+				<div id="browseMsg"></div>
 
 				</div>
 			</div>

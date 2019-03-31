@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark">
 		<a href="index.php" class="navbar-brand" id="navsplash">Diced Tomatoes</a>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -23,7 +23,7 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a onClick="openLogin()" style="cursor:pointer; cursor:hand;"><span id="logtxt">Login</span></a></li>
+				<li><a onClick="openLogin()" style="cursor:pointer; cursor:hand;" class="nav-link"><span id="logtxt">Login</span></a></li>
 			</ul>
 		</div>
 	</nav>

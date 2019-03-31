@@ -7,15 +7,14 @@
 
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-2">
-					<img src="images/dt100.png">
-				</div>
-				<div class="col-sm-10">
-					<h2>Splash</h2>
+				<div class="col-sm-12">
+					<h1>Diced Tomatoes</h1>
 					
-					<br /><br />
-					splash screen
-					<br />
+					<p>Welcome to <span class="redtxt">Diced Tomatoes</span>, your place to create, read, update, and delete movie reviews on the web!</p>
+
+					<p>Choose from the menu options above to view average ratings for any movie, view analytics, modify your own ratings*, or receive personalized recommendations*.</p>
+
+					<p><em>*login required</em></p>
 
 				</div>
 			</div>

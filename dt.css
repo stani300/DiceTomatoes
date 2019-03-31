@@ -1,3 +1,10 @@
+/* COLORS
+  red:        #e20b2c
+  light gray: #84817c
+  navy:       #0D1F2D
+  blue:       #255C99
+*/
+
 .loginmodal {
   display: none;
   /* Hidden by default */
@@ -66,18 +73,31 @@
   display: block;
 }
 
-/*table {
-  border-collapse: collapse;
-  width: 100%;
-  border: 3px solid black;
+.navbar {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background-color: #255C99;
 }
 
-th, td {
-  text-align: left;
-  padding: 8px;
-  border: 1px solid grey;
+.nav-item {
+  padding-left: 1rem;
 }
 
-tr:nth-child(even) {
-  background-color: #f2f2f2;
-}*/
+h1 {
+  margin-bottom: 2rem;
+  color: #0D1F2D;
+}
+
+.redtxt {
+  color: #e20b2c;
+}
+
+.btn-primary {
+  background-color: #255C99;
+  border-color: #255C99;
+}
+
+footer {
+  margin-top: 2rem;
+  padding-top: 0.5rem;
+}

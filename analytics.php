@@ -38,13 +38,10 @@ function initChart() {
 	<div id="analytics">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-2">
-					<img src="images/dt100.png">
-				</div>
-				<div class="col-sm-10">
-					<h2>Analyze Movie DB Parameters</h2>
-					<br /><br />
-					<p><b>This is the visualization feature</b></p>
+			<div class="col-sm-12">
+				<h1>Analytics</h1>
+
+					<p><strong>This is the visualization feature</strong></p>
 
 					<!-- placeholder for the chart to be created -->
 					<div id="chart"></div>
@@ -59,7 +56,7 @@ function initChart() {
 				<div class="col-sm-2"></div>
 				<div class="col-sm-5">
 					<br />
-					<p><b>Filter by:</b></p>
+					<p><strong>Filter by:</strong></p>
 					<ul>
 						<p>Budget: <select id="selBudget">
 								<option value="any">Any</option>
@@ -86,7 +83,7 @@ function initChart() {
 				</div>
 				<div class="col-sm-5">
 					<br />
-					<p><b>Parameter to chart:</b></p>
+					<p><strong>Parameter to chart:</strong></p>
 					<input type="radio" name="show" value="sales" checked="checked">Sales<br>
 					<input type="radio" name="show" value="budget">Budget <br>
 					<input type="radio" name="show" value="length">Length <br>

@@ -20,13 +20,10 @@ uid = 1;
 		<div id="recommendations">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-2">
-					<img src="images/dt100.png">
-				</div>
-				<div class="col-sm-10">
-					<h2>Find Movie Suggestions</h2>
-					<br /><br />
-					<br /><br />
+				<div class="col-sm-12">
+					<h1>Recommendations</h1>
+
+
 					<p>You are logged in as user: <b><span id="currUser2"></span></b></p>
 					<br />
 					<p>Based on your previous movie reviews, these are some movies that might appeal to you:</p>
