@@ -32,17 +32,29 @@
 		<div id="myModal" class="loginmodal">
 		<div class="modal-content">
 
-			<div class="LHead">Diced Tomatoes Login</div><br />
+			<div class="LHead"><strong>Diced Tomatoes Login</strong></div><br />
 
-			<div class="form-group"><label class="mylabel-box">User:</label><input type="text" name="User:" id="user" class="myform-control" /></div>
+			<form action="login.php" method="post">
 
-			<div class="form-group"><label class="mylabel-box">Password:</label><input type="password" name="Password:" id="pwd" class="myform-control" /></div>
+			<input type="hidden" name="location" value="rate.php">
 
-			<div class="mybtngrp">
-				<button id="LEnter" class="btn btn-primary mybtn" onclick="closeLogin()">ENTER</button>
-				<button id="LCancel" class="btn btn-danger mybtn" onclick="closeLogin()">CANCEL</button>
+			<div class="form-group">
+				<label class="mylabel-box">Username:</label>
+				<input type="text" required name="username" id="user" class="myform-control" />
 			</div>
 
+			<div class="form-group">
+				<label class="mylabel-box">Password:</label>
+				<input type="password" required name="password" id="pwd" class="myform-control" />
+			</div>
+
+			<div class="mybtngrp">
+				<input style="width: 100%;" type="submit" id="LEnter" class="btn btn-primary" value="Submit">
+				</form>
+				<button style="width: 100%;" id="LCancel" class="btn btn-danger" onclick="closeLogin()">Cancel</button>
+			</div>
+
+			
 			<div class="LLine" id="LReply"> </div>
 
 		</div>
