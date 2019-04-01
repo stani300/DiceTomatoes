@@ -25,13 +25,13 @@ uid = 1;
 
 					<?php
 						if (!isset( $_SESSION['logged_in'])) {
-					?>
 
 							if (!isset( $_SESSION['logged_in'])) {
 								echo "<p class='redtxt'>" . $_SESSION['err'] . "</p>";
 								unset($_SESSION['err']);
 							}
-
+					?>
+					
 							<p>You must be logged in to view this page.</p>
 							
 							<form action="login.php" method="post">
