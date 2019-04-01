@@ -58,10 +58,31 @@ uid = 1;
 
 						else {
 					?>
-							<p>You are logged in as user: <strong><span id="currUser2"></span></strong>></p>
+							<p>You are logged in as user: <strong><?php echo $_SESSION['critic_name']; ?></strong></p>
 							<p><a href="logout.php">Log out</a></p>
 							<br />
-							<p>Based on your previous movie reviews, these are some movies that might appeal to you:</p>
+
+							<p>Can't to decide what to watch? Let the movie recommendation algorithm suggest some movies you might like! Simply select a genre, and based on the past ratings you've submitted, it will recommend movies it thinks you might like!</p>
+
+							<h2>Select A Genre</h2>
+							
+							<form>
+								<div class="form-group">
+									<select name="all_genres">
+									<?php
+										/*while ($row0 = $query_result0->fetch_array(MYSQLI_ASSOC)) {
+											echo "<option value='" . $row0['genre_id'] . "'>" . $row0['genre_name'] . "<br>";
+										}*/
+									?>
+									</select>
+								</div>
+								
+								<input type="submit" class="btn btn-primary" value="Submit">
+							</form>
+							
+
+							<br><br>
+							<p>Based on your past movie ratings, here are some movies you might like!</p>
 
 							<table class="table table-striped table-hover" id="recTable">
 								<tbody>
