@@ -23,6 +23,41 @@ uid = 1;
 			<div class="col-sm-12">
 				<h1>Rate</h1>
 
+				<?php
+						if (!isset( $_SESSION['logged_in'])) {
+
+							if (!isset( $_SESSION['logged_in'])) {
+								echo "<p class='redtxt'>" . $_SESSION['err'] . "</p>";
+								unset($_SESSION['err']);
+							}
+					?>
+					
+							<p>You must be logged in to view this page.</p>
+							
+							<form action="login.php" method="post">
+
+							<input type="hidden" name="location" value="rate.php">
+
+							<div class="form-group">
+								<label class="mylabel-box">Username:</label>
+								<input type="text" name="username" required id="user" class="myform-control" />
+							</div>
+
+							<div class="form-group">
+								<label class="mylabel-box">Password:</label>
+								<input type="password" name="password" required id="pwd" class="myform-control" />
+							</div>
+
+							<div class="form-group">
+								<input type="submit" id="LEnter" class="btn btn-primary" value="Submit">
+							</div>
+							</form>
+
+					<?php
+						}
+
+						else {
+					?>
 
 				<p>You are logged in as user: <strong><span id="currUser"></span></strong></p>
 				<br />
@@ -57,7 +92,9 @@ uid = 1;
 				</table>
 
 				<div id="MTRMsg"></div>
-
+				<?php
+						}
+					?>
 				</div>
 			</div>
 		</div>
