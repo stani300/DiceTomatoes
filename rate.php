@@ -60,6 +60,7 @@ uid = 1;
 					?>
 
 				<p>You are logged in as user: <strong><span id="currUser"></span></strong></p>
+				<p><a href="logout.php">Log out</a></p>
 				<br />
 
 				<p><strong>Your existing ratings:</strong></p>

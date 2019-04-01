@@ -31,7 +31,7 @@ uid = 1;
 								unset($_SESSION['err']);
 							}
 					?>
-					
+
 							<p>You must be logged in to view this page.</p>
 							
 							<form action="login.php" method="post">
@@ -59,6 +59,7 @@ uid = 1;
 						else {
 					?>
 							<p>You are logged in as user: <strong><span id="currUser2"></span></strong>></p>
+							<p><a href="logout.php">Log out</a></p>
 							<br />
 							<p>Based on your previous movie reviews, these are some movies that might appeal to you:</p>
 
