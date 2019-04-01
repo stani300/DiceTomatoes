@@ -27,10 +27,13 @@
   $query = "SELECT * FROM critics WHERE username='" . $_POST['username'] . "' AND password='" . $_POST['password'] ."'";
 
   $query_result = mysqli_query($conn, $query);
-  $rowcount = mysqli_num_rows($result);
+  $rowcount = mysqli_num_rows($query_result);
 
   if ($rowcount > 0) {
     $_SESSION['logged_in'] = true;
+  }
+  else {
+    $_SESSION['err'] = "Sorry, that username or password was invalid.";
   }
 
   header('location:' . $_POST['location']);
