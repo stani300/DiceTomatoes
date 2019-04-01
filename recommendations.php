@@ -1,19 +1,5 @@
 <?php include 'templates/header.php';?>
 
-<script>
-// any startup stuff
-
-// this is a placeholder - fill in with the actual user name and id later
-user = "JOHN SMITH";
-uid = 1;
-
-// find the movies that have been rated by this user and display them
-  $(document).ready(function () {
-    $('#currUser2').text(user+" : "+uid);
-    recSearch ( uid );
-  })
-</script>
-
 <body>
 	<?php include 'templates/navbar.php';?>
 
@@ -64,21 +50,41 @@ uid = 1;
 
 							<p>Can't to decide what to watch? Let the movie recommendation algorithm suggest some movies you might like! Simply select a genre, and based on the past ratings you've submitted, it will recommend movies it thinks you might like!</p>
 
+							<?php
+								$servername = "127.0.0.1";
+								$username = "root";
+								$password = "database";
+								$database = 'diced_tomatoes';
+											
+								// Create connection
+								$conn = mysqli_connect($servername, $username, $password, $database);
+											
+								if (!$conn) {
+									$sdat[0]->msg = "Error: Unable to connect to MySQL: errno = " . mysqli_connect_errno() . ", error text = " .  mysqli_connect_error();
+									$sdat[0]->err = 1;
+									$jrtn = json_encode($sdat);
+									echo $jrtn;
+									exit;
+								};
+
+								$query0 = "SELECT * FROM genre ORDER BY genre_name";
+  							$query_result0 = mysqli_query($conn, $query0);
+
+								?>
+
 							<h2>Select A Genre</h2>
 							
-							<form>
 								<div class="form-group">
 									<select name="all_genres">
 									<?php
-										/*while ($row0 = $query_result0->fetch_array(MYSQLI_ASSOC)) {
+										while ($row0 = $query_result0->fetch_array(MYSQLI_ASSOC)) {
 											echo "<option value='" . $row0['genre_id'] . "'>" . $row0['genre_name'] . "<br>";
-										}*/
+										}
 									?>
 									</select>
 								</div>
 								
-								<input type="submit" class="btn btn-primary" value="Submit">
-							</form>
+								<button type="button" class="btn btn-primary" onClick="recSearch()">Get Recommendations</button>
 							
 
 							<br><br>
@@ -100,7 +106,15 @@ uid = 1;
 							<br />
 					<?php
 						}
+
+						mysqli_close($conn);
+
+						//$sdat[0]->err=0;
+						//$jrtn = json_encode($sdat);
+						
+						//echo $jrtn;
 					?>
+
 				</div>
 			</div>
 		</div>

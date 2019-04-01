@@ -23,11 +23,12 @@ function closeLogin() {
   $('#myModal').fadeOut(500);
 }
 
-function recSearch( uid ) {
+function recSearch( uid, gid ) {
 // this is the function where we take a string from the browse screen and look for matching movies
   jstr = JSON.stringify({
     "action": "recommendation",
-    "uid": uid
+    "uid": uid,
+    "gid": gid
   });
   // all packed up, let's go find it
   ajaxJCall("dt.php", jstr, recListUpdate);

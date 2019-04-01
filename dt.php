@@ -11,6 +11,7 @@
 	$password = "database";
 	$database = 'diced_tomatoes';
 
+	$sdat[0] = new stdClass();
 	$sdat[0]->err=0;
 
 	// Create connection
@@ -26,6 +27,7 @@
 		case "recommendation":
 			$sdat[0]->action = "recommendation";
 			$uid = $params->{'uid'};
+			$gid = $params->{'gid'};
 
 			// *** This is just a placeholder to show the screens - it just returns movies that include the string "cari"
 			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '%cari%' GROUP BY r.movie_id";
@@ -36,6 +38,7 @@
 
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
+				$sdat[$cnt] = new stdClass();
 				$sdat[$cnt]->id = $row['id'];
 				$sdat[$cnt]->name = $row['title'];
 				$sdat[$cnt]->year = substr($row['release_date'], 0, 4);
