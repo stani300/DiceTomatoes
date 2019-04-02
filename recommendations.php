@@ -53,7 +53,7 @@
 							<?php
 								$servername = "127.0.0.1";
 								$username = "root";
-								$password = "database";
+								$password = "UIUC411";
 								$database = 'diced_tomatoes';
 											
 								// Create connection
