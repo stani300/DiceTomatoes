@@ -31,7 +31,7 @@
 
   if ($rowcount > 0) {
     $_SESSION['logged_in'] = true;
-    $row0 = $query_result0->fetch_array(MYSQLI_ASSOC);
+    $row0 = $query_result->fetch_array(MYSQLI_ASSOC);
     $_SESSION['critic_id'] = $row0['critic_id'];
     $_SESSION['critic_name'] = $row0['critic_name'];
   }
