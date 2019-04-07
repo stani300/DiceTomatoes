@@ -24,10 +24,13 @@
 		$action = "fail";
 	};
 
+		$sdat[0]->uname = "JOHN WILLOUGHBY";
+		$sdat[0]->uid = 675;
+
 	switch ( $action ) {
 		case "login":
 			break;
-		case "getlog":
+		case "getuser":
 			$sdat[0]->uname = "John Willoughby";
 			$sdat[0]->uid = 675;
 			break;
@@ -39,9 +42,6 @@
 			$sdat[0]->errmsg = "unknown action";
 			break;
 	}
-
-	$sdat[0]->uname = "JOHN WILLOUGHBY";
-	$sdat[0]->uid = 675;
 
 mysqli_close($conn);
 
