@@ -23,7 +23,7 @@ function closeLogin() {
   $('#myModal').fadeOut(500);
 }
 
-function getuser () {
+function getUser () {
   jstr = JSON.stringify({
     "action": "getuser",
   });
