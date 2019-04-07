@@ -40,6 +40,9 @@
 			break;
 	}
 
+	$sdat[0]->uname = "JOHN WILLOUGHBY";
+	$sdat[0]->uid = 675;
+
 mysqli_close($conn);
 
 $jrtn = json_encode($sdat);
