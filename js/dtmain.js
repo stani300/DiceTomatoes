@@ -23,6 +23,20 @@ function closeLogin() {
   $('#myModal').fadeOut(500);
 }
 
+function getuser () {
+  jstr = JSON.stringify({
+    "action": "getuser",
+  });
+  // all packed up, let's go find it
+  ajaxJCall("jlog.php", jstr, setUser );
+}
+
+function setUser ( dat ) {
+    obj = JSON.parse(dat);
+    alert ( " user is " + obj[0].uname + " uid is " + obj[0].uid );
+
+}
+
 function recSearch( uid, gid ) {
 // this is the function where we take a string from the browse screen and look for matching movies
   jstr = JSON.stringify({
