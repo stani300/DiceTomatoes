@@ -10,6 +10,7 @@
 // find the movies that have been rated by this user and display them
   $(document).ready(function () {
     $('#currUser').text(user+" : "+uid);
+    getUser();
     getMyRatings( user );
   })
 </script>
