@@ -34,7 +34,6 @@ function getuser () {
 function setUser ( dat ) {
     obj = JSON.parse(dat);
     alert ( " user is " + obj[0].uname + " uid is " + obj[0].uid );
-
 }
 
 function recSearch( uid, gid ) {
