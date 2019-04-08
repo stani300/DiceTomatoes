@@ -3,8 +3,8 @@
 <script>
 
 // this is a placeholder - fill in with the actual user name and id later
- user = "JOHN SMITH";
- uid = 1;
+ user = "";
+ uid = 0;
 
 // find the movies that have been rated by this user and display them
   $(document).ready(function () {
@@ -22,7 +22,7 @@
 			<div class="row">
 			<div class="col-sm-12">
 				<h1>Rate</h1>
-        <p>You are logged in as: <span id="currUser"></span></p><br/>
+        <p id="yolo">You are logged in as: <span id="currUser"></span></p><br/>
 
 
 				<p><strong>Your existing ratings:</strong></p>

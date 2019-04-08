@@ -34,24 +34,15 @@
 
 			<div class="LHead"><strong>Diced Tomatoes Login</strong></div><br />
 
-			<form action="login.php" method="post">
+				<label class="mylabel-box">Account:</label>
+				<input type="text" name="account" id="acct" />
 
-			<input type="hidden" name="location" value="rate.php">
-
-			<div class="form-group">
-				<label class="mylabel-box">Username:</label>
-				<input type="text" required name="account" id="acct" class="myform-control" />
-			</div>
-
-			<div class="form-group">
 				<label class="mylabel-box">Password:</label>
-				<input type="password" required name="password" id="pwd" class="myform-control" />
-			</div>
+				<input type="password" name="password" id="pwd" />
 
 			<div class="mybtngrp">
-				<input style="width: 100%;" type="submit" id="LEnter" class="btn btn-primary" value="Submit" onclick="userLogin()">
-				</form>
-				<button style="width: 100%;" id="LCancel" class="btn btn-danger" onclick="closeLogin()">Cancel</button>
+				<button style="width: 100%;" class="btn btn-primary" onclick="userLogin()">Submit</button>
+				<button style="width: 100%;" class="btn btn-danger" onclick="closeLogin()">Cancel</button>
 			</div>
 
 
