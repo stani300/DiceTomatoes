@@ -86,7 +86,7 @@
 						$sdat[0]->showby = "Date";
 						$mindate = 1950;
 						$maxdate = 2020;
-						$query = 'SELECT SUBSTR(m.release_date,1,4) AS xdat, AVG(m.runtime) AS ydat FROM movies AS m WHERE  SUBSTR(m.release_date,1,4) > $mindate GROUP BY SUBSTR(m.release_date,1,4)';
+						$query = 'SELECT SUBSTR(m.release_date,1,4) AS xdat, AVG(m.runtime) AS ydat FROM movies AS m WHERE  SUBSTR(m.release_date,1,4) > ' . $mindate . ' GROUP BY SUBSTR(m.release_date,1,4)';
 					};
 					break;
 				case "revenue":
@@ -97,7 +97,7 @@
 						$query = 'SELECT m.language AS xdat, AVG(m.revenue) AS ydat FROM movies AS m GROUP BY m.language';
 					} else {
 						$sdat[0]->showby = "Date";
-						$query = 'SELECT SUBSTR(m.release_date,1,4) AS xdat, AVG(m.revenue) AS ydat FROM movies AS m  WHERE  SUBSTR(m.release_date,1,4) > $mindate GROUP BY SUBSTR(m.release_date,1,4)';
+						$query = 'SELECT SUBSTR(m.release_date,1,4) AS xdat, AVG(m.revenue) AS ydat FROM movies AS m GROUP BY SUBSTR(m.release_date,1,4)';
 					};
 					break;
 				}
