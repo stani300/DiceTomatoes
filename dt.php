@@ -84,14 +84,19 @@
 						$query = 'SELECT m.language AS xdat, AVG(m.runtime) AS ydat FROM movies AS m GROUP BY m.language';
 					} else {
 						$sdat[0]->showby = "Date";
-						$query = 'SELECT m.release_date AS xdat, AVG(m.runtime) AS ydat FROM movies AS m GROUP BY m.release_date';
+						$query = 'SELECT SUBSTR(m.release_date,1,4) AS xdat, AVG(m.runtime) AS ydat FROM movies AS m GROUP BY SUBSTR(m.release_date,1,4)';
 					};
 					break;
 				case "revenue":
 				default:
 					$sdat[0]->show = "Average Revenue";
-					if ( $showby == "lang" ) { $sdat[0]->showby = "Language"; } else { $sdat[0]->showby="Date"; };
-					$query = 'SELECT m.language AS xdat, AVG(m.revenue) AS ydat FROM movies AS m GROUP BY m.language';
+					if ( $showby == "lang" ) {
+						$sdat[0]->showby = "Language";
+						$query = 'SELECT m.language AS xdat, AVG(m.revenue) AS ydat FROM movies AS m GROUP BY m.language';
+					} else {
+						$sdat[0]->showby = "Date";
+						$query = 'SELECT SUBSTR(m.release_date,1,4) AS xdat, AVG(m.revenue) AS ydat FROM movies AS m GROUP BY SUBSTR(m.release_date,1,4)';
+					};
 					break;
 				}
 
