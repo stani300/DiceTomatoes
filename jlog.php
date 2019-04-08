@@ -40,6 +40,7 @@
 			$sdat[0]->uname = $row0['critic_name'];
 		}
 		else {
+			$sdat[0]->errmsg = "invalid uname/pwd";
 			$_SESSION['err'] = "Sorry, that username or password was invalid.";
 		}
 			break;
