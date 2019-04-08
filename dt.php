@@ -86,9 +86,9 @@
 					// find data
 					SELECT m.language, AVG(m.runtime) AS avg_runtime FROM movies AS m GROUP BY m.language;
 
-					$query_result = mysqli_query($conn, $query);
+//					$query_result = mysqli_query($conn, $query);
 
-					$cnt = 0;
+//					$cnt = 0;
 
 					// then for each row of data, extract the title and any other info we need
 //					while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 10)  ) {
