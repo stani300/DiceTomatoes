@@ -162,6 +162,7 @@ function analyticsSearch () {
     "language": language,
     "genre": genre
   });
+  alert ( "searching" );
 
   // all packed up, let's go find it
   ajaxJCall("dt.php", jstr, analyticsUpdate);

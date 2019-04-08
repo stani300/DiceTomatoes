@@ -85,34 +85,23 @@
 				case "sales":
 					$sdat[0]->radio = "sales";
 					// find data
-					SELECT m.language, AVG(m.runtime) AS avg_runtime FROM movies AS m GROUP BY m.language;
-					//$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id GROUP BY r.movie_id";
+//					SELECT m.language, AVG(m.runtime) AS avg_runtime FROM movies AS m GROUP BY m.language;
 
-					//$query = "SELECT * FROM movies WHERE title LIKE '".$target."' ";
+//					$query_result = mysqli_query($conn, $query);
 
-					$query_result = mysqli_query($conn, $query);
-
-					$cnt = 0;
+//					$cnt = 0;
 
 					// then for each row of data, extract the title and any other info we need
-					while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 10)  ) {
-						$sdat[$cnt]->label = $row['language'];
-						$sdat[$cnt]->dat = $row['avg_runtime'];
-					}
+//					while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 10)  ) {
+//						$sdat[$cnt]->label = $row['language'];
+//						$sdat[$cnt]->dat = $row['avg_runtime'];
+//					}
 					break;
 				default:
 					// now go to the db and find the data
 					$sdat[0]->radio = "not sales";
 
 					break;
-			}
-
-			$startyear = rand(1970,2000);
-			$dcnt = rand(5,10);
-			// or fake it for now with random values
-			for ( $i=1; $i<$dcnt; $i++ ) {
-				$sdat[$i]->val = rand(5,20);
-				$sdat[$i]->name = $startyear + $i;
 			}
 
 			// pass back the search parameters just for testing
