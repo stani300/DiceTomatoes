@@ -24,11 +24,14 @@ function closeLogin() {
 }
 
 function userLogin () {
+
+  alert ( "acct " + $("#acct").text() );
   jstr = JSON.stringify({
     "action": "login",
     "acct": "johnw6@illinois.edu",
     "pwd": "johnw6"
   });
+
   // all packed up, let's go find it
   ajaxJCall("jlog.php", jstr, setUser );
 }

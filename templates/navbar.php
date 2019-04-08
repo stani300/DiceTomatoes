@@ -40,7 +40,7 @@
 
 			<div class="form-group">
 				<label class="mylabel-box">Username:</label>
-				<input type="text" required name="username" id="user" class="myform-control" />
+				<input type="text" required name="account" id="acct" class="myform-control" />
 			</div>
 
 			<div class="form-group">
@@ -49,12 +49,12 @@
 			</div>
 
 			<div class="mybtngrp">
-				<input style="width: 100%;" type="submit" id="LEnter" class="btn btn-primary" value="Submit">
+				<input style="width: 100%;" type="submit" id="LEnter" class="btn btn-primary" value="Submit" onclick="userLogin()">
 				</form>
 				<button style="width: 100%;" id="LCancel" class="btn btn-danger" onclick="closeLogin()">Cancel</button>
 			</div>
 
-			
+
 			<div class="LLine" id="LReply"> </div>
 
 		</div>
