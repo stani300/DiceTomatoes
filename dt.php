@@ -73,23 +73,22 @@
 			$sdat[0]->action = "analytics";
 			$radio = $params->{'radio'}; // what data are we charting?
 			// the rest of these are individual constraints on the search
-			$budget = $params->{'budget'};
-			$length = $params->{'length'};
-			$language = $params->{'language'};
-			$genre = $params->{'genre'};
+//			$budget = $params->{'budget'};
+//			$length = $params->{'length'};
+//			$language = $params->{'language'};
+//			$genre = $params->{'genre'};
 
 			$sdat[0]->radio = $radio;
 
 			switch ( $radio ) {
 				// sales budget length rating
 				case "sales":
-					$sdat[0]->radio = "sales";
 					// find data
-//					SELECT m.language, AVG(m.runtime) AS avg_runtime FROM movies AS m GROUP BY m.language;
+					SELECT m.language, AVG(m.runtime) AS avg_runtime FROM movies AS m GROUP BY m.language;
 
-//					$query_result = mysqli_query($conn, $query);
+					$query_result = mysqli_query($conn, $query);
 
-//					$cnt = 0;
+					$cnt = 0;
 
 					// then for each row of data, extract the title and any other info we need
 //					while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 10)  ) {
