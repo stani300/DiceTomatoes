@@ -2,14 +2,13 @@
 
 <script>
 
-// this is a placeholder - fill in with the actual user name and id later
- user = "";
+ user = <?php if (!isset( $_SESSION['logged_in'])) {echo $_SESSION['critic_name']; } ?> ;
  uid = 0;
  jpage="rate";
 
 // find the movies that have been rated by this user and display them
   $(document).ready(function () {
-//    $('#currUser').text(user+" : "+uid);
+    alert ( "user name is " + user );
     getUser();
     $('#logtxt').fadeIn(100);
   })

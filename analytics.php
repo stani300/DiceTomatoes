@@ -9,7 +9,7 @@
 function initChart() {
   $("#chart").kendoChart({
     title: {
-      text: "Movie Sales"
+      text: ""
     },
     legend: {
       position: "bottom"
