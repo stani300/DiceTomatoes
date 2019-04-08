@@ -177,8 +177,8 @@ alert ( "analytics return: " + dat );
     var i;
     // remember obj[0] is the return meta stuff, the data array starts at obj[1]
     for (i = 1; i < obj.length; i++) {
-      cdat.push(obj[i].val);
-      ccat.push(obj[i].name);
+      cdat.push(obj[i].dat);
+      ccat.push(obj[i].label);
     }
     // update kendoChart
       $("#chart").kendoChart({
