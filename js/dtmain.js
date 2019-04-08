@@ -150,11 +150,8 @@ function analyticsSearch () {
 
   var show = $("input[name='show']:checked").val();
   var showby = $("input[name='showby']:checked").val();
-
-//  var budget =  $("#selBudget option:selected").text();
-//  var length =  $("#selLength option:selected").text();
   var minYr =  $("#selMinYr option:selected").text();
-//  var genre =  $("#selGenre option:selected").text();
+  
   var jstr = JSON.stringify({
     "action": "analytics",
     "show": show,

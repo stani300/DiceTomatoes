@@ -64,9 +64,6 @@ function initChart() {
                 <option value="1950">1950</option>
 								<option value="2000">2000</option>
 							</select></p>
-						<p>Genre: <select id="selGenre">
-								<option value="any">Any</option>
-							</select></p>
 					</ul>
 					<br />
 				</div>
