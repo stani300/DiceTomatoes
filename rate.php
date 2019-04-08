@@ -23,7 +23,7 @@
 			<div class="row">
 			<div class="col-sm-12">
 				<h1>Rate</h1>
-        You are logged in as: <span id="currUser"></span><br/>
+        <p>You are logged in as: <span id="currUser"></span></p><br/>
 
 
 				<p><strong>Your existing ratings:</strong></p>

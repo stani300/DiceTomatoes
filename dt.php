@@ -78,14 +78,19 @@
 			$language = $params->{'language'};
 			$genre = $params->{'genre'};
 
-			// pass back the search parameters just for testing
 			$sdat[0]->radio = $radio;
-			$sdat[0]->budget = $budget;
-			$sdat[0]->length = $length;
-			$sdat[0]->language = $language;
-			$sdat[0]->genre = $genre;
 
-			// now go to the db and find the data
+			switch ( $radio ) {
+				// sales budget length rating
+				case "sales":
+					$sdat[0]->radio = "sales";
+					break;
+				default:
+					// now go to the db and find the data
+					$sdat[0]->radio = "not sales";
+
+					break;
+			}
 
 			$startyear = rand(1970,2000);
 			$dcnt = rand(5,10);
@@ -94,6 +99,12 @@
 				$sdat[$i]->val = rand(5,20);
 				$sdat[$i]->name = $startyear + $i;
 			}
+
+			// pass back the search parameters just for testing
+			$sdat[0]->budget = $budget;
+			$sdat[0]->length = $length;
+			$sdat[0]->language = $language;
+			$sdat[0]->genre = $genre;
 
 			break;
 		case "getRatings":
