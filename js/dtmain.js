@@ -25,7 +25,6 @@ function closeLogin() {
 
 function userLogin () {
 
-  alert ( "checking " + $('#acct').val() + " - " + $('#pwd').val() );
   jstr = JSON.stringify({
     "action": "login",
     "acct": $('#acct').val(),
@@ -45,7 +44,6 @@ function getUser () {
 }
 
 function setUser ( dat ) {
-  alert ( "set user returns " + dat );
     obj = JSON.parse(dat);
     user = obj[0].uname;
     uid = obj[0].uid;
