@@ -81,15 +81,16 @@
 					$sdat[0]->show = "Average Length";
 					if ( $showby == "lang" ) {
 						$sdat[0]->showby = "Language";
+						$query = 'SELECT m.language AS xdat, AVG(m.runtime) AS ydat FROM movies AS m GROUP BY m.language';
 					} else {
 						$sdat[0]->showby = "Date";
+						$query = 'SELECT m.release_date AS xdat, AVG(m.runtime) AS ydat FROM movies AS m GROUP BY m.release_date';
 					};
-					$query = 'SELECT m.language AS xdat, AVG(m.runtime) AS ydat FROM movies AS m GROUP BY m.language';
 					break;
 				case "revenue":
 				default:
 					$sdat[0]->show = "Average Revenue";
-//					if ( $showby == "lang"; ) { $sdat[0]->showby = "Language";} else { $sdat[0]->showby="Date";}
+					if ( $showby == "lang" ) { $sdat[0]->showby = "Language"; } else { $sdat[0]->showby="Date"; };
 					$query = 'SELECT m.language AS xdat, AVG(m.revenue) AS ydat FROM movies AS m GROUP BY m.language';
 					break;
 				}
@@ -98,7 +99,7 @@
 
 				$cnt = 0;
 				// then for each row of data, extract the info we need
-				while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 40)  ) {
+				while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 100)  ) {
 					$sdat[$cnt]->xdat = $row['xdat'];
 					$sdat[$cnt]->ydat = $row['ydat'];
 				}
