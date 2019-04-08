@@ -153,12 +153,13 @@ function analyticsSearch () {
 
 //  var budget =  $("#selBudget option:selected").text();
 //  var length =  $("#selLength option:selected").text();
-//  var language =  $("#selLanguage option:selected").text();
+  var minYr =  $("#selMinYr option:selected").text();
 //  var genre =  $("#selGenre option:selected").text();
   var jstr = JSON.stringify({
     "action": "analytics",
     "show": show,
-    "showby": showby
+    "showby": showby,
+    "minYr": minYr
   });
 
   // all packed up, let's go find it

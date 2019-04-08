@@ -43,8 +43,6 @@ function initChart() {
 			<div class="col-sm-12">
 				<h1>Analytics</h1>
 
-					<p><strong>This is the visualization feature</strong></p>
-
 					<!-- placeholder for the chart to be created -->
 					<div id="chart"></div>
 
@@ -60,8 +58,11 @@ function initChart() {
 					<br />
 					<p><strong>Filter by:</strong></p>
 					<ul>
-						<p>Length: <select id="selLength">
-								<option value="any">Any</option>
+						<p>Release after: <select id="selMinYr">
+								<option value="1850">1850</option>
+                <option value="1900">1900</option>
+                <option value="1950">1950</option>
+								<option value="2000">2000</option>
 							</select></p>
 						<p>Genre: <select id="selGenre">
 								<option value="any">Any</option>
