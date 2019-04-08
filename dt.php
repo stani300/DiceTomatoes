@@ -84,17 +84,17 @@
 				// sales budget length rating
 				case "sales":
 					// find data
-//					SELECT m.language, AVG(m.runtime) AS avg_runtime FROM movies AS m GROUP BY m.language;
+					$query = SELECT m.language, AVG(m.runtime) AS avg_runtime FROM movies AS m GROUP BY m.language;
 
-//					$query_result = mysqli_query($conn, $query);
+					$query_result = mysqli_query($conn, $query);
 
-//					$cnt = 0;
+					$cnt = 0;
 
 					// then for each row of data, extract the title and any other info we need
-//					while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 10)  ) {
-//						$sdat[$cnt]->label = $row['language'];
-//						$sdat[$cnt]->dat = $row['avg_runtime'];
-//					}
+					while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 10)  ) {
+						$sdat[$cnt]->label = $row['language'];
+						$sdat[$cnt]->dat = $row['avg_runtime'];
+					}
 					break;
 				default:
 					// now go to the db and find the data
@@ -102,12 +102,6 @@
 
 					break;
 			}
-
-			// pass back the search parameters just for testing
-			$sdat[0]->budget = $budget;
-			$sdat[0]->length = $length;
-			$sdat[0]->language = $language;
-			$sdat[0]->genre = $genre;
 
 			break;
 		case "getRatings":
