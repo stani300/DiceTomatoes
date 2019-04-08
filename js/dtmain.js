@@ -25,11 +25,11 @@ function closeLogin() {
 
 function userLogin () {
 
-  alert ( "acct " + $('#acct').val() );
+  alert ( "checking " + $('#acct').val() + " - " $('#pwd').val());
   jstr = JSON.stringify({
     "action": "login",
-    "acct": "johnw6@illinois.edu",
-    "pwd": "johnw6"
+    "acct": $('#acct').val(),
+    "pwd": $('#pwd').val()
   });
 
   // all packed up, let's go find it
