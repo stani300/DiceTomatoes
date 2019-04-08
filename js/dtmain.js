@@ -148,19 +148,17 @@ function browseListUpdate(dat) {
 
 function analyticsSearch () {
 
-  var radioValue = $("input[name='show']:checked").val();
+  var show = $("input[name='show']:checked").val();
+  var showby = $("input[name='showby']:checked").val();
 
-  var budget =  $("#selBudget option:selected").text();
-  var length =  $("#selLength option:selected").text();
-  var language =  $("#selLanguage option:selected").text();
-  var genre =  $("#selGenre option:selected").text();
+//  var budget =  $("#selBudget option:selected").text();
+//  var length =  $("#selLength option:selected").text();
+//  var language =  $("#selLanguage option:selected").text();
+//  var genre =  $("#selGenre option:selected").text();
   var jstr = JSON.stringify({
     "action": "analytics",
-    "radio": radioValue,
-    "budget": budget,
-    "length": length,
-    "language": language,
-    "genre": genre
+    "show": show,
+    "showby": showby
   });
 
   // all packed up, let's go find it

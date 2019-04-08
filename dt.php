@@ -71,45 +71,33 @@
 			break;
 		case "analytics":
 			$sdat[0]->action = "analytics";
-			$radio = $params->{'radio'}; // what data are we charting?
+			$show = $params->{'show'}; // what data are we charting?
+			$showby = $params->{'showby'}; // how are we charting?
 
-			$sdat[0]->radio = $radio;
+			$sdat[0]->show = $show;
+			$sdat[0]->showby = $showby;
 
-			switch ( $radio ) {
+			switch ( $show ) {
 				case "length":
-					// find data
-								$sdat[0]->radio = "Average Length";
-					$query = 'SELECT m.language, AVG(m.runtime) AS avg_runtime FROM movies AS m GROUP BY m.language';
-
-					$query_result = mysqli_query($conn, $query);
-
-					$cnt = 0;
-
-					// then for each row of data, extract the info we need
-					while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 40)  ) {
-						$sdat[$cnt]->label = $row['language'];
-						$sdat[$cnt]->dat = $row['avg_runtime'];
-					}
+					$sdat[0]->radio = "Average Length";
+					$query = 'SELECT m.language AS xdat, AVG(m.runtime) AS ydat FROM movies AS m GROUP BY m.language';
 					break;
 				case "revenue":
-						// find data
-						$sdat[0]->radio = "Average Revenue";
-						$query = 'SELECT m.language, AVG(m.revenue) AS avg_revenue FROM movies AS m GROUP BY m.language';
-
-						$query_result = mysqli_query($conn, $query);
-
-						$cnt = 0;
-
-						// then for each row of data, extract the info we need
-						while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 40)  ) {
-							$sdat[$cnt]->label = $row['language'];
-							$sdat[$cnt]->dat = $row['avg_revenue'];
-						}
-						break;
+					$sdat[0]->radio = "Average Revenue";
+					$query = 'SELECT m.language AS xdat, AVG(m.revenue) AS ydat FROM movies AS m GROUP BY m.language';
+					break;
 				default:
-					// now go to the db and find the data
 					$sdat[0]->radio = "not length";
 					break;
+					
+				$query_result = mysqli_query($conn, $query);
+
+				$cnt = 0;
+				// then for each row of data, extract the info we need
+				while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 40)  ) {
+					$sdat[$cnt]->label = $row['xdat'];
+					$sdat[$cnt]->dat = $row['ydat'];
+				}
 			}
 
 			break;
