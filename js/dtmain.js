@@ -46,12 +46,14 @@ function getUser () {
 
 function setUser ( dat ) {
     obj = JSON.parse(dat);
-    user = obj[0].uname;
-    uid = obj[0].uid;
-    if ( user != "" ) {
-      $('#currUser').text("You are logged in as : "+user);
-      getMyRatings( user );
-      $('#rateBlock').fadeIn(100);
+    if ( jpage == "rate" ) {
+      user = obj[0].uname;
+      uid = obj[0].uid;
+      if ( user != "" ) {
+        $('#currUser').text("You are logged in as : "+user);
+        getMyRatings( user );
+        $('#rateBlock').fadeIn(100);
+      }
     }
 }
 

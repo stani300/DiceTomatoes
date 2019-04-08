@@ -5,6 +5,7 @@
 // this is a placeholder - fill in with the actual user name and id later
  user = "";
  uid = 0;
+ jpage="rate";
 
 // find the movies that have been rated by this user and display them
   $(document).ready(function () {
