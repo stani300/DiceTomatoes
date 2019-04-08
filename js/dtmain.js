@@ -49,7 +49,7 @@ function setUser ( dat ) {
     user = obj[0].uname;
     uid = obj[0].uid;
     if ( user != "" ) {
-      $('#currUser').text(user+" : "+uid);
+      $('#currUser').text("You are logged in as : "+user+" : "+uid);
       getMyRatings( user );
       $('#rateBlock').fadeIn(100);
     }

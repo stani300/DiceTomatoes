@@ -16,14 +16,14 @@
 <body>
 	<?php include 'templates/navbar.php';?>
 
-  <div id="rateBlock" class="rhidden">
-
 	<div id="rate">
 		<div class="container">
 			<div class="row">
 			<div class="col-sm-12">
 				<h1>Rate</h1>
-        <p>You are logged in as: <span id="currUser"></span></p><br/>
+        <p><span id="currUser">You are not logged in</span></p><br/>
+
+  <div id="rateBlock" class="rhidden">
 
 				<p><strong>Your existing ratings:</strong></p>
 
@@ -60,12 +60,13 @@
 				</table>
 
 				<div id="MTRMsg"></div>
+
+      </div>
 				</div>
 			</div>
 		</div>
 	</div>
 
-</div>
 
 </body>
 
