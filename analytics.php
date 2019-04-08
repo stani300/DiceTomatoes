@@ -18,7 +18,8 @@ function initChart() {
       type: "line"
     },
     series: [{
-      data: [15.7, 16.7, 20, 23.5, 26.6]
+      // data: [15.7, 16.7, 20, 23.5, 26.6]
+      data: []
     }],
     valueAxis: {
       labels: {

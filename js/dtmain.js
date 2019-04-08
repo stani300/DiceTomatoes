@@ -169,7 +169,7 @@ function analyticsSearch () {
 }
 
 function analyticsUpdate ( dat ) {
-
+alert ( "analytics return: " + dat );
     obj = JSON.parse(dat);
     var cdat = [];
     var ccat = [];

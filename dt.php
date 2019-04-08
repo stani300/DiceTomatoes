@@ -84,6 +84,21 @@
 				// sales budget length rating
 				case "sales":
 					$sdat[0]->radio = "sales";
+					// find data
+					SELECT m.language, AVG(m.runtime) AS avg_runtime FROM movies AS m GROUP BY m.language;
+					//$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id GROUP BY r.movie_id";
+
+					//$query = "SELECT * FROM movies WHERE title LIKE '".$target."' ";
+
+					$query_result = mysqli_query($conn, $query);
+
+					$cnt = 0;
+
+					// then for each row of data, extract the title and any other info we need
+					while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 10)  ) {
+						$sdat[$cnt]->label = $row['language'];
+						$sdat[$cnt]->dat = $row['avg_runtime'];
+					}
 					break;
 				default:
 					// now go to the db and find the data
