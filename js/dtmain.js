@@ -33,7 +33,7 @@ function getUser () {
 
 function setUser ( dat ) {
     obj = JSON.parse(dat);
-    user = onj[0].uname;
+    user = obj[0].uname;
     uid = obj[0].uid;
     $('#currUser').text(user+" : "+uid);
 }
