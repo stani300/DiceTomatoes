@@ -2,7 +2,8 @@
 
 <script>
 
- user = <?php if (!isset( $_SESSION['logged_in'])) {echo $_SESSION['critic_name']; } ?> ;
+// user = <?php if (!isset( $_SESSION['logged_in'])) {echo $_SESSION['critic_name']; } ?> ;
+  user = "";
  uid = 0;
  jpage="rate";
 
