@@ -23,7 +23,7 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a onClick="openLogin()" style="cursor:pointer; cursor:hand;" class="nav-link"><span id="logtxt">Login</span></a></li>
+				<li><a onClick="openLogin()" style="cursor:pointer; cursor:hand;" class="nav-link"><span id="logtxt" class="rhidden">Login</span></a></li>
 			</ul>
 		</div>
 	</nav>

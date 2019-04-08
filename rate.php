@@ -11,6 +11,7 @@
   $(document).ready(function () {
 //    $('#currUser').text(user+" : "+uid);
     getUser();
+    $('#logtxt').fadeIn(100);
   })
 </script>
 
