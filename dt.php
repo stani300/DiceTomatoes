@@ -82,22 +82,20 @@
 					$query = 'SELECT m.language AS xdat, AVG(m.runtime) AS ydat FROM movies AS m GROUP BY m.language';
 					break;
 				case "revenue":
+				default:
 					$sdat[0]->show = "Average Revenue";
 					$query = 'SELECT m.language AS xdat, AVG(m.revenue) AS ydat FROM movies AS m GROUP BY m.language';
 					break;
-				default:
-					$sdat[0]->radio = "not length";
-					break;
+				}
 
 				$query_result = mysqli_query($conn, $query);
 
 				$cnt = 0;
 				// then for each row of data, extract the info we need
 				while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 40)  ) {
-					$sdat[$cnt]->label = $row['xdat'];
-					$sdat[$cnt]->dat = $row['ydat'];
+					$sdat[$cnt]->xdat = $row['xdat'];
+					$sdat[$cnt]->ydat = $row['ydat'];
 				}
-			}
 
 			break;
 		case "getRatings":
