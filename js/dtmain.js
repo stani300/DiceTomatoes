@@ -25,7 +25,7 @@ function closeLogin() {
 
 function userLogin () {
 
-  alert ( "checking " + $('#acct').val() + " - " $('#pwd').val());
+  alert ( "checking " + $('#acct').val() + " - " + $('#pwd').val() );
   jstr = JSON.stringify({
     "action": "login",
     "acct": $('#acct').val(),
