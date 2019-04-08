@@ -42,6 +42,8 @@
 		else {
 			$sdat[0]->errmsg = "invalid uname/pwd";
 			$_SESSION['err'] = "Sorry, that username or password was invalid.";
+			$sdat[0]->uname = "";
+			$sdat[0]->uid = "";
 		}
 			break;
 		case "getuser":

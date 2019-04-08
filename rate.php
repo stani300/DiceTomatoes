@@ -17,13 +17,14 @@
 <body>
 	<?php include 'templates/navbar.php';?>
 
+  <div id="rateBlock">
+
 	<div id="rate">
 		<div class="container">
 			<div class="row">
 			<div class="col-sm-12">
 				<h1>Rate</h1>
-        <p id="yolo">You are logged in as: <span id="currUser"></span></p><br/>
-
+        <p>You are logged in as: <span id="currUser"></span></p><br/>
 
 				<p><strong>Your existing ratings:</strong></p>
 
@@ -64,6 +65,8 @@
 			</div>
 		</div>
 	</div>
+
+</div>
 
 </body>
 
