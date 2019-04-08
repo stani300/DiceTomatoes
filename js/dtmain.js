@@ -23,6 +23,16 @@ function closeLogin() {
   $('#myModal').fadeOut(500);
 }
 
+function userLogin () {
+  jstr = JSON.stringify({
+    "action": "login",
+    "acct": "johnw6@illinois.edu",
+    "pwd": "johnw6"
+  });
+  // all packed up, let's go find it
+  ajaxJCall("jlog.php", jstr, setUser );
+}
+
 function getUser () {
   jstr = JSON.stringify({
     "action": "getuser",
@@ -32,6 +42,7 @@ function getUser () {
 }
 
 function setUser ( dat ) {
+  alert ( "set user returns " + dat );
     obj = JSON.parse(dat);
     user = obj[0].uname;
     uid = obj[0].uid;
@@ -151,7 +162,7 @@ function analyticsSearch () {
   var show = $("input[name='show']:checked").val();
   var showby = $("input[name='showby']:checked").val();
   var minYr =  $("#selMinYr option:selected").text();
-  
+
   var jstr = JSON.stringify({
     "action": "analytics",
     "show": show,

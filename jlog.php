@@ -4,8 +4,8 @@
 	$params = json_decode ( $str_json );
 
 	$action = $params->{'action'};
-	$uname = $params->{'uname'};
-	$pwd = $params->{'pwd'};
+	$uacct = $params->{'acct'};
+	$upwd = $params->{'pwd'};
 
 	$servername = "127.0.0.1";
 	$username = "root";
@@ -24,11 +24,24 @@
 		$action = "fail";
 	};
 
-		$sdat[0]->uname = "JOHN WILLOUGHBY";
-		$sdat[0]->uid = 675;
-
 	switch ( $action ) {
 		case "login":
+		$query = "SELECT * FROM critics WHERE username='" . $uacct . "' AND password='" . $upwd ."'";
+
+		$query_result = mysqli_query($conn, $query);
+		$rowcount = mysqli_num_rows($query_result);
+
+		if ($rowcount > 0) {
+//			$_SESSION['logged_in'] = true;
+			$row0 = $query_result->fetch_array(MYSQLI_ASSOC);
+//			$_SESSION['critic_id'] = $row0['critic_id'];
+//			$_SESSION['critic_name'] = $row0['critic_name'];
+			$sdat[0]->uid = $row0['critic_id'];
+			$sdat[0]->uname = $row0['critic_name'];
+		}
+		else {
+			$_SESSION['err'] = "Sorry, that username or password was invalid.";
+		}
 			break;
 		case "getuser":
 			if (isset( $_SESSION['logged_in'])) {
