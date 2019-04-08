@@ -39,16 +39,7 @@ function userLogin () {
     "acct": $('#facct').val(),
     "pwd": $('#fpwd').val()
   });
-
-closeLogin();
-  // all packed up, let's go find it
-  ajaxJCall("jlog.php", jstr, setUser );
-}
-
-function getUser () {
-  jstr = JSON.stringify({
-    "action": "getuser",
-  });
+  closeLogin();
   // all packed up, let's go find it
   ajaxJCall("jlog.php", jstr, setUser );
 }

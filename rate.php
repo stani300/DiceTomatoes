@@ -2,15 +2,12 @@
 
 <script>
 
-// user = <?php if (!isset( $_SESSION['logged_in'])) {echo $_SESSION['critic_name']; } ?> ;
   user = "";
- uid = 0;
- jpage="rate";
+  uid = 0;
+  jpage="rate";
 
 // find the movies that have been rated by this user and display them
   $(document).ready(function () {
-    alert ( "user name is " + <?php $_SESSION['critic_name'] ?> );
-    getUser();
     $('#logtxt').fadeIn(100);
   })
 </script>
@@ -25,7 +22,7 @@
 				<h1>Rate</h1>
         <p><span id="currUser">You are not logged in</span></p><br/>
 
-  <div id="rateBlock" class="rhidden">
+        <div id="rateBlock" class="rhidden">
 
 				<p><strong>Your existing ratings:</strong></p>
 
