@@ -16,7 +16,16 @@ function setNavigation() {
 }
 
 function openLogin() {
+  lstate = $('#logtxt').val();
+  if ( lstate == "Login" ) {
     $('#myModal').fadeIn(500);
+  } else {
+    user = "";
+    uid = "";
+    $('#currUser').text("You are not logged in");
+    $('#rateBlock').fadeOut(100);
+    $('#logtxt').val("Login");
+  }
 }
 
 function closeLogin() {
@@ -53,6 +62,7 @@ function setUser ( dat ) {
         $('#currUser').text("You are logged in as : "+user);
         getMyRatings( user );
         $('#rateBlock').fadeIn(100);
+        $('#logtxt').val("Logout");
       }
     }
 }
