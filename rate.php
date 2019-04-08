@@ -16,7 +16,7 @@
 <body>
 	<?php include 'templates/navbar.php';?>
 
-  <div id="rateBlock">
+  <div id="rateBlock" class="rhidden">
 
 	<div id="rate">
 		<div class="container">

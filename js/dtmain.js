@@ -31,6 +31,7 @@ function userLogin () {
     "pwd": $('#pwd').val()
   });
 
+closeLogin();
   // all packed up, let's go find it
   ajaxJCall("jlog.php", jstr, setUser );
 }
@@ -50,6 +51,7 @@ function setUser ( dat ) {
     if ( user != "" ) {
       $('#currUser').text(user+" : "+uid);
       getMyRatings( user );
+      $('#rateBlock').fadeIn(100);
     }
 }
 

@@ -27,6 +27,11 @@
   text-align: center;
 }
 
+.rhidden {
+  display: none;
+}
+
+
 /* Modal Content Box xx */
 .modal-content {
   background-color: #fefefe;
@@ -37,6 +42,7 @@
   width: 600px;
   height: 300px;
 }
+
 
 .mylabel-box {
   width: 150px;
