@@ -84,7 +84,7 @@
 				// sales budget length rating
 				case "sales":
 					// find data
-					$query = SELECT m.language, AVG(m.runtime) AS avg_runtime FROM movies AS m GROUP BY m.language;
+					$query = 'SELECT m.language, AVG(m.runtime) AS avg_runtime FROM movies AS m GROUP BY m.language';
 
 					$query_result = mysqli_query($conn, $query);
 
@@ -99,7 +99,6 @@
 				default:
 					// now go to the db and find the data
 					$sdat[0]->radio = "not sales";
-
 					break;
 			}
 
