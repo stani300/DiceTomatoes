@@ -47,7 +47,10 @@ function setUser ( dat ) {
     obj = JSON.parse(dat);
     user = obj[0].uname;
     uid = obj[0].uid;
-    $('#currUser').text(user+" : "+uid);
+    if ( user != "" ) {
+      $('#currUser').text(user+" : "+uid);
+      getMyRatings( user );
+    }
 }
 
 function recSearch( uid, gid ) {
