@@ -9,7 +9,7 @@
 
 // find the movies that have been rated by this user and display them
   $(document).ready(function () {
-    alert ( "user name is " + user );
+    alert ( "user name is " + <?php echo $_SESSION['critic_name']; ?> );
     getUser();
     $('#logtxt').fadeIn(100);
   })
