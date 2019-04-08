@@ -79,11 +79,11 @@
 			switch ( $show ) {
 				case "length":
 					$sdat[0]->show = "Average Length";
-					if ( $showby == "lang"; ) {
-						$sdat[0]->showby = "Language";
-					} else {
-						$sdat[0]->showby = "Date";
-					};
+//					if ( $showby == "lang"; ) {
+//						$sdat[0]->showby = "Language";
+//					} else {
+//						$sdat[0]->showby = "Date";
+//					};
 					$query = 'SELECT m.language AS xdat, AVG(m.runtime) AS ydat FROM movies AS m GROUP BY m.language';
 					break;
 				case "revenue":
