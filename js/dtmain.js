@@ -46,7 +46,7 @@ function getUser () {
 
 function setUser ( dat ) {
     obj = JSON.parse(dat);
-    if ( jpage == "rate" ) {
+    if ( typeof jpage !== 'undefined' ) {
       user = obj[0].uname;
       uid = obj[0].uid;
       if ( user != "" ) {
