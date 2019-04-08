@@ -31,7 +31,12 @@
 		case "login":
 			break;
 		case "getuser":
-			$sdat[0]->uname = "John Willoughby";
+			if (isset( $_SESSION['logged_in'])) {
+				$uid = $_SESSION['critic_id'];
+				$sdat[0]->uname = $_SESSION['critic_name'];
+			} else {
+					$sdat[0]->uname = "John Willoughby";
+				};
 			$sdat[0]->uid = 675;
 			break;
 		case "logout":
