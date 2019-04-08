@@ -34,11 +34,15 @@
 
 			<div class="LHead"><strong>Diced Tomatoes Login</strong></div><br />
 
+			<div class="form-group">
 				<label class="mylabel-box">Account:</label>
 				<input type="text" name="account" id="acct" />
+			</div>
 
+			<div class="form-group">
 				<label class="mylabel-box">Password:</label>
 				<input type="password" name="password" id="pwd" />
+			</div>
 
 			<div class="mybtngrp">
 				<button style="width: 100%;" class="btn btn-primary" onclick="userLogin()">Submit</button>

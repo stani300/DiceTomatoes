@@ -32,10 +32,10 @@
 		$rowcount = mysqli_num_rows($query_result);
 
 		if ($rowcount > 0) {
-//			$_SESSION['logged_in'] = true;
+			$_SESSION['logged_in'] = true;
 			$row0 = $query_result->fetch_array(MYSQLI_ASSOC);
-//			$_SESSION['critic_id'] = $row0['critic_id'];
-//			$_SESSION['critic_name'] = $row0['critic_name'];
+			$_SESSION['critic_id'] = $row0['critic_id'];
+			$_SESSION['critic_name'] = $row0['critic_name'];
 			$sdat[0]->uid = $row0['critic_id'];
 			$sdat[0]->uname = $row0['critic_name'];
 		}
@@ -46,12 +46,13 @@
 			break;
 		case "getuser":
 			if (isset( $_SESSION['logged_in'])) {
-				$uid = $_SESSION['critic_id'];
+				$sdat[0]->uid = $_SESSION['critic_id'];
 				$sdat[0]->uname = $_SESSION['critic_name'];
 			} else {
 					$sdat[0]->uname = "";
+					$sdat[0]->uid = "";
 				};
-			$sdat[0]->uid = 675;
+
 			break;
 		case "logout":
 			break;
