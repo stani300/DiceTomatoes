@@ -27,8 +27,8 @@ function userLogin () {
 
   jstr = JSON.stringify({
     "action": "login",
-    "acct": $('#acct').val(),
-    "pwd": $('#pwd').val()
+    "acct": $('#facct').val(),
+    "pwd": $('#fpwd').val()
   });
 
 closeLogin();
@@ -49,7 +49,7 @@ function setUser ( dat ) {
     user = obj[0].uname;
     uid = obj[0].uid;
     if ( user != "" ) {
-      $('#currUser').text("You are logged in as : "+user+" : "+uid);
+      $('#currUser').text("You are logged in as : "+user);
       getMyRatings( user );
       $('#rateBlock').fadeIn(100);
     }

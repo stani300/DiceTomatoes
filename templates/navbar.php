@@ -36,12 +36,12 @@
 
 			<div class="form-group">
 				<label class="mylabel-box">Account:</label>
-				<input type="text" name="account" id="acct" value="johnw6@illinois.edu"/>
+				<input type="text" name="account" id="facct" value="johnw6@illinois.edu"/>
 			</div>
 
 			<div class="form-group">
 				<label class="mylabel-box">Password:</label>
-				<input type="password" name="password" id="pwd" value="johnw6"/>
+				<input type="password" name="password" id="fpwd" value="johnw6"/>
 			</div>
 
 			<div class="mybtngrp">
