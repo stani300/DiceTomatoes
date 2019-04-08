@@ -181,7 +181,7 @@ alert ( "analytics return: " + dat );
     // update kendoChart
       $("#chart").kendoChart({
         title: {
-          text: obj[0].radio
+          text: obj[0].show
         },
         legend: {
           position: "bottom"
