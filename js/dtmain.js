@@ -16,7 +16,7 @@ function setNavigation() {
 }
 
 function openLogin() {
-  lstate = $('#logtxt').val();
+  lstate = $('#logtxt').text();
   if ( lstate == "Login" ) {
     $('#myModal').fadeIn(500);
   } else {
@@ -24,7 +24,7 @@ function openLogin() {
     uid = "";
     $('#currUser').text("You are not logged in");
     $('#rateBlock').fadeOut(100);
-    $('#logtxt').val("Login");
+    $('#logtxt').text("Login");
   }
 }
 
@@ -62,7 +62,7 @@ function setUser ( dat ) {
         $('#currUser').text("You are logged in as : "+user);
         getMyRatings( user );
         $('#rateBlock').fadeIn(100);
-        $('#logtxt').val("Logout");
+        $('#logtxt').text("Logout");
       }
     }
 }
