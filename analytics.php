@@ -73,6 +73,7 @@ function initChart() {
 					<br />
 					<p><strong>Parameter to chart:</strong></p>
 					<input type="radio" name="show" value="length" checked="checked">Average Length<br>
+          <input type="radio" name="show" value="revenue">Average Revenue<br>
 					<br />
 					<button type="button" class="btn btn-primary" onClick="analyticsSearch()">Update</button>
 				</div>

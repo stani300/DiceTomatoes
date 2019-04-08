@@ -78,6 +78,7 @@
 			switch ( $radio ) {
 				case "length":
 					// find data
+								$sdat[0]->radio = "Average Length";
 					$query = 'SELECT m.language, AVG(m.runtime) AS avg_runtime FROM movies AS m GROUP BY m.language';
 
 					$query_result = mysqli_query($conn, $query);
@@ -85,11 +86,26 @@
 					$cnt = 0;
 
 					// then for each row of data, extract the info we need
-					while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 10)  ) {
+					while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 40)  ) {
 						$sdat[$cnt]->label = $row['language'];
 						$sdat[$cnt]->dat = $row['avg_runtime'];
 					}
 					break;
+				case "revenue":
+						// find data
+						$sdat[0]->radio = "Average Revenue";
+						$query = 'SELECT m.language, AVG(m.revenue) AS avg_revenue FROM movies AS m GROUP BY m.language';
+
+						$query_result = mysqli_query($conn, $query);
+
+						$cnt = 0;
+
+						// then for each row of data, extract the info we need
+						while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 40)  ) {
+							$sdat[$cnt]->label = $row['language'];
+							$sdat[$cnt]->dat = $row['avg_revenue'];
+						}
+						break;
 				default:
 					// now go to the db and find the data
 					$sdat[0]->radio = "not length";
