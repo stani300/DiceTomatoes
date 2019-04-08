@@ -49,7 +49,7 @@
 				$uid = $_SESSION['critic_id'];
 				$sdat[0]->uname = $_SESSION['critic_name'];
 			} else {
-					$sdat[0]->uname = "John Willoughby";
+					$sdat[0]->uname = "";
 				};
 			$sdat[0]->uid = 675;
 			break;
