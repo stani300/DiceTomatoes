@@ -74,22 +74,21 @@
 			$show = $params->{'show'}; // what data are we charting?
 			$showby = $params->{'showby'}; // how are we charting?
 
-			$sdat[0]->show = $show;
 			$sdat[0]->showby = $showby;
 
 			switch ( $show ) {
 				case "length":
-					$sdat[0]->radio = "Average Length";
+					$sdat[0]->show = "Average Length";
 					$query = 'SELECT m.language AS xdat, AVG(m.runtime) AS ydat FROM movies AS m GROUP BY m.language';
 					break;
 				case "revenue":
-					$sdat[0]->radio = "Average Revenue";
+					$sdat[0]->show = "Average Revenue";
 					$query = 'SELECT m.language AS xdat, AVG(m.revenue) AS ydat FROM movies AS m GROUP BY m.language';
 					break;
 				default:
 					$sdat[0]->radio = "not length";
 					break;
-					
+
 				$query_result = mysqli_query($conn, $query);
 
 				$cnt = 0;
