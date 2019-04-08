@@ -25,7 +25,7 @@ function closeLogin() {
 
 function userLogin () {
 
-  alert ( "acct " + $(''#acct').val() );
+  alert ( "acct " + $('#acct').val() );
   jstr = JSON.stringify({
     "action": "login",
     "acct": "johnw6@illinois.edu",
