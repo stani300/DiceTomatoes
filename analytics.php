@@ -27,7 +27,8 @@ function initChart() {
       }
     },
     categoryAxis: {
-      categories: [2014, 2015, 2016, 2017, 2018]
+//      categories: [2014, 2015, 2016, 2017, 2018]
+      categories: []
     }
   });
 }
@@ -59,25 +60,11 @@ function initChart() {
 					<br />
 					<p><strong>Filter by:</strong></p>
 					<ul>
-						<p>Budget: <select id="selBudget">
-								<option value="any">Any</option>
-								<option value="micro">Micro <$1M </option> <option value="small">Small >$1M, <$100M</option> <option value="large">Large >$100M </option>
-							</select></p>
-
 						<p>Length: <select id="selLength">
 								<option value="any">Any</option>
-								<option value="short">Short</option>
-								<option value="long">Long</option>
-							</select></p>
-						<p>Language: <select id="selLanguage">
-								<option value="any">Any</option>
-								<option value="english">English</option>
-								<option value="french">French</option>
 							</select></p>
 						<p>Genre: <select id="selGenre">
 								<option value="any">Any</option>
-								<option value="horror">Horror</option>
-								<option value="comedy">Comedy</option>
 							</select></p>
 					</ul>
 					<br />
@@ -85,10 +72,7 @@ function initChart() {
 				<div class="col-sm-5">
 					<br />
 					<p><strong>Parameter to chart:</strong></p>
-					<input type="radio" name="show" value="sales" checked="checked">Sales<br>
-					<input type="radio" name="show" value="budget">Budget <br>
-					<input type="radio" name="show" value="length">Length <br>
-					<input type="radio" name="show" value="rating">Average Rating<br>
+					<input type="radio" name="show" value="length" checked="checked">Average Length<br>
 					<br />
 					<button type="button" class="btn btn-primary" onClick="analyticsSearch()">Update</button>
 				</div>

@@ -72,17 +72,11 @@
 		case "analytics":
 			$sdat[0]->action = "analytics";
 			$radio = $params->{'radio'}; // what data are we charting?
-			// the rest of these are individual constraints on the search
-//			$budget = $params->{'budget'};
-//			$length = $params->{'length'};
-//			$language = $params->{'language'};
-//			$genre = $params->{'genre'};
 
 			$sdat[0]->radio = $radio;
 
 			switch ( $radio ) {
-				// sales budget length rating
-				case "sales":
+				case "length":
 					// find data
 					$query = 'SELECT m.language, AVG(m.runtime) AS avg_runtime FROM movies AS m GROUP BY m.language';
 
@@ -90,7 +84,7 @@
 
 					$cnt = 0;
 
-					// then for each row of data, extract the title and any other info we need
+					// then for each row of data, extract the info we need
 					while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 10)  ) {
 						$sdat[$cnt]->label = $row['language'];
 						$sdat[$cnt]->dat = $row['avg_runtime'];
@@ -98,7 +92,7 @@
 					break;
 				default:
 					// now go to the db and find the data
-					$sdat[0]->radio = "not sales";
+					$sdat[0]->radio = "not length";
 					break;
 			}
 
