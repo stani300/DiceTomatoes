@@ -270,7 +270,7 @@ function showMyRatings(dat) {
     // Add some text to the new cells:
     cell1.innerHTML = obj[i].name;
     cell2.innerHTML = obj[i].year;
-    yrTotal +=  obj[i].year;
+    yrTotal +=  parseInt(obj[i].year);
     ++yrCnt;
 
     if (jpage == "rate") {
