@@ -26,11 +26,10 @@
 	switch ( $action ) {
 		case "recommendation":
 			$sdat[0]->action = "recommendation";
-			$uid = $params->{'uid'};
-			$gid = $params->{'gid'};
+			$uavgYr = $params->{'avgYr'};
 
 			// *** This is just a placeholder to show the screens - it just returns movies that include the string "cari"
-			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE title LIKE '%cari%' GROUP BY r.movie_id";
+			$query = "SELECT m.*, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id WHERE SUBSTR(m.release_date,1,4) LIKE " . $avgYr ;
 
 			$query_result = mysqli_query($conn, $query);
 

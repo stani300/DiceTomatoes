@@ -61,12 +61,11 @@ function setUser(dat) {
   }
 }
 
-function recSearch(uid, gid) {
+function recSearch( avgYr ) {
   // this is the function where we take a string from the browse screen and look for matching movies
   jstr = JSON.stringify({
     "action": "recommendation",
-    "uid": uid,
-    "gid": gid
+    "avgYr": avgYr
   });
   // all packed up, let's go find it
   ajaxJCall("dt.php", jstr, recListUpdate);
