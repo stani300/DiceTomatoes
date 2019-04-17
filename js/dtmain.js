@@ -289,7 +289,7 @@ function showMyRatings(dat) {
   }
 
   if ( jpage == "reco" ) {
-    $('$recoStats').text("average year = " + yrTotal/yrCnt );
+    $('#recoStats').text("average year = " + yrTotal/yrCnt );
   }
 
 }
