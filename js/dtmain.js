@@ -270,8 +270,8 @@ function showMyRatings(dat) {
     // Add some text to the new cells:
     cell1.innerHTML = obj[i].name;
     cell2.innerHTML = obj[i].year;
-        yrTotal +=  obj[i].year;
-        ++yrCnt;
+    yrTotal +=  obj[i].year;
+    ++yrCnt;
 
     if (jpage == "rate") {
       cell3.innerHTML = '<input type="text" id="ER' + i + '" value="' + obj[i].rating + '" "/>';
@@ -288,8 +288,10 @@ function showMyRatings(dat) {
     $('#rateMsg').text("There are more than 10 results, these are the first 10");
   }
 
+  avgYr = yrTotal/yrCnt;
+
   if ( jpage == "reco" ) {
-    $('#recoStats').text("average year = " + yrTotal/yrCnt );
+    $('#recoStats').text("average year = " + avgYr );
   }
 
 }
