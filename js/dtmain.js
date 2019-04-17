@@ -263,8 +263,13 @@ function showMyRatings ( dat )
      // Add some text to the new cells:
      cell1.innerHTML = obj[i].name;
      cell2.innerHTML = obj[i].year;
+     if ( jpage == "rate" ) {
      cell3.innerHTML = '<input type="text" id="ER' + i + '" value="' + obj[i].rating + '" "/>';
-     cell4.innerHTML = '<button onClick="deleteRating(' + obj[i].rid + ')">Delete</button><button onClick="updateRating(' + i + ',' + obj[i].rid + ')">Update</button>'
+     cell4.innerHTML = '<button onClick="deleteRating(' + obj[i].rid + ')">Delete</button><button onClick="updateRating(' + i + ',' + obj[i].rid + ')">Update</button>';
+   } else {
+     cell3.innerHTML = obj[i].rating;
+     cell4.innerHTML = obj[i].genre;
+   }
 
    }
 
