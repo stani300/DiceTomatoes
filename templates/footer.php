@@ -11,7 +11,7 @@
     </div>
     <div class="col-sm-9 col-md-10">
       <p><strong>Team Marvel</strong><br>
-      Richa Gupta, Donia Robinson, Sandro Tanis, and John Willoughby<br>
+      Richa Gupta, Sandro Tanis, and John Willoughby<br>
       &copy; 2019<p>
     </div>
   </div>
