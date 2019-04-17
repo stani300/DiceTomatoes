@@ -32,7 +32,8 @@
 							<th>Movie</th>
 							<th>Year</th>
 							<th>Rating</th>
-							<th>Action</th>
+							<th>Runtime</th>
+							<th>Language</th>
 						</tr>
 					</table>
 

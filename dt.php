@@ -131,7 +131,8 @@
 				$sdat[$cnt]->year = substr($row['release_date'], 0, 4);
 				// this will need to be average of ratings from ratings
 				$sdat[$cnt]->rating = $row['rating'];
-				$sdat[$cnt]->genre = $row['genre'];
+				$sdat[$cnt]->genre = $row['runtime'];
+				$sdat[$cnt]->language = $row['language'];
 			}
 			break;
 		case "addRating":
