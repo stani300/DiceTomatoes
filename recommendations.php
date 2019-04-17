@@ -21,9 +21,9 @@
 					<h1>Recommendations</h1>
 
 
-					<p><span id="currUser">You are logged in as </span></p><br/>
+					<p><span id="currUser">You are not logged in</span></p><br/>
 
-	        <div id="recoBlock" class="rhidden">
+	        <div id="rateBlock" class="rhidden">
 
 					<p><strong>Your existing ratings:</strong></p>
 
