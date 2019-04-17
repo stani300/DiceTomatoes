@@ -38,6 +38,7 @@
 					</table>
 
 					<div id="rateMsg"></div>
+					<div id="recoStats"></div>
 
 				</div>
 			</div>
