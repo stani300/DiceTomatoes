@@ -40,6 +40,21 @@
 					<div id="rateMsg"></div>
 					<div id="recoStats"></div>
 
+					<p><strong>Your suggested movies are:</strong></p>
+
+					<table class="table table-striped table-hover" id="recTable">
+						<tr>
+							<th>Movie</th>
+							<th>Year</th>
+							<th>Rating</th>
+							<th>Runtime</th>
+							<th>Language</th>
+						</tr>
+					</table>
+
+					<div id="rateMsg"></div>
+					<div id="recoStats"></div>
+
 				</div>
 			</div>
 		</div>

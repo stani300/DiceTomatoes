@@ -54,6 +54,9 @@ function setUser(dat) {
       getMyRatings(user);
       $('#rateBlock').fadeIn(100);
       $('#logtxt').text("Logout");
+      if ( jpage == "reco" ) {
+        recSearch ( 0, 0 );
+      }
     }
   }
 }
