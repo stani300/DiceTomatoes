@@ -30,7 +30,8 @@ function initChart() {
 //      categories: [2014, 2015, 2016, 2017, 2018]
       categories: []
     },
-    tooltip: { visible: true }
+    tooltip: { visible: true,
+    template: "${category} - ${value}" }
   });
 }
 </script>
