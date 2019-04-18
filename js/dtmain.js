@@ -54,9 +54,6 @@ function setUser(dat) {
       getMyRatings(user);
       $('#rateBlock').fadeIn(100);
       $('#logtxt').text("Logout");
-      if ( jpage == "reco" ) {
-        recSearch (  avgYr );
-      }
     }
   }
 }
@@ -294,6 +291,10 @@ function showMyRatings(dat) {
 
   if ( jpage == "reco" ) {
     $('#recoStats').text("average year = " + avgYr );
+  }
+
+  if ( jpage == "reco" ) {
+    recSearch (  avgYr );
   }
 
 }
