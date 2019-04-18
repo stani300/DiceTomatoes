@@ -38,7 +38,7 @@
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt < 27)  ) {
 				$myr = (int) $row['relyr'];
-//				if ( $avgYr == $myr ) {
+				if ( $avgYr == $myr ) {
 					$sdat[$cnt] = new stdClass();
 					$sdat[$cnt]->id = $row['id'];
 					$sdat[$cnt]->name = $row['title'];
@@ -47,7 +47,7 @@
 					$sdat[$cnt]->rating = $avgYr;
 //					$sdat[$cnt]->rating = $row['avg_score'];
 					++$cnt;
-//				}
+				}
 			}
 			break;
 		case "browse":
