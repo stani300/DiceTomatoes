@@ -41,7 +41,7 @@
 				$sdat[$cnt]->id = $row['id'];
 				$sdat[$cnt]->name = $row['title'];
 //				$sdat[$cnt]->year = substr($row['release_date'], 0, 4);
-				$sdat[$cnt]->year = relyr;
+				$sdat[$cnt]->year = $row['relyr'];
 				$sdat[$cnt]->rating = $row['avg_score'];
 			}
 			break;
