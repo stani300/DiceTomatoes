@@ -55,7 +55,7 @@ function setUser(dat) {
       $('#rateBlock').fadeIn(100);
       $('#logtxt').text("Logout");
       if ( jpage == "reco" ) {
-        recSearch ( 0, 0 );
+        recSearch (  avgYr );
       }
     }
   }
