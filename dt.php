@@ -41,7 +41,7 @@
 				$myr = (int) $row['relyr'];
 				$avgScore = $row['avg_score'];
 				$thisLang = $row['language'];
-				if ( )( $avgYr == $myr )  && ( $avgScore > 5 ) ) {
+				if ( ( $avgYr == $myr )  && ( $avgScore > 5 ) ) {
 					$sdat[$cnt] = new stdClass();
 					$sdat[$cnt]->id = $row['id'];
 					$sdat[$cnt]->name = $row['title'];
