@@ -39,7 +39,7 @@
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt < 27)  ) {
 				$myr = (int) $row['relyr'];
-				$avgScore = $row['avg_score'];
+				$avgScore = (int) $row['avg_score'];
 				$thisLang = $row['language'];
 				if ( ( $avgYr == $myr )  && ( $avgScore > 5 ) ) {
 					$sdat[$cnt] = new stdClass();
