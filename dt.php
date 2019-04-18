@@ -26,7 +26,7 @@
 	switch ( $action ) {
 		case "recommendation":
 			$sdat[0]->action = "recommendation";
-			$avgYr = (int) $params->{'avgYr'};
+			$avgYr = $params->{'avgYr'};
 
 			//
 			$query = "SELECT m.*, SUBSTR(m.release_date,1,4) AS relyr, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id GROUP BY r.movie_id";
@@ -43,7 +43,7 @@
 					$sdat[$cnt]->id = $row['id'];
 					$sdat[$cnt]->name = $row['title'];
 //				$sdat[$cnt]->year = substr($row['release_date'], 0, 4);
-					$sdat[$cnt]->year = $miyr;
+					$sdat[$cnt]->year = $myr;
 					$sdat[$cnt]->rating = $avgYr;
 //					$sdat[$cnt]->rating = $row['avg_score'];
 					++$cnt;
