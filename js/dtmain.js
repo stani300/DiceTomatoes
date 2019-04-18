@@ -291,7 +291,7 @@ function showMyRatings(dat) {
     $('#rateMsg').text("There are more than 10 results, these are the first 10");
   }
 
-  avgYr = yrTotal/yrCnt;
+  avgYr = yrTotal/mCnt;
   avgRuntime = runTotal/mCnt;
 
   if ( jpage == "reco" ) {
