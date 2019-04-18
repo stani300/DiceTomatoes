@@ -28,8 +28,8 @@
 			$sdat[0]->action = "recommendation";
 			$avgYr = $params->{'avgYr'};
 
-			// *** This is just a placeholder to show the screens - it just returns movies that include the string "cari"
-			$query = "SELECT m.*, SUBSTR(m.release_date,1,4) AS relyr, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id";
+			//
+			$query = "SELECT m.*, SUBSTR(m.release_date,1,4) AS relyr, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id GROUP BY r.movie_id";
 
 			$query_result = mysqli_query($conn, $query);
 
@@ -40,8 +40,8 @@
 				$sdat[$cnt] = new stdClass();
 				$sdat[$cnt]->id = $row['id'];
 				$sdat[$cnt]->name = $row['title'];
-				$sdat[$cnt]->year = substr($row['release_date'], 0, 4);
-				// this will need to be average of ratings from ratings
+//				$sdat[$cnt]->year = substr($row['release_date'], 0, 4);
+				$sdat[$cnt]->year = relyr;
 				$sdat[$cnt]->rating = $row['avg_score'];
 			}
 			break;
