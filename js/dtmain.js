@@ -71,8 +71,7 @@ function recSearch( avgYr, avgRun, mylang ) {
 }
 
 function recListUpdate(dat) {
-  // and this is when we return a list of movies, if any, that match the search stringify
-  // first let's show the returned string for debug
+  // and this is when we return a list of movies, if any, that match the search params
 
   // clear out any old messages
   $('#recMsg').text("");
@@ -100,11 +99,15 @@ function recListUpdate(dat) {
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
+        var cell3 = row.insertCell(3);
+            var cell3 = row.insertCell(4);
 
     // Add some text to the new cells:
     cell1.innerHTML = obj[i].name;
     cell2.innerHTML = obj[i].year;
     cell3.innerHTML = obj[i].rating;
+        cell4.innerHTML = obj[i].runtime;
+            cell5.innerHTML = obj[i].lang;
 
   }
 
