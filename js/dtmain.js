@@ -99,15 +99,15 @@ function recListUpdate(dat) {
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
-        var cell3 = row.insertCell(3);
-            var cell3 = row.insertCell(4);
+    var cell4 = row.insertCell(3);
+    var cell5 = row.insertCell(4);
 
     // Add some text to the new cells:
     cell1.innerHTML = obj[i].name;
     cell2.innerHTML = obj[i].year;
     cell3.innerHTML = obj[i].rating;
-        cell4.innerHTML = obj[i].runtime;
-            cell5.innerHTML = obj[i].lang;
+    cell4.innerHTML = obj[i].runtime;
+    cell5.innerHTML = obj[i].lang;
 
   }
 
