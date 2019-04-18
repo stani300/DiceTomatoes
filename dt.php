@@ -26,7 +26,7 @@
 	switch ( $action ) {
 		case "recommendation":
 			$sdat[0]->action = "recommendation";
-			$avgYr = $params->{'avgYr'};
+			$avgYr = (int) $params->{'avgYr'};
 
 			//
 			$query = "SELECT m.*, SUBSTR(m.release_date,1,4) AS relyr, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id GROUP BY r.movie_id";
@@ -37,7 +37,8 @@
 
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt < 27)  ) {
-				if ( $avgYr == $row['relyr'] ) {
+				$myr = (int) $row['relyr'];
+				if ( $avgYr == $myr ) {
 					$sdat[$cnt] = new stdClass();
 					$sdat[$cnt]->id = $row['id'];
 					$sdat[$cnt]->name = $row['title'];
