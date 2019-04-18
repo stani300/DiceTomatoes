@@ -39,14 +39,16 @@
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt < 27)  ) {
 				$myr = (int) $row['relyr'];
-				if ( $avgYr == $myr ) {
+				$avgScore = $row['avg_score'];
+				$thisLang = $row['language'];
+				if ( )( $avgYr == $myr )  && ( $avgScore > 5 ) ) {
 					$sdat[$cnt] = new stdClass();
 					$sdat[$cnt]->id = $row['id'];
 					$sdat[$cnt]->name = $row['title'];
 					$sdat[$cnt]->year = $myr;
-					$sdat[$cnt]->rating = $row['avg_score'];
+					$sdat[$cnt]->rating = avgScore;
 					$sdat[$cnt]->runtime = $avgRun;
-					$sdat[$cnt]->lang = $mylang;
+					$sdat[$cnt]->lang = $thisLang;
 					++$cnt;
 				}
 			}
