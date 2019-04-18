@@ -295,14 +295,14 @@ function showMyRatings(dat) {
   }
 
   avgYr = yrTotal/mCnt;
-  avgRuntime = runTotal/mCnt;
+  avgRuntime = Math.round(runTotal/mCnt);
 
   if ( jpage == "reco" ) {
-    $('#recoStats').text("average year = " + avgYr + ", average runtime = " + avgRuntime );
+    $('#recoStats').text("average year = " + avgYr + ", average runtime = " + avgRuntime + ", language = " + mylang );
   }
 
   if ( jpage == "reco" ) {
-    recSearch (  avgYr, avgRuntime, "en" );
+    recSearch (  avgYr, avgRuntime, mylang );
   }
 
 }

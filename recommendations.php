@@ -6,6 +6,7 @@
   uid = 0;
   jpage="reco";
 	avgYr = 0;
+	mylang = "en";
 
 // find the movies that have been rated by this user and display them
   $(document).ready(function () {
