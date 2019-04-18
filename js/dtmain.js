@@ -58,11 +58,13 @@ function setUser(dat) {
   }
 }
 
-function recSearch( avgYr ) {
+function recSearch( avgYr, avgRun, mylang ) {
   // this is the function where we take a string from the browse screen and look for matching movies
   jstr = JSON.stringify({
     "action": "recommendation",
-    "avgYr": avgYr
+    "avgYr": avgYr,
+    "avgRun": avgRun,
+    "mylang": mylang
   });
   // all packed up, let's go find it
   ajaxJCall("dt.php", jstr, recListUpdate);
@@ -238,7 +240,8 @@ function getMyRatings() {
 function showMyRatings(dat) {
   obj = JSON.parse(dat);
   var yrTotal = 0;
-  var yrCnt = 0;
+  var mCnt = 0;
+  var runTotal = 0;
 
   var table = $('#myRatingsTable')[0];
   var len = table.rows.length;
@@ -270,14 +273,15 @@ function showMyRatings(dat) {
     cell1.innerHTML = obj[i].name;
     cell2.innerHTML = obj[i].year;
     yrTotal +=  parseInt(obj[i].year);
-    ++yrCnt;
+    ++mCnt;
+    runTotal += parseInt(obj[i].runtime);
 
     if (jpage == "rate") {
       cell3.innerHTML = '<input type="text" id="ER' + i + '" value="' + obj[i].rating + '" "/>';
       cell4.innerHTML = '<button onClick="deleteRating(' + obj[i].rid + ')">Delete</button><button onClick="updateRating(' + i + ',' + obj[i].rid + ')">Update</button>';
     } else {
       cell3.innerHTML = obj[i].rating;
-      cell4.innerHTML = obj[i].genre;
+      cell4.innerHTML = obj[i].runtime;
       cell5.innerHTML = obj[i].language;
     }
 
@@ -288,13 +292,14 @@ function showMyRatings(dat) {
   }
 
   avgYr = yrTotal/yrCnt;
+  avgRuntime = runTotal/mCnt;
 
   if ( jpage == "reco" ) {
-    $('#recoStats').text("average year = " + avgYr );
+    $('#recoStats').text("average year = " + avgYr + ", average runtime = " + avgRuntime );
   }
 
   if ( jpage == "reco" ) {
-    recSearch (  avgYr );
+    recSearch (  avgYr, avgRuntime, "en" );
   }
 
 }
