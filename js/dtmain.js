@@ -66,7 +66,7 @@ function recSearch( avgYr, avgRun, mylang ) {
     "avgRun": avgRun,
     "mylang": mylang
   });
-  alert ( "sen ding rec data");
+
   // all packed up, let's go find it
   ajaxJCall("dt.php", jstr, recListUpdate);
 }
