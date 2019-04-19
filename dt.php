@@ -43,7 +43,7 @@
 				$thisLang = $row['language'];
 				$thisRun = $row['runtime'];
 				$sdat[0]->avgRun = $avgRun;
-				if ( ( $thisYr > $avgYr - 5 ) && ( $thisYr < $avgYr + 5 ) && ( $thisLang == $mylang ) && ( $avgScore > 4 ) && ( $thisRun < ($avgRun+100) ) ) {
+				if ( ( $thisYr > $avgYr - 5 ) && ( $thisYr < $avgYr + 5 ) && ( $thisLang == $mylang ) && ( $avgScore > 4 ) && ( $thisRun < ($avgRun+10) ) ) {
 					$sdat[$cnt] = new stdClass();
 					$sdat[$cnt]->id = $row['id'];
 					$sdat[$cnt]->name = $row['title'];
