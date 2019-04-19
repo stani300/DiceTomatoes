@@ -34,7 +34,7 @@
 
 			$query_result = mysqli_query($conn, $query);
 
-			$cnt = 0; //
+			$cnt = 1; //
 
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt < 27)  ) {
@@ -67,7 +67,7 @@
 
 			$query_result = mysqli_query($conn, $query);
 
-			$cnt = 0;
+			$cnt = 1;
 
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27  ) ) {
@@ -113,7 +113,7 @@
 
 				$query_result = mysqli_query($conn, $query);
 
-				$cnt = 0;
+				$cnt = 1;
 				// then for each row of data, extract the info we need
 				while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 100)  ) {
 					$sdat[$cnt]->xdat = $row['xdat'];
@@ -130,7 +130,7 @@
 
 			$query_result = mysqli_query($conn, $query);
 
-			$cnt = 0;
+			$cnt = 1;
 
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27)  ) {
