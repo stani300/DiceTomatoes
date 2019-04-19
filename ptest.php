@@ -76,6 +76,49 @@ switch ( $action ) {
       $sdat[$cnt]->rating = $row['avg_score'];
     }
     break;
+    case "analytics":
+      $sdat[0]->action = "analytics";
+      $show = $params->{'show'}; // what data are we charting?
+      $showby = $params->{'showby'}; // how are we charting?
+      $minYr = $params->{'minYr'}; // released after this year
+
+      $sdat[0]->showby = $showby;
+      $sdat[0]->minYr = $minYr;
+
+      switch ( $show ) {
+        case "length":
+          $sdat[0]->show = "Average Length";
+          if ( $showby == "lang" ) {
+            $sdat[0]->showby = "Language";
+            $query = 'SELECT m.language AS xdat, AVG(m.runtime) AS ydat FROM movies AS m GROUP BY m.language';
+          } else {
+            $sdat[0]->showby = "Date";
+            $query = 'SELECT SUBSTR(m.release_date,1,4) AS xdat, AVG(m.runtime) AS ydat FROM movies AS m WHERE  SUBSTR(m.release_date,1,4) > ' . $minYr . ' GROUP BY SUBSTR(m.release_date,1,4)';
+          };
+          break;
+        case "revenue":
+        default:
+          $sdat[0]->show = "Average Revenue";
+          if ( $showby == "lang" ) {
+            $sdat[0]->showby = "Language";
+            $query = 'SELECT m.language AS xdat, AVG(m.revenue) AS ydat FROM movies AS m GROUP BY m.language';
+          } else {
+            $sdat[0]->showby = "Date";
+            $query = 'SELECT SUBSTR(m.release_date,1,4) AS xdat, AVG(m.revenue) AS ydat FROM movies AS m GROUP BY SUBSTR(m.release_date,1,4)';
+          };
+          break;
+        }
+
+        $query_result = mysqli_query($conn, $query);
+
+        $cnt = 0;
+        // then for each row of data, extract the info we need
+        while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 100)  ) {
+          $sdat[$cnt]->xdat = $row['xdat'];
+          $sdat[$cnt]->ydat = $row['ydat'];
+        }
+
+      break;
   case "fail";
     break;
   default:
