@@ -42,7 +42,7 @@
 				$avgScore = $row['avg_score'];
 				$thisLang = $row['language'];
 				$thisrun = $row['runtime'];
-				if ( ( $avgYr == $myr ) && ( $thisLang == $mylang ) ) {
+				if ( ( $avgYr == $myr ) && ( $thisLang == $mylang ) && ( $avgScore > 4 ) ) {
 					$sdat[$cnt] = new stdClass();
 					$sdat[$cnt]->id = $row['id'];
 					$sdat[$cnt]->name = $row['title'];

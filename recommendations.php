@@ -40,7 +40,7 @@
 					</table>
 
 					<div id="rateMsg"></div>
-					<div id="recoStats"></div>
+					<div id="recoStats"></div><br/>
 
 					<p><strong>Your suggested movies are:</strong></p>
 
