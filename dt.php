@@ -14,7 +14,7 @@
 	$sdat[0] = new stdClass();
 	$sdat[0]->err=0;
 
-echo "test";
+echo "test"; exit ("xyzzy");
 
 	// Create connection
 	$conn = mysqli_connect($servername, $username, $password, $database);
