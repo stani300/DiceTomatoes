@@ -24,6 +24,35 @@ if (!$conn) {
 };
 
 switch ( $action ) {
+  case "recommendation":
+    $sdat[0]->action = "recommendation";
+    $avgYr = $params->{'avgYr'};
+  $avgRun = $params->{'avgRun'};
+    $mylang = $params->{'mylang'};
+    //
+    $query = "SELECT m.*, SUBSTR(m.release_date,1,4) AS relyr, AVG(r.rating) AS avg_score FROM movies AS m JOIN ratings AS r ON r.movie_id=m.id GROUP BY r.movie_id";
+
+    $query_result = mysqli_query($conn, $query);
+
+    $cnt = 0; //
+
+    // then for each row of data, extract the title and any other info we need
+    while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt < 27)  ) {
+      $myr = (int) $row['relyr'];
+      $avgScore = $row['avg_score'];
+      $thisLang = $row['language'];
+      if ( $avgYr == $myr ) {
+        $sdat[$cnt] = new stdClass();
+        $sdat[$cnt]->id = $row['id'];
+        $sdat[$cnt]->name = $row['title'];
+        $sdat[$cnt]->year = $myr;
+        $sdat[$cnt]->rating = $avgScore;
+        $sdat[$cnt]->runtime = $avgRun;
+        $sdat[$cnt]->lang = $thisLang;
+        ++$cnt;
+      }
+    }
+    break;
   case "browse":
     $sdat[0]->action = "browse";
     $target = $params->{'target'};
