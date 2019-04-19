@@ -40,6 +40,9 @@ switch ( $action ) {
 
     $row = $query_result->fetch_array(MYSQLI_ASSOC);
 
+        while( $cnt++ < 27  ) {
+        }
+
     // then for each row of data, extract the title and any other info we need
 //    while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) && ( $cnt++ < 27  ) ) {
 //    }
