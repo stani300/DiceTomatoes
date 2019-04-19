@@ -295,11 +295,11 @@ function showMyRatings(dat) {
     $('#rateMsg').text("There are more than 10 results, these are the first 10");
   }
 
-  avgYr = yrTotal/mCnt;
+  avgYr = Math.round(yrTotal/mCnt);
   avgRuntime = Math.round(runTotal/mCnt);
 
   if ( jpage == "reco" ) {
-    $('#recoStats').text("average year = " + avgYr + ", average runtime = " + avgRuntime + ", language = " + mylang );
+    $('#recoStats').text("For movies you have reviewed: average year = " + avgYr + ", average runtime = " + avgRuntime + ", language = " + mylang );
   }
 
   if ( jpage == "reco" ) {
