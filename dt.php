@@ -70,7 +70,7 @@ echo "test"; exit ("xyzzy");
 			$cnt = 0;
 
 			// then for each row of data, extract the title and any other info we need
-			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27  ) {
+			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27  ) ) {
 				$sdat[$cnt]->id = $row['id'];
 				$sdat[$cnt]->name = $row['title'];
 				$sdat[$cnt]->year = substr($row['release_date'], 0, 4);
