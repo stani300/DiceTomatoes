@@ -41,13 +41,13 @@
 				$myr = (int) $row['relyr'];
 				$avgScore = $row['avg_score'];
 				$thisLang = $row['language'];
-				if ( ( $avgYr == $myr ) && ( $thisLang == $myLang ) ) {
+				if ( ( $avgYr == $myr ) && ( $thisLang == $mylang ) ) {
 					$sdat[$cnt] = new stdClass();
 					$sdat[$cnt]->id = $row['id'];
 					$sdat[$cnt]->name = $row['title'];
 					$sdat[$cnt]->year = $myr;
 					$sdat[$cnt]->rating = $avgScore;
-					$sdat[$cnt]->runtime = $avgRun;
+					$sdat[$cnt]->runtime = $mylang; // $avgRun;
 					$sdat[$cnt]->lang = $thisLang;
 					++$cnt;
 				}
