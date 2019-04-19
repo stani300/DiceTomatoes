@@ -23,6 +23,12 @@ if (!$conn) {
   $action = "fail";
 };
 
+mysqli_close($conn);
+
+$jrtn = json_encode($sdat);
+
+echo $jrtn;
+
 echo "test"; exit ("xyzzy");
 
 ?>
