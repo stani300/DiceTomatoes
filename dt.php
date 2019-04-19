@@ -67,7 +67,7 @@
 
 			$query_result = mysqli_query($conn, $query);
 
-			$cnt = 1;
+			$cnt = 0;
 
 			// then for each row of data, extract the title and any other info we need
 			while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 27  ) ) {
