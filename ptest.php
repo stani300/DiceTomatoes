@@ -23,6 +23,14 @@ if (!$conn) {
   $action = "fail";
 };
 
+switch ( $action ) {
+  case "fail";
+    break;
+  default:
+    $sdat[0]->errmsg = "unknown action";
+    break;
+}
+
 mysqli_close($conn);
 
 $jrtn = json_encode($sdat);
