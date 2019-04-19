@@ -75,7 +75,7 @@ function recListUpdate(dat) {
 
   // clear out any old messages
   $('#recMsg').text("");
-
+alert ( "rec is " + dat );
   obj = JSON.parse(dat);
 
   var table = $('#recTable')[0];
