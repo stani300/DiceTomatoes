@@ -47,7 +47,7 @@
 					$sdat[$cnt]->name = $row['title'];
 					$sdat[$cnt]->year = $myr;
 					$sdat[$cnt]->rating = $avgScore;
-					$sdat[$cnt]->runtime = $mylang; // $avgRun;
+					$sdat[$cnt]->runtime = $avgRun;
 					$sdat[$cnt]->lang = $thisLang;
 					++$cnt;
 				}
