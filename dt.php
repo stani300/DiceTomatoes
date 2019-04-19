@@ -46,9 +46,9 @@
 					$sdat[$cnt] = new stdClass();
 					$sdat[$cnt]->id = $row['id'];
 					$sdat[$cnt]->name = $row['title'];
-					$sdat[$cnt]->year = $myr;
+					$sdat[$cnt]->year = $thisYr;
 					$sdat[$cnt]->rating = $avgScore;
-					$sdat[$cnt]->runtime = $thisrun;
+					$sdat[$cnt]->runtime = $thisRun;
 					$sdat[$cnt]->lang = $thisLang;
 					++$cnt;
 				}
