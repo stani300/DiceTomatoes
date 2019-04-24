@@ -225,7 +225,9 @@ function analyticsUpdate(dat) {
     },
     categoryAxis: {
       categories: ccat
-    }
+    },
+    tooltip: { visible: true,
+    template: "${category} - ${value}" }
   });
 
 }
