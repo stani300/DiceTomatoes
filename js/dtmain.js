@@ -193,13 +193,14 @@ function analyticsSearch() {
 
 function analyticsUpdate(dat) {
 
-  obj = JSON.parse(dat);
+  var obj = JSON.parse(dat);
   var cdat = [];
   var ccat = [];
 
   var i;
   // remember obj[0] is the return meta stuff, the data array starts at obj[1]
-  for (i = 1; i < obj.length; i++) {
+  var olen = obj.length;
+  for (i = 1; i < olen; i++) {
     cdat.push(obj[i].ydat);
     ccat.push(obj[i].xdat);
   }
