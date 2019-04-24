@@ -84,9 +84,6 @@
 			$showby = $params->{'showby'}; // how are we charting?
 			$minYr = $params->{'minYr'}; // released after this year
 
-			$sdat[0]->showby = $showby;
-			$sdat[0]->minYr = $minYr;
-
 			switch ( $show ) {
 				case "length":
 					$sdat[0]->show = "Average Length";
@@ -113,7 +110,7 @@
 
 				$query_result = mysqli_query($conn, $query);
 
-				$cnt = 1;
+				$cnt = 0;
 				// then for each row of data, extract the info we need
 				while( ($row = $query_result->fetch_array(MYSQLI_ASSOC) ) && ( $cnt++ < 100)  ) {
 					$sdat[$cnt]->xdat = $row['xdat'];

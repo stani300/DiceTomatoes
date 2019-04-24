@@ -199,7 +199,7 @@ function analyticsUpdate(dat) {
 
   var i;
   // remember obj[0] is the return meta stuff, the data array starts at obj[1]
-  var olen = obj.length;
+  var olen = Object.keys(obj).length;
   for (i = 1; i < olen; i++) {
     cdat.push(obj[i].ydat);
     ccat.push(obj[i].xdat);
