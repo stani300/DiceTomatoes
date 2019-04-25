@@ -6,7 +6,7 @@ $params = json_decode ( $str_json );
 $action = $params->{'action'};
 $target = $params->{'target'};
 
-$servername = "localhost";
+$servername = "127.0.0.1";
 $username = "root";
 $password = "UIUC411";
 $database = 'diced_tomatoes';
