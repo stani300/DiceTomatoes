@@ -50,7 +50,7 @@
                 placeholder: 'Select movie here...',
                 ajax: {
 
-                    url: '/dt.php',
+                    url: 'dt.php',
                     type: 'POST',
                     dataType: 'json',
 
