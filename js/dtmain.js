@@ -269,7 +269,7 @@ function moviesCountByReleaseYearChartUpdate ( dat ) {
         },
         tooltip: {
             visible: true,
-            template: "#= series.name #: #= value #"
+            template: "#= category#<br>#=series.name#: #= value#  "
         }
     });
     // $("#chart").kendoChart({
@@ -336,7 +336,7 @@ function analyticsUpdate ( dat ) {
         },
         tooltip: {
             visible: true,
-            template: "#= series.name #: #= value #"
+            template: "#= category#<br>#=series.name#: #= value#  "
         }
     });
 
