@@ -152,12 +152,20 @@ function browseListUpdate(dat) {
     var len = table.rows.length;
 
     // if there is stuff in the table, empty it first
-
-    while ( len > 1 ) {
+    while (len > 1) {
         table.deleteRow(--len);
     }
     // now display any new results
-
+    obj.forEach(function (item, i) {
+        if ((i < obj.length) && (i < 11)) {
+            if (item.hasOwnProperty('id')) {
+                $.getJSON('http://www.omdbapi.com?t=' + encodeURI(item.name) + '&apikey=BanMePlz')
+                    .then((response) => {
+                        $('#browseTable tbody').append(`<tr><td><img width="100" style="vertical-align: top;margin-right: 10px;" src=${response.Poster}><b>${item.name}</b></td><td>${item.year}</td><td>${item.rating}</td></tr>`)
+                    })
+            }
+        }
+    })
     var i;
   for (i = 1;
     (i < obj.length) && (i < 11); i++) {
