@@ -26,13 +26,14 @@
                     <br />
 
                     <table class="table table-striped table-hover" id="browseTable">
-                        <tbody>
+                        <thead>
                         <tr>
                             <th>Movie Name</th>
                             <th>Year</th>
                             <th>Rating</th>
                         </tr>
-                        </tbody>
+                        </thead>
+                        <tbody></tbody>
                     </table>
 
                     <!-- this is where we show any messages - like more than 25 results found -->
