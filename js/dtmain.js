@@ -316,6 +316,8 @@ function analyticsUpdate(dat) {
         cdat.push(obj[i].ydat);
         ccat.push(obj[i].xdat);
     }
+
+    console.error(cdat,'dafafa',obj)
     // update kendoChart
     $("#chart").kendoChart({
         title: {
@@ -329,7 +331,8 @@ function analyticsUpdate(dat) {
         },
         series: [{
             data: cdat,
-            name: obj[0].show
+            name: obj[0].show,
+            xAxis:obj[0].showby=='Date'?'Year':obj[0].showby
         }],
         valueAxis: {
             labels: {
@@ -344,7 +347,7 @@ function analyticsUpdate(dat) {
         },
         tooltip: {
             visible: true,
-            template: "Language:#= category#<br>#=series.name#: #= value#  "
+            template: "#= series.xAxis#:#= category#<br>#=series.name#: #= value#  "
         }
     });
 
