@@ -3,7 +3,7 @@
 function setNavigation() {
     var path = window.location.pathname;
     // get the last part of the URL
-    path = path.substr(path.lastIndexOf('/')+1);
+    path = path.substr(path.lastIndexOf('/') + 1);
     console.log(path);
 
     $(".navbar-nav.mr-auto a").each(function () {
@@ -17,7 +17,7 @@ function setNavigation() {
 
 function openLogin() {
     lstate = $('#logtxt').text();
-    if ( lstate == "Login" ) {
+    if (lstate == "Login") {
         $('#myModal').fadeIn(500);
     } else {
         user = "";
@@ -32,7 +32,7 @@ function closeLogin() {
     $('#myModal').fadeOut(500);
 }
 
-function userLogin () {
+function userLogin() {
 
     jstr = JSON.stringify({
         "action": "login",
@@ -41,30 +41,30 @@ function userLogin () {
     });
     closeLogin();
     // all packed up, let's go find it
-    ajaxJCall("jlog.php", jstr, setUser );
+    ajaxJCall("jlog.php", jstr, setUser);
 }
 
-function setUser ( dat ) {
+function setUser(dat) {
     obj = JSON.parse(dat);
-    if ( typeof jpage !== 'undefined' ) {
+    if (typeof jpage !== 'undefined') {
         user = obj[0].uname;
         uid = obj[0].uid;
-        if ( user != "" ) {
-            $('#currUser').text("You are logged in as : "+user);
-            getMyRatings( user );
+        if (user != "") {
+            $('#currUser').text("You are logged in as : " + user);
+            getMyRatings(user);
             $('#rateBlock').fadeIn(100);
             $('#logtxt').text("Logout");
         }
     }
 }
 
-function recSearch( avgYr, avgRun, mylang ) {
+function recSearch(avgYr, avgRun, mylang) {
 // this is the function where we take a string from the browse screen and look for matching movies
     jstr = JSON.stringify({
         "action": "recommendation",
-    "avgYr": avgYr,
-    "avgRun": avgRun,
-    "mylang": mylang
+        "avgYr": avgYr,
+        "avgRun": avgRun,
+        "mylang": mylang
     });
 
     // all packed up, let's go find it
@@ -72,7 +72,7 @@ function recSearch( avgYr, avgRun, mylang ) {
 }
 
 function recListUpdate(dat) {
-  // and this is when we return a list of movies, if any, that match the search params
+    // and this is when we return a list of movies, if any, that match the search params
 
     // clear out any old messages
     $('#recMsg').text("");
@@ -84,14 +84,14 @@ function recListUpdate(dat) {
 
     // if there is stuff in the table, empty it first
 
-    while ( len > 1 ) {
+    while (len > 1) {
         table.deleteRow(--len);
     }
     // now display any new results
 
     var i;
-  for (i = 1;
-    (i < obj.length) && (i < 11); i++) {
+    for (i = 1;
+         (i < obj.length) && (i < 11); i++) {
 
         // Create an empty <tr> element and add it to the end of the table
         var row = table.insertRow(i);
@@ -100,19 +100,19 @@ function recListUpdate(dat) {
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    var cell5 = row.insertCell(4);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
 
         // Add some text to the new cells:
         cell1.innerHTML = obj[i].name;
         cell2.innerHTML = obj[i].year;
         cell3.innerHTML = obj[i].rating;
-    cell4.innerHTML = obj[i].runtime;
-    cell5.innerHTML = obj[i].lang;
+        cell4.innerHTML = obj[i].runtime;
+        cell5.innerHTML = obj[i].lang;
 
     }
 
-    if ( obj.length > 10 ) {
+    if (obj.length > 10) {
         $('#recMsg').text("There are more than 10 results, these are the first 10");
     }
 
@@ -128,6 +128,7 @@ function browseSearch() {
     // all packed up, let's go find it
     ajaxJCall("dt.php", jstr, browseListUpdate);
 }
+
 function remoteBrowseSearch() {
     // this is the function where we take a string from the browse screen for remote search and look for matching movies
 
@@ -161,47 +162,45 @@ function browseListUpdate(dat) {
             if (item.hasOwnProperty('id')) {
                 $.getJSON('http://www.omdbapi.com?t=' + encodeURI(item.name) + '&apikey=BanMePlz')
                     .then((response) => {
-                        $('#browseTable tbody').append(`<tr><td><img width="100" style="vertical-align: top;margin-right: 10px;" src=${response.Poster}><b>${item.name}</b></td><td>${item.year}</td><td>${item.rating}</td></tr>`)
+                        if (response && response.Ratings && response.Ratings.length > 0) {
+                            $('#browseTable tbody').append(`<tr><td><img width="100" style="vertical-align: top;margin-right: 10px;" src=${response.Poster}><b>${item.name}</b></td><td>${item.year}</td><td>${item.rating}</td></tr>`)
+
+                        }else {
+
+                            // Create an empty <tr> element and add it to the end of the table
+                            var row = table.insertRow(i);
+
+                            // Insert new cells (<td> elements) of the "new" <tr> element:
+                            var cell1 = row.insertCell(0);
+                            var cell2 = row.insertCell(1);
+                            var cell3 = row.insertCell(2);
+
+                            // Add some text to the new cells:
+                            cell1.innerHTML = obj[i].name;
+                            cell2.innerHTML = obj[i].year;
+                            cell3.innerHTML = obj[i].rating;
+                        }
                     })
             }
         }
     })
-    var i;
-  for (i = 1;
-    (i < obj.length) && (i < 11); i++) {
-
-        // Create an empty <tr> element and add it to the end of the table
-        var row = table.insertRow(i);
-
-        // Insert new cells (<td> elements) of the "new" <tr> element:
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-
-        // Add some text to the new cells:
-        cell1.innerHTML = obj[i].name;
-        cell2.innerHTML = obj[i].year;
-        cell3.innerHTML = obj[i].rating;
-
-    }
-
-    if ( obj.length > 10 ) {
+    if (obj.length > 10) {
         $('#browseMsg').text("There are more than 10 results, these are the first 10");
     }
 
 }
 
-function analyticsSearch () {
+function analyticsSearch() {
 
     var show = $("input[name='show']:checked").val();
     var showby = $("input[name='showby']:checked").val();
-    var minYr =  $("#selMinYr option:selected").text();
+    var minYr = $("#selMinYr option:selected").text();
 
     var jstr = JSON.stringify({
         "action": "analytics",
         "show": show,
         "showby": showby,
-    "minYr": minYr
+        "minYr": minYr
     });
 
     // all packed up, let's go find it
@@ -209,7 +208,7 @@ function analyticsSearch () {
 
 }
 
-function moviesCountByReleaseYear () {
+function moviesCountByReleaseYear() {
 
     var jstr = JSON.stringify({
         "action": "analytics",
@@ -223,7 +222,7 @@ function moviesCountByReleaseYear () {
 
 }
 
-function moviesCountByReleaseYearChartUpdate ( dat ) {
+function moviesCountByReleaseYearChartUpdate(dat) {
 
     obj = JSON.parse(dat);
     console.log(obj)
@@ -304,7 +303,8 @@ function moviesCountByReleaseYearChartUpdate ( dat ) {
     // });
 
 }
-function analyticsUpdate ( dat ) {
+
+function analyticsUpdate(dat) {
 
     obj = JSON.parse(dat);
     var cdat = [];
@@ -344,13 +344,13 @@ function analyticsUpdate ( dat ) {
         },
         tooltip: {
             visible: true,
-            template: "#= category#<br>#=series.name#: #= value#  "
+            template: "Language:#= category#<br>#=series.name#: #= value#  "
         }
     });
 
 }
 
-function getMyRatings ( ) {
+function getMyRatings() {
 
     var jstr = JSON.stringify({
         "action": "getRatings",
@@ -364,23 +364,23 @@ function getMyRatings ( ) {
 
 function showMyRatings(dat) {
     obj = JSON.parse(dat);
-  var yrTotal = 0;
-  var mCnt = 0;
-  var runTotal = 0;
+    var yrTotal = 0;
+    var mCnt = 0;
+    var runTotal = 0;
 
     var table = $('#myRatingsTable')[0];
     var len = table.rows.length;
 
     // if there is stuff in the table, empty it first
 
-    while ( len > 1 ) {
+    while (len > 1) {
         table.deleteRow(--len);
     }
     // now display any new results
 
     var i;
-  for (i = 1;
-    (i < obj.length) && (i < 11); i++) {
+    for (i = 1;
+         (i < obj.length) && (i < 11); i++) {
 
         // Create an empty <tr> element and add it to the end of the table
         var row = table.insertRow(i);
@@ -390,47 +390,47 @@ function showMyRatings(dat) {
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
-    if ( jpage == "reco" ) {
-      var cell5 = row.insertCell(4);
-    }
+        if (jpage == "reco") {
+            var cell5 = row.insertCell(4);
+        }
 
         // Add some text to the new cells:
         cell1.innerHTML = obj[i].name;
         cell2.innerHTML = obj[i].year;
-    yrTotal +=  parseInt(obj[i].year);
-    ++mCnt;
-    runTotal += parseInt(obj[i].runtime);
+        yrTotal += parseInt(obj[i].year);
+        ++mCnt;
+        runTotal += parseInt(obj[i].runtime);
 
-    if (jpage == "rate") {
-        cell3.innerHTML = '<input type="text" id="ER' + i + '" value="' + obj[i].rating + '" "/>';
-      cell4.innerHTML = '<button onClick="deleteRating(' + obj[i].rid + ')">Delete</button><button onClick="updateRating(' + i + ',' + obj[i].rid + ')">Update</button>';
-    } else {
-      cell3.innerHTML = obj[i].rating;
-      cell4.innerHTML = obj[i].runtime;
-      cell5.innerHTML = obj[i].language;
+        if (jpage == "rate") {
+            cell3.innerHTML = '<input type="text" id="ER' + i + '" value="' + obj[i].rating + '" "/>';
+            cell4.innerHTML = '<button onClick="deleteRating(' + obj[i].rid + ')">Delete</button><button onClick="updateRating(' + i + ',' + obj[i].rid + ')">Update</button>';
+        } else {
+            cell3.innerHTML = obj[i].rating;
+            cell4.innerHTML = obj[i].runtime;
+            cell5.innerHTML = obj[i].language;
+        }
+
     }
 
-    }
-
-    if ( obj.length > 10 ) {
+    if (obj.length > 10) {
         $('#rateMsg').text("There are more than 10 results, these are the first 10");
     }
 
-  avgYr = Math.round(yrTotal/mCnt);
-  avgRuntime = Math.round(runTotal/mCnt);
+    avgYr = Math.round(yrTotal / mCnt);
+    avgRuntime = Math.round(runTotal / mCnt);
 
-  if ( jpage == "reco" ) {
-    $('#recoStats').text("For movies you have reviewed: average year = " + avgYr + ", average runtime = " + avgRuntime + ", language = " + mylang );
-  }
+    if (jpage == "reco") {
+        $('#recoStats').text("For movies you have reviewed: average year = " + avgYr + ", average runtime = " + avgRuntime + ", language = " + mylang);
+    }
 
-  if ( jpage == "reco" ) {
-    recSearch (  avgYr, avgRuntime, mylang );
-  }
+    if (jpage == "reco") {
+        recSearch(avgYr, avgRuntime, mylang);
+    }
 
 }
 
-function updateRating ( i, id ) {
-    newr = $('#ER'+i).val();
+function updateRating(i, id) {
+    newr = $('#ER' + i).val();
     var jstr = JSON.stringify({
         "action": "updateRating",
         "rid": id,
@@ -438,14 +438,14 @@ function updateRating ( i, id ) {
     });
 
     // all packed up, let's go find it
-    ajaxJCall("dt.php", jstr, ratingUpdated );
+    ajaxJCall("dt.php", jstr, ratingUpdated);
 }
 
-function ratingUpdated ( ) {
-    getMyRatings (user );
+function ratingUpdated() {
+    getMyRatings(user);
 }
 
-function deleteRating ( x ) {
+function deleteRating(x) {
 
     var jstr = JSON.stringify({
         "action": "deleteRating",
@@ -453,11 +453,11 @@ function deleteRating ( x ) {
     });
 
     // all packed up, let's go find it
-    ajaxJCall("dt.php", jstr, ratingDeleted );
+    ajaxJCall("dt.php", jstr, ratingDeleted);
 
 }
 
-function ratingDeleted () {
+function ratingDeleted() {
     getMyRatings(user);
 }
 
@@ -473,7 +473,7 @@ function findMTR() {
     ajaxJCall("dt.php", jstr, updateMTR);
 }
 
-function updateMTR (dat) {
+function updateMTR(dat) {
     // update MTR = update Movies to Rate
     // and this is when we return a list of movies, if any, that match the search string
 
@@ -487,14 +487,14 @@ function updateMTR (dat) {
 
     // if there is stuff in the table, empty it first
 
-    while ( len > 1 ) {
+    while (len > 1) {
         table.deleteRow(--len);
     }
     // now display any new results
 
     var i;
-  for (i = 1;
-    (i < obj.length) && (i < 11); i++) {
+    for (i = 1;
+         (i < obj.length) && (i < 11); i++) {
 
         // Create an empty <tr> element and add it to the end of the table
         var row = table.insertRow(i);
@@ -510,18 +510,18 @@ function updateMTR (dat) {
         cell2.innerHTML = obj[i].year;
         // right not this is foirced to just the first entry
         cell3.innerHTML = '<input type="text" id="NR' + i + '" />';
-        cell4.innerHTML = '<button onClick="addRating(' + i + ',' +  obj[i].id + ')">Add</button>';
+        cell4.innerHTML = '<button onClick="addRating(' + i + ',' + obj[i].id + ')">Add</button>';
 
     }
 
-    if ( obj.length > 10 ) {
+    if (obj.length > 10) {
         $('MTRMsg').text("There are more than 10 results, these are the first 10");
     }
 
 }
 
-function addRating ( i, id ) {
-    newr = $('#NR'+i).val();
+function addRating(i, id) {
+    newr = $('#NR' + i).val();
 
     var jstr = JSON.stringify({
         "action": "addRating",
@@ -534,7 +534,7 @@ function addRating ( i, id ) {
     ajaxJCall("dt.php", jstr, ratingAdded);
 }
 
-function ratingAdded ( dat ) {
+function ratingAdded(dat) {
 
     // clean up rating myTable
 
@@ -543,10 +543,10 @@ function ratingAdded ( dat ) {
 
     // empty the table of movies to rate
 
-    while ( len > 1 ) {
+    while (len > 1) {
         table.deleteRow(--len);
     }
 
     // display new ratings myTable
-    getMyRatings ();
+    getMyRatings();
 }
